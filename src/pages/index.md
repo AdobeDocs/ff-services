@@ -1,84 +1,107 @@
----
-title: Overview - Cat Analytics
-description: This is the overview page of Cat Analytics
-contributors:
-  - https://github.com/icaraps 
----
+import "../styles/main.css";
+import APIS from "./APIS.md";
+import MobileAPIS from "./MobileAPIs.md";
+import Cards from "./Cards.md";
 
-<Hero slots="heading, text"/>
+<Hero slots="heading, text, buttons, assetsImg" customLayout variant="halfwidth" className="fireflyService-hero" />
 
-# Cat Analytics API
+## Firefly Services
 
-Cat Product API offers limitless ways to integrate your most important customer data into key business processes. Cat Product API offer limitless ways.
+Combine industry-leading creative technology with groundbreaking AI and automation to cost-effectively scale content production with Firefly and Creative Cloud APIs
 
-<Resources slots="heading, links"/>
+- [Learn more](https://developer.adobe.com/express/add-ons)
 
-#### Resources
+homeFireflyPage
 
-* [Quickstart Guide](https://developer.adobe.com)
-* [Cat Analytics Github Repo](https://github.com/AdobeDocs/dev-site)
+<TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
-## Overview
+### Achieve creative efficiency and scale with APIs and Firefly generative AI
 
-This documentation provides instructions for Catt Analytics 2.0 APIs. For working with Cat Analytics APIs, see [Cat Analytics API Documentation](https://github.com/AdobeDocs/dev-site).
+<WrapperComponent slots="content" repeat="1" theme="light" className="cardsWrapper" />
 
-The Cat Analytics APIs are a collection of APIs that power Cat Analytics products like Cat Workspace.
-The APIs allow for the creation of data rich user interfaces that you can use to manipulate and integrate data.
-You can also create reports to explore, get insights, or answer important questions about your data.
+<Cards />
 
-## Discover
+<TextBlock slots="heading" className="fireflyAnnouncement creative-cloud-apiWays" theme="lightest"/>
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
+### Firefly and Creative Cloud APIs unlock new ways of working
 
-### Get Started
+<TextBlock slots="image, heading, text, links" className="campaigns" />
 
-[Quickstart Guide](guides/)
+![Personalize and Localize Ad Campaign](../images/ad_campaigns.png)
 
-Get started with the Cat Analytics APIs.
+### Personalize and Localize Ad Campaigns
 
-<DiscoverBlock slots="heading, link, text"/>
+Create renditions of assets in bulk to personalize and localize ads across channels, segments, and geos
 
-### Guides
+- ![Firefly API](../images/spacefill_rounded.png) [Firefly API](https://www.adobe.com/products/premiere.html)
+- ![Photoshop API](../images/spacefill_rounded.png) [Photoshop API](https://www.adobe.com/products/indesign.html)
+  
+<TextBlock slots="heading, text ,  links , image" className="campaigns" />
 
-[Calculated Metrics API](guides/dummy_metrics_api/)
+### Personalize Campaigns & Assets
 
-Returns information on the user's company that is necessary for making other Cat Analytics API calls.
+Quickly generate unlimited variations for any concept or campaign
 
-<DiscoverBlock slots="link, text"/>
+- ![Firefly API](../images/spacefill_rounded.png) [Firefly API](https://www.adobe.com/products/premiere.html)
+- ![Photoshop API](../images/spacefill_rounded.png) [Photoshop API](https://www.adobe.com/products/indesign.html)
 
-[Segments API](guides/dummy_oauth_client/)
+![Personalize Campaigns & Assets](../images/campaigns_assets.png)
 
-Provides configuration guidance and best practices for the /segments endpoint.
+<TextBlock slots="image, heading, text, links" className="campaigns" />
 
-<DiscoverBlock slots="link, text"/>
+![Accelerate Digital Merchandising](../images/digital_merchandising.png)
 
-[Reporting Guide API](guides/dummy_using_postman/)
+### Accelerate Digital Merchandising
 
-Provides configuration guidance and best practices for the /reports endpoint.
+Process assests in bulk to improve and modify for specific campaigns and segments
 
-<DiscoverBlock slots="link, text"/>
+- ![Firefly API](../images/spacefill_rounded.png) [Firefly API](https://www.adobe.com/products/premiere.html)
+- ![Photoshop API](../images/spacefill_rounded.png) [Photoshop API](https://www.adobe.com/products/indesign.html)
+- ![Lightroom API](../images/spacefill_rounded.png) [Lightroom API](https://www.adobe.com/products/indesign.html)
+  
+<TextBlock slots="heading, text ,  links , image" className="campaigns" />
 
-[Migrating from 1.4 to 2.0](guides/migrating/)
+### Reduce Cost of Photo Shoots
 
-For help migrating from the 1.4 versions of the Analytics API to the newer and more capable /reports API.
+Quickly generate unlimited variations for any concept or campaign
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
+- ![Firefly API](../images/spacefill_rounded.png) [Firefly API](https://www.adobe.com/products/premiere.html)
+- ![Photoshop API](../images/spacefill_rounded.png) [Photoshop API](https://www.adobe.com/products/indesign.html)
 
-### API References
+![Reduce Cost of Photo Shoots](../images/photoshoot.png) 
 
-[Try the API](api/)
+<TextBlock slots="image, heading, text, links" className="campaigns" />
 
-Try the Analytics API with Swagger UI. Explore, make calls, with full endpoint descriptions.
+![Engage Customers with On-Brand Generative Experiences](../images/brand_generative.png)
 
-## Contributing
+### Engage Customers with On-Brand Generative Experiences
 
-We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions
-or deletions for this documentation, check out the source from [this github repo](https://github.com/adobe/gatsby-theme-spectrum-example), and submit a pull
-request with your contribution. For more information, refer to the [contributing page](support/contribute/).
+Process assests in bulk to improve and modify for specific campaigns and segments
 
-## API Requests & Rate Limits
+- ![Firefly API](../images/spacefill_rounded.png) [Firefly API](https://www.adobe.com/products/premiere.html)
+- ![Photoshop API](../images/spacefill_rounded.png) [Photoshop API](https://www.adobe.com/products/indesign.html)
+- ![Lightroom API](../images/spacefill_rounded.png) [Lightroom API](https://www.adobe.com/products/indesign.html)  
 
-The timeout for API requests through adobe.io is currently *60 seconds*.
+<TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
-The default rate limit for an Cat Analytics Company is *120 requests per minute*. (The limit is enforced as *12 requests every 6 seconds*).
-When rate limiting is being enforced you will get `429` HTTP response codes with the following response body: `{"error_code":"429050","message":"Too many requests"}`.
+### Nullam id dolor id nibh ultricies vehicula ut id elit.
+
+<WrapperComponent slots="content" repeat="1" theme="light" className="wrapperForDisplayListItems" />
+
+<APIS />
+
+<WrapperComponent slots="content" repeat="1" theme="light" className="mobileWrapper" />
+
+<MobileAPIS />
+
+<TextBlock slots="heading, text , image" className="designedForDevlopers" />
+
+### Designed for Developers
+
+Body Regular Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eisumod tempor incididunt ut labour et dolore magna aliqua.
+
+![Screenshot 1](../images/AddOn.png)
+
+<TextBlock slots="heading" className="fireflyAnnouncement" theme="lightest"/>
+
+### Contact your adobe enterprise Sales Rep to learn more
