@@ -5,9 +5,9 @@ import Cards from "./Cards.md";
 
 <Hero slots="heading, text, buttons, assetsImg" customLayout variant="halfwidth" className="fireflyService-hero" />
 
-## Firefly Services
+## Adobe Firefly Services
 
-Combine industry-leading creative technology with groundbreaking AI and automation to cost-effectively scale content production with Firefly and Creative Cloud APIs
+A comprehensive set of generative AI and creative APIs to streamline operations and scale content production
 
 - [Learn more](https://developer.adobe.com/express/add-ons)
 
@@ -15,7 +15,7 @@ homeFireflyPage
 
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
-### Achieve creative efficiency and scale with APIs and Firefly generative AI
+### Transform and scale your workflows using our cutting-edge generative AL and creative APIs
 
 <WrapperComponent slots="content" repeat="1" theme="light" className="cardsWrapper" />
 
@@ -23,68 +23,51 @@ homeFireflyPage
 
 <TextBlock slots="heading" className="fireflyAnnouncement creative-cloud-apiWays" theme="lightest"/>
 
-### Firefly and Creative Cloud APIs unlock new ways of working
+### Firefly Services unlock new ways of working
 
-<TextBlock slots="image, heading, text, links" className="campaigns" />
+<TextBlock slots="image, heading, text" className="campaigns" />
 
-![Personalize and Localize Ad Campaign](../images/ad_campaigns.png)
+![Localize Campaigns and Assets](../images/ad_campaigns.png)
 
-### Personalize and Localize Ad Campaigns
+### Localize Campaigns and Assets
 
-Create renditions of assets in bulk to personalize and localize ads across channels, segments, and geos
-
-- ![Firefly API](../images/spacefill_rounded.png) [Firefly API](https://www.adobe.com/products/premiere.html)
-- ![Photoshop API](../images/spacefill_rounded.png) [Photoshop API](https://www.adobe.com/products/indesign.html)
+Generate localized asset renditions in bulk to power experiences across geos
   
-<TextBlock slots="heading, text ,  links , image" className="campaigns" />
+<TextBlock slots="heading, text , image" className="campaigns" />
 
-### Personalize Campaigns & Assets
+### Personalize Campaigns and Assets
 
-Quickly generate unlimited variations for any concept or campaign
-
-- ![Firefly API](../images/spacefill_rounded.png) [Firefly API](https://www.adobe.com/products/premiere.html)
-- ![Photoshop API](../images/spacefill_rounded.png) [Photoshop API](https://www.adobe.com/products/indesign.html)
+Streamline creation of asset variants at scale to help personalize campaigns and experiences
 
 ![Personalize Campaigns & Assets](../images/campaigns_assets.png)
 
-<TextBlock slots="image, heading, text, links" className="campaigns" />
+<TextBlock slots="image, heading, text" className="campaigns" />
 
 ![Accelerate Digital Merchandising](../images/digital_merchandising.png)
 
 ### Accelerate Digital Merchandising
 
-Process assests in bulk to improve and modify for specific campaigns and segments
-
-- ![Firefly API](../images/spacefill_rounded.png) [Firefly API](https://www.adobe.com/products/premiere.html)
-- ![Photoshop API](../images/spacefill_rounded.png) [Photoshop API](https://www.adobe.com/products/indesign.html)
-- ![Lightroom API](../images/spacefill_rounded.png) [Lightroom API](https://www.adobe.com/products/indesign.html)
+Quickly generate multiple variations of product shots to standout and increase engagement
   
-<TextBlock slots="heading, text ,  links , image" className="campaigns" />
+<TextBlock slots="heading, text , image" className="campaigns" />
 
-### Reduce Cost of Photo Shoots
+### Reduce Cost of Photo Shoots & Post-Production
 
-Quickly generate unlimited variations for any concept or campaign
-
-- ![Firefly API](../images/spacefill_rounded.png) [Firefly API](https://www.adobe.com/products/premiere.html)
-- ![Photoshop API](../images/spacefill_rounded.png) [Photoshop API](https://www.adobe.com/products/indesign.html)
+Quickly elevate the quality of digital imagery to meet brand standards, and reduce time spent on repetitive, routine edits
 
 ![Reduce Cost of Photo Shoots](../images/photoshoot.png) 
 
-<TextBlock slots="image, heading, text, links" className="campaigns" />
+<TextBlock slots="image, heading, text" className="campaigns" />
 
 ![Engage Customers with On-Brand Generative Experiences](../images/brand_generative.png)
 
-### Engage Customers with On-Brand Generative Experiences
+### Engage customers with on-brand generative experiences
 
-Process assests in bulk to improve and modify for specific campaigns and segments
-
-- ![Firefly API](../images/spacefill_rounded.png) [Firefly API](https://www.adobe.com/products/premiere.html)
-- ![Photoshop API](../images/spacefill_rounded.png) [Photoshop API](https://www.adobe.com/products/indesign.html)
-- ![Lightroom API](../images/spacefill_rounded.png) [Lightroom API](https://www.adobe.com/products/indesign.html)  
+Create engaging and creative experience for consumers to drive brand affinity and loyalty 
 
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
-### Nullam id dolor id nibh ultricies vehicula ut id elit.
+### Generative AI APIs and industry standard image editing capabilities
 
 <WrapperComponent slots="content" repeat="1" theme="light" className="wrapperForDisplayListItems" />
 
@@ -98,10 +81,10 @@ Process assests in bulk to improve and modify for specific campaigns and segment
 
 ### Designed for Developers
 
-Body Regular Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eisumod tempor incididunt ut labour et dolore magna aliqua.
+Supercharge your creative workflows with our specialized APIs creafted to simplify batch processes. Our APIs are meticulously designed to streamline productions processes, offering seamless integration and unparalleled flexibility. From robust documentation to intuitive endpoints, our developer-friendly APIs pave the way for innovation and efficiency.
 
 ![Screenshot 1](../images/AddOn.png)
 
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="lightest"/>
 
-### Contact your adobe enterprise Sales Rep to learn more
+### Contact your Adobe enterprise Account Executive to learn more

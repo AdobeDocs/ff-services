@@ -1,10 +1,12 @@
 import "../styles/main.css";
 
-| Generate              | Edit                     | Assemble                  |
-| --------------------- | ------------------------ | ------------------------- |
-| Text to Image API     | Auto Straighten          | PhotoShop Actions API     |
-| Generative Fill API   | Auto Tone                | Create Renditions API     |
-| Generative Expand API | Remove Background        | Apply Photoshop Edits API |
-| Create Mask           | Depth Blur               | Edit Text Layers API      |
-|                       | Apply a Lightroom preset | Create an Artboard API    |
-|                       | Apply Color Edits API    | Replace Smart Object API  |
+| Generate                                                                                                 | Process                                                                         | Assemble                  |
+| -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------- |
+| <div className="aiImages">Text to Image API![AI images](../images/ai.png)</div>                          | <div className="aiImages">Auto Straighten![AI images](../images/ai.png)</div>   | PhotoShop Actions API     |
+| <div className="aiImages">Generative Fill API ![AI images](../images/ai.png)</div>                       | <div className="aiImages">Auto Tone![AI images](../images/ai.png)</div>         | Apply Photoshop Edits API |
+| <div className="aiImages">Generative Expand API ![AI images](../images/ai.png)</div>                     | <div className="aiImages">Remove Background![AI images](../images/ai.png)</div> | Apply Color Edits API     |
+| <div className="aiImages">Text to Image with Generative Match API*  ![AI images](../images/ai.png)</div> | <div className="aiImages">Depth Blur![AI images](../images/ai.png)</div>        | Edit Text Layers API      |
+| Upload Image API                                                                                         | Apply a Lightroom preset                                                        | Create an Artboard API    |
+| <div className="aiImages">Create Mask ![AI images](../images/ai.png)</div>                               | Photoshop Actions API                                                           | Replace Smart Object API  |
+|                                                                                                          | <div className="aiImages">Product Crop API![AI images](../images/ai.png)</div>  |                           |
+|                                                                                                          | Create Renditions API                                                           |                           |

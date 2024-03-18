@@ -1,31 +1,32 @@
-<ResourceCard slots="link, image, heading" width="25%" className="cardList" theme="light"/>
 
-[Adobe I/O](https://adobe.io)
+<TextBlock slots="image, heading, text" width="25%" theme="light" className="cardList" />
 
-![Resource 3](../images/AddOn.png)
+![Eliminate repetitive tasks](../images/AddOn.png)
 
-### Remix and tailor content for every channel, market and audience
+### Eliminate repetitive tasks 
 
-<ResourceCard slots="link, image, heading" width="25%" theme="light" className="cardList" />
+From removing backgrounds to layyout adjustments, automate production tasks that slow down the creation of high-quality work.
 
-[Adobe I/O](https://adobe.io)
+<TextBlock slots="image, heading, text" width="25%"  theme="light" className="cardList" />
 
-![Resource 1](../images/AddOn.png)
+![Produce unlimited variations](../images/AddOn.png)
 
-### Scale production of asset variations and accelerate ideation
+### Produce unlimited variations 
 
-<ResourceCard slots="link, image, heading" width="25%" theme="light" className="cardList" />
+Combine a range of editing actions together into a creative task, enabling you to generate thousands of unique variations of your projects.
 
-[Adobe I/O](https://adobe.io)
+<TextBlock slots="image, heading, text" width="25%"  theme="light" className="cardList" />
 
-![Resource 1](../images/AddOn.png)
+![Incorporate into any workflow ](../images/AddOn.png)
 
-### Increase speed without sacrificing quality
+### Incorporate into any workflow 
 
-<ResourceCard slots="link, image, heading" width="25%" theme="light" className="cardList" />
+Creative APIs give you direct access to powerful generative AI capabilities that work seamlessly with the creative apps you already use.
 
-[Adobe I/O](https://adobe.io)
+<TextBlock slots="image, heading, text" width="25%"  theme="light" className="cardList" />
 
-![Resource 1](../images/AddOn.png)
+![Maintain quality control ](../images/AddOn.png)
 
-### Creative with confidence and integrate industry standard creative capabilities
+### Maintain quality control 
+
+You trust Creative Cloud for creating your work. Firefly Service connect to the same Adobe technologies to help you create high-quality work even faster.

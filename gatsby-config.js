@@ -17,6 +17,10 @@ module.exports = {
       {
         title: 'Firefly Services',
         path: '/'
+      },
+      {
+        title: 'Documentation',
+        path : 'https://developer.adobe.com/express/add-ons/docs/guides/'
       }
     ]
   },

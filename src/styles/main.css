@@ -1,250 +1,272 @@
 .fireflyService-hero,
 .designedForDevlopers {
-    background: url('../images/background_firefly.jpg') !important;
-    background-repeat: no-repeat;
-    background-size: cover !important;
+  background: url('../images/background_firefly.jpg') !important;
+  background-repeat: no-repeat;
+  background-size: cover !important;
+}
+
+.fireflyService-hero>div>div:first-child {
+  margin: 60px auto !important;
 }
 
 .fireflyService-hero>div>div {
-    margin: 60px auto !important;
-}
-
-.fireflyService-hero>div>div {
-    width: 45% !important;
+  width: 45% !important;
 }
 
 .fireflyService-hero h1 {
-    font-family: 'adobe-clean';
-    color: black !important;
+  font-family: 'adobe-clean';
+  color: black !important;
 }
 
 .fireflyService-hero p.spectrum-Body--sizeL {
-    color: black !important;
+  color: black !important;
 }
 
 .homeFireflyPage {
-    background-image: url('../images/firefly_heroImage.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 600px;
-    height: 400px;
-    background-position: center !important;
+  width: 100%;
+  height: 500px;
+  background-image: url('../images/flower_bag.png'), url('../images/hero_bottle.png'), url('../images/juice.png'), url('../images/baby.png');
+  background-size: 35% 60%, 56% 40%, 35% 38%, 56% 58%;
+  background-position: 10% top, top right, left 10% bottom 0%, 100% 100% !important;
+  background-repeat: no-repeat;
 }
 
 .fireflyAnnouncement>div>div {
-    width: 100%;
-    justify-content: center !important;
+  width: 100%;
+  justify-content: center !important;
 }
 
 .fireflyAnnouncement>div>div>div {
-    text-align: center;
-    width: 70% !important;
+  text-align: center;
+  width: 68% !important;
 }
 
 .fireflyAnnouncement h3 {
-    font-size: 37px !important;
+  font-size: 37px !important;
 }
 
 .creative-cloud-apiWays>div>div>div {
-    width: 55% !important;
+  width: 65% !important;
 }
 
 .campaigns ul {
-    margin-top: 20px !important;
-    width: 75%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: space-between;
+  margin-top: 20px !important;
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
 }
 
 .campaigns h3 {
-    font-size: 35px;
-    width: 75%;
+  font-size: 35px;
+  width: 75%;
 }
 
 .campaigns>div>div>div>p {
-    width: 65%;
+  width: 65%;
 }
 
 .campaigns>div {
-    padding: 10px !important;
+  padding: 10px !important;
 }
 
 .wrapperForDisplayListItems table {
-    width: 80% !important;
-    margin: auto !important;
-    background: var(--spectrum-global-color-gray-100) !important;
+  width: 80% !important;
+  margin: auto !important;
+  background: var(--spectrum-global-color-gray-100) !important;
 }
 
 .wrapperForDisplayListItems tbody,
 .wrapperForDisplayListItems {
-    background: var(--spectrum-global-color-gray-100) !important;
+  background: var(--spectrum-global-color-gray-100) !important;
 }
 
 .wrapperForDisplayListItems>div {
-    width: 100% !important;
-    padding-bottom: 5% !important;
+  width: 100% !important;
+  padding-bottom: 5% !important;
 }
 
 .wrapperForDisplayListItems th {
-    text-transform: none !important;
-    font-size: 25px !important;
-    letter-spacing: 0 !important;
-    padding-bottom: 50px !important;
+  text-transform: none !important;
+  font-size: 25px !important;
+  letter-spacing: 0 !important;
+  padding-bottom: 50px !important;
 }
 
 .wrapperForDisplayListItems td {
-    border: none !important;
-    border-right: 2px solid !important;
-    border-color: rgb(150, 150, 150) !important;
-    border-style: none dotted none none !important;
+  border: none !important;
+  border-right: 2px solid !important;
+  border-color: rgb(150, 150, 150) !important;
+  border-style: none dotted none none !important;
 }
 
 .wrapperForDisplayListItems tr>td:nth-child(2),
 .wrapperForDisplayListItems th:nth-child(2),
 .wrapperForDisplayListItems th:last-child,
 .wrapperForDisplayListItems tr>td:last-child {
-    padding-left: 50px !important;
+  padding-left: 50px !important;
 }
 
 .wrapperForDisplayListItems tr>td:last-child {
-    border: none !important;
+  border: none !important;
 }
 
 .wrapperForDisplayListItems td>div {
-    font-size: large !important;
-    text-align: initial !important;
+  font-size: large !important;
+  text-align: initial !important;
 }
 
 .mobileWrapper {
-    display: none !important;
+  display: none !important;
 }
 
 .designedForDevlopers h3 {
-    font-size: 35px !important;
+  font-size: 35px !important;
 }
 
 .cardsWrapper {
-    padding-bottom: 5% !important;
+  padding-bottom: 5% !important;
+}
+
+.cardList {
+  padding: 0 !important;
 }
 
 .cardList h3 {
-    font-weight: normal !important;
-    font-size: medium !important;
+  font-size: large !important;
+  text-align: left;
+}
+
+.cardList p {
+  text-align: left;
+}
+
+.cardList>div>p:first-child {
+  height: 200px !important;
+}
+
+.cardList>div>p:last-child {
+  font-size: 15px !important;
 }
 
 .campaigns a {
-    color: #1473E6 !important;
-    font-weight: 600 !important;
+  color: #1473E6 !important;
+  font-weight: 600 !important;
+}
+
+.aiImages {
+  display: flex;
+}
+
+.aiImages>span {
+  margin-left: 5% !important;
 }
 
 @media screen and (min-width:320px) and (max-width:1024px) {
 
-    .fireflyService-hero>div>div {
-        width: 100% !important;
-    }
+  .fireflyService-hero>div>div {
+    width: 100% !important;
+  }
 
-    .fireflyAnnouncement>div>div>div {
-        width: 100% !important;
-        margin: 0 !important;
-    }
+  .fireflyAnnouncement>div>div>div {
+    width: 100% !important;
+    margin: 0 !important;
+  }
 
-    .campaigns>div>div>div>p,
-    .campaigns h3 {
-        width: 100% !important;
-    }
+  .campaigns>div>div>div>p,
+  .campaigns h3 {
+    width: 100% !important;
+  }
 
-    .campaigns>div {
-        padding: 0 !important;
-    }
+  .campaigns>div {
+    padding: 0 !important;
+  }
 
-    .designedForDevlopers>div>div>p {
-        margin: 0 !important;
-    }
+  .designedForDevlopers>div>div>p {
+    margin: 0 !important;
+  }
 
-    .designedForDevlopers>div {
-        padding: 0 !important;
-    }
+  .designedForDevlopers>div {
+    padding: 0 !important;
+  }
 
 }
 
 @media screen and (min-width:768px) and (max-width:1024px) {
 
-    .homeFireflyPage {
-        background-image: url('../images/firefly_heroImage.png');
-        background-repeat: no-repeat;
-        background-size: contain;
-        height: 400px !important;
-        width: 650px !important;
-        background-position: bottom center !important;
-    }
+  .homeFireflyPage {
+    height: 600px !important;
+    background-image: url('../images/flower_bag.png'), url('../images/hero_bottle.png'), url('../images/juice.png'), url('../images/baby.png');
+    background-size: 35% 60%, 56% 40%, 35% 38%, 56% 58%;
+    background-position: 5% top, top right 6%, left 5% bottom 0%, 95% 100% !important;
+    background-repeat: no-repeat;
+  }
 
 }
 
 @media screen and (min-width:320px) and (max-width:767px) {
 
-    .homeFireflyPage {
-        background-image: url('../images/firefly_heroImage.png');
-        background-repeat: no-repeat;
-        background-size: contain;
-        height: 250px !important;
-        width: 325px !important;
-        background-position: bottom center !important;
-    }
+  .homeFireflyPage {
+    height: 350px !important;
+    background-image: url('../images/flower_bag.png'), url('../images/hero_bottle.png'), url('../images/juice.png'), url('../images/baby.png');
+    background-size: 35% 60%, 56% 40%, 35% 38%, 56% 58%;
+    background-position: 5% top, top right 6%, left 5% bottom 0%, 95% 100% !important;
+    background-repeat: no-repeat;
+  }
 
-    .campaigns>div>div>div {
-        padding: 30px !important;
-    }
+  .campaigns>div>div>div {
+    padding: 30px !important;
+  }
 
-    .wrapperForDisplayListItems {
-        display: none !important;
-    }
+  .wrapperForDisplayListItems {
+    display: none !important;
+  }
 
-    .mobileWrapper {
-        display: block !important;
-    }
+  .mobileWrapper {
+    display: block !important;
+  }
 
-    .mobileWrapper table {
-        width: 80% !important;
-        margin: auto;
-    }
+  .mobileWrapper table {
+    width: 80% !important;
+    margin: auto;
+  }
 
-    .mobileWrapper tr>td:last-child {
-        border: none !important;
-        text-align: initial !important;
-    }
+  .mobileWrapper tr>td:last-child {
+    border: none !important;
+    text-align: initial !important;
+  }
 
-    .mobileWrapper tbody,
-    .mobileWrapper {
-        background: var(--spectrum-global-color-gray-100) !important;
-    }
+  .mobileWrapper tbody,
+  .mobileWrapper {
+    background: var(--spectrum-global-color-gray-100) !important;
+  }
 
-    .mobileWrapper td>div {
-        font-size: large !important;
-        text-align: initial !important;
-    }
+  .mobileWrapper td>div {
+    font-size: large !important;
+    text-align: initial !important;
+  }
 
-    .mobileWrapper th,
-    .mobileWrapper tr:nth-child(5)>td>div,
-    .mobileWrapper tr:nth-child(11)>td>div {
-        text-transform: none !important;
-        font-size: 25px !important;
-        letter-spacing: 0 !important;
-        padding-bottom: 20px !important;
-        font-weight: var(--spectrum-table-regular-header-text-font-weight);
-    }
+  .mobileWrapper th,
+  .mobileWrapper tr:nth-child(7)>td>div,
+  .mobileWrapper tr:nth-child(16)>td>div {
+    text-transform: none !important;
+    font-size: 25px !important;
+    letter-spacing: 0 !important;
+    padding-bottom: 20px !important;
+    font-weight: var(--spectrum-table-regular-header-text-font-weight);
+  }
 
-    .designedForDevlopers>div>div>div {
-        padding: 20px !important;
-    }
+  .designedForDevlopers>div>div>div {
+    padding: 20px !important;
+  }
 
-    .designedForDevlopers>div>div>p {
-        padding: 0 !important;
-    }
+  .designedForDevlopers>div>div>p {
+    padding: 0 !important;
+  }
 
-    .mobileWrapper table {
-        padding-bottom: 40px !important;
-    }
+  .mobileWrapper table {
+    padding-bottom: 40px !important;
+  }
 
 }
