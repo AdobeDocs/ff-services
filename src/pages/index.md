@@ -3,7 +3,7 @@ import APIS from "./APIS.md";
 import MobileAPIS from "./MobileAPIs.md";
 import Cards from "./Cards.md";
 import Service from "./Services.md"
-import heroVideo from "../videos/AdobeStock_91392108_Video_HD_Preview.mp4";
+import heroVideo from "../videos/HeroVideo.mp4";
 
 <Hero slots="heading, text, buttons" variant="halfwidth" videoUrl={heroVideo} className="fireflyService-hero" />
 
