@@ -1,84 +1,94 @@
----
-title: Overview - Cat Analytics
-description: This is the overview page of Cat Analytics
-contributors:
-  - https://github.com/icaraps 
----
+import "../styles/main.css";
+import APIS from "./APIS.md";
+import MobileAPIS from "./MobileAPIs.md";
+import Cards from "./Cards.md";
+import Service from "./Services.md"
+import heroVideo from "../videos/HeroVideo.mp4";
 
-<Hero slots="heading, text"/>
+<Hero slots="heading, text, buttons" variant="halfwidth" videoUrl={heroVideo} className="fireflyService-hero" />
 
-# Cat Analytics API
+## Adobe Firefly Services
 
-Cat Product API offers limitless ways to integrate your most important customer data into key business processes. Cat Product API offer limitless ways.
+A comprehensive set of generative AI and creative APIs to streamline operations and scale content production
 
-<Resources slots="heading, links"/>
+- [Learn more](https://developer.adobe.com/express/add-ons)
 
-#### Resources
+<TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
-* [Quickstart Guide](https://developer.adobe.com)
-* [Cat Analytics Github Repo](https://github.com/AdobeDocs/dev-site)
+### Transform and scale your workflows using our cutting-edge generative AL and creative APIs
 
-## Overview
+<WrapperComponent slots="content" repeat="1" theme="light" className="cardsWrapper" />
 
-This documentation provides instructions for Catt Analytics 2.0 APIs. For working with Cat Analytics APIs, see [Cat Analytics API Documentation](https://github.com/AdobeDocs/dev-site).
+<Cards />
 
-The Cat Analytics APIs are a collection of APIs that power Cat Analytics products like Cat Workspace.
-The APIs allow for the creation of data rich user interfaces that you can use to manipulate and integrate data.
-You can also create reports to explore, get insights, or answer important questions about your data.
+<TextBlock slots="heading" className="fireflyAnnouncement creative-cloud-apiWays" theme="lightest"/>
 
-## Discover
+### Firefly Services unlock new ways of working
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
+<TextBlock slots="image, heading, text" className="campaigns" />
 
-### Get Started
+![Localize Campaigns and Assets](../images/UseCase1.png)
 
-[Quickstart Guide](guides/)
+### Localize Campaigns and Assets
 
-Get started with the Cat Analytics APIs.
+Generate localized asset renditions in bulk to power experiences across geos
+  
+<TextBlock slots="heading, text , image" className="campaigns" />
 
-<DiscoverBlock slots="heading, link, text"/>
+### Personalize Campaigns and Assets
 
-### Guides
+Streamline creation of asset variants at scale to help personalize campaigns and experiences
 
-[Calculated Metrics API](guides/dummy_metrics_api/)
+![Personalize Campaigns & Assets](../images/UseCase2.png)
 
-Returns information on the user's company that is necessary for making other Cat Analytics API calls.
+<TextBlock slots="image, heading, text" className="campaigns" />
 
-<DiscoverBlock slots="link, text"/>
+![Accelerate Digital Merchandising](../images/UseCase3.png)
 
-[Segments API](guides/dummy_oauth_client/)
+### Accelerate Digital Merchandising
 
-Provides configuration guidance and best practices for the /segments endpoint.
+Quickly generate multiple variations of product shots to standout and increase engagement
+  
+<TextBlock slots="heading, text , image" className="campaigns" />
 
-<DiscoverBlock slots="link, text"/>
+### Reduce Cost of Photo Shoots & Post-Production
 
-[Reporting Guide API](guides/dummy_using_postman/)
+Quickly elevate the quality of digital imagery to meet brand standards, and reduce time spent on repetitive, routine edits
 
-Provides configuration guidance and best practices for the /reports endpoint.
+![Reduce Cost of Photo Shoots](../images/UseCase4.png) 
 
-<DiscoverBlock slots="link, text"/>
+<TextBlock slots="image, heading, text" className="campaigns" />
 
-[Migrating from 1.4 to 2.0](guides/migrating/)
+![Engage Customers with On-Brand Generative Experiences](../images/UseCase5.png)
 
-For help migrating from the 1.4 versions of the Analytics API to the newer and more capable /reports API.
+### Engage customers with on-brand generative experiences
 
-<DiscoverBlock width="100%" slots="heading, link, text"/>
+Create engaging and creative experience for consumers to drive brand affinity and loyalty 
 
-### API References
+<TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
-[Try the API](api/)
+### Generative AI APIs and industry standard image editing capabilities
 
-Try the Analytics API with Swagger UI. Explore, make calls, with full endpoint descriptions.
+<WrapperComponent slots="content" repeat="1" theme="light" className="wrapperForDisplayListItems" />
 
-## Contributing
+<APIS />
 
-We encourage you to participate in our open documentation initiative, if you have suggestions, corrections, additions
-or deletions for this documentation, check out the source from [this github repo](https://github.com/adobe/gatsby-theme-spectrum-example), and submit a pull
-request with your contribution. For more information, refer to the [contributing page](support/contribute/).
+<WrapperComponent slots="content" repeat="1" theme="light" className="mobileWrapper" />
 
-## API Requests & Rate Limits
+<MobileAPIS />
 
-The timeout for API requests through adobe.io is currently *60 seconds*.
+<WrapperComponent slots="content" repeat="1" theme="lightest" className="serviceWrapper" />
 
-The default rate limit for an Cat Analytics Company is *120 requests per minute*. (The limit is enforced as *12 requests every 6 seconds*).
-When rate limiting is being enforced you will get `429` HTTP response codes with the following response body: `{"error_code":"429050","message":"Too many requests"}`.
+<Service />
+
+<TextBlock slots="heading, text , image" className="designedForDevlopers" />
+
+### Designed for Developers
+
+Supercharge your creative workflows with our specialized APIs creafted to simplify batch processes. Our APIs are meticulously designed to streamline productions processes, offering seamless integration and unparalleled flexibility. From robust documentation to intuitive endpoints, our developer-friendly APIs pave the way for innovation and efficiency.
+
+![Screenshot 1](../images/DesignedForDevelopers_image.png)
+
+<TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
+
+### Contact your Adobe enterprise Account Executive to learn more

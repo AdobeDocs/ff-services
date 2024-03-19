@@ -1,0 +1,314 @@
+.fireflyService-hero {
+  background: url('../images/HeroBackground.png') !important;
+  background-repeat: no-repeat;
+  background-size: cover !important;
+}
+
+.fireflyService-hero>div {
+  margin: 0% 12%;
+}
+
+.fireflyService-hero>div>div>p {
+  width: 90% !important;
+}
+
+.fireflyService-hero>div>div:first-child {
+  margin: 60px auto !important;
+}
+
+.fireflyService-hero>div>div {
+  width: 45% !important;
+}
+
+.fireflyService-hero h1 {
+  font-family: 'adobe-clean';
+  color: black !important;
+}
+
+.fireflyService-hero p.spectrum-Body--sizeL {
+  color: black !important;
+}
+
+.fireflyAnnouncement>div>div {
+  width: 100%;
+  justify-content: center !important;
+}
+
+.fireflyAnnouncement>div>div>div {
+  text-align: center;
+  width: 68% !important;
+}
+
+.fireflyAnnouncement h3 {
+  font-size: 37px !important;
+}
+
+.creative-cloud-apiWays>div>div>div {
+  width: 65% !important;
+}
+
+.campaigns ul {
+  margin-top: 20px !important;
+  width: 75%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.campaigns h3 {
+  font-size: 35px;
+  width: 75%;
+}
+
+.campaigns>div>div>div>p {
+  width: 65%;
+}
+
+.campaigns>div {
+  padding: 10px !important;
+}
+
+.wrapperForDisplayListItems table {
+  width: 80% !important;
+  margin: auto !important;
+  background: var(--spectrum-global-color-gray-100) !important;
+}
+
+.wrapperForDisplayListItems tbody,
+.wrapperForDisplayListItems {
+  background: var(--spectrum-global-color-gray-100) !important;
+}
+
+.wrapperForDisplayListItems>div {
+  width: 100% !important;
+  padding-bottom: 5% !important;
+}
+
+.wrapperForDisplayListItems th {
+  text-transform: none !important;
+  font-size: 25px !important;
+  letter-spacing: 0 !important;
+  padding-bottom: 50px !important;
+}
+
+.wrapperForDisplayListItems td {
+  border: none !important;
+  border-right: 2px solid !important;
+  border-color: rgb(150, 150, 150) !important;
+  border-style: none dotted none none !important;
+}
+
+.wrapperForDisplayListItems tr>td:nth-child(2),
+.wrapperForDisplayListItems th:nth-child(2),
+.wrapperForDisplayListItems th:last-child,
+.wrapperForDisplayListItems tr>td:last-child {
+  padding-left: 50px !important;
+}
+
+.wrapperForDisplayListItems tr>td:last-child {
+  border: none !important;
+}
+
+.wrapperForDisplayListItems td>div {
+  font-size: large !important;
+  text-align: initial !important;
+}
+
+.mobileWrapper {
+  display: none !important;
+}
+
+.designedForDevlopers {
+  background: url('../images/DesignedForDevelopers_background.png') !important;
+  background-repeat: no-repeat;
+  background-size: cover !important;
+}
+
+.designedForDevlopers>div {
+  padding: 0 !important;
+}
+
+.designedForDevlopers h3 {
+  font-size: 35px !important;
+}
+
+.designedForDevlopers img {
+  width: 75% !important;
+}
+
+.designedForDevlopers>div>div>div>p {
+  font-size: large !important;
+}
+
+.cardsWrapper {
+  padding-bottom: 5% !important;
+}
+
+.cardList {
+  padding: 0 !important;
+}
+
+.cardList>div>p:first-child {
+  height: 200px !important;
+  margin-bottom: 0 !important;
+}
+
+.cardList>div>p:last-child {
+  font-size: 19px !important;
+}
+
+.campaigns a {
+  color: #1473E6 !important;
+  font-weight: 600 !important;
+}
+
+.aiImages {
+  display: flex;
+}
+
+.aiImages>span {
+  margin-left: 5% !important;
+}
+
+.serviceWrapper>div {
+  width: 95% !important;
+}
+
+.serviceAPI h3 {
+  font-size: 12px !important;
+  font-weight: 200 !important;
+  margin-bottom: 25px !important;
+}
+
+.serviceWrapper a {
+  background: transparent !important;
+  border: 2px solid !important;
+  width: 150px;
+}
+
+.serviceWrapper a>span {
+  width: 100% !important;
+}
+
+.serviceAPI a>span>span {
+  color: black !important;
+}
+
+.serviceAPI a>span>span>div {
+  display: flex;
+  justify-content: space-around;
+  height: 10px;
+  align-items: center;
+  font-size: 16px;
+}
+
+.serviceAPI a>span>span>div>span {
+  font-weight: bolder !important;
+  font-size: 16px !important;
+}
+
+@media screen and (min-width:320px) and (max-width:1024px) {
+
+  .fireflyService-hero>div {
+    margin: 0% !important;
+    flex-direction: column !important;
+  }
+
+  .fireflyService-hero>div>div:last-child {
+    display: block !important;
+  }
+
+  .fireflyService-hero video {
+    padding: 0 !important;
+  }
+
+  .fireflyService-hero>div>div {
+    width: 100% !important;
+  }
+
+  .fireflyAnnouncement>div>div>div {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .campaigns>div>div>div>p,
+  .campaigns h3 {
+    width: 100% !important;
+  }
+
+  .campaigns>div {
+    padding: 0 !important;
+  }
+
+  .designedForDevlopers>div>div>p {
+    margin: 0 !important;
+  }
+
+  .designedForDevlopers>div {
+    padding: 0 !important;
+  }
+
+  .serviceAPI {
+    padding: 5% 0 !important;
+  }
+
+}
+
+@media screen and (min-width:320px) and (max-width:767px) {
+
+  .campaigns>div>div>div {
+    padding: 30px !important;
+  }
+
+  .wrapperForDisplayListItems {
+    display: none !important;
+  }
+
+  .mobileWrapper {
+    display: block !important;
+  }
+
+  .mobileWrapper table {
+    width: 80% !important;
+    margin: auto;
+  }
+
+  .mobileWrapper tr>td:last-child {
+    border: none !important;
+    text-align: initial !important;
+  }
+
+  .mobileWrapper tbody,
+  .mobileWrapper {
+    background: var(--spectrum-global-color-gray-100) !important;
+  }
+
+  .mobileWrapper td>div {
+    font-size: large !important;
+    text-align: initial !important;
+  }
+
+  .mobileWrapper th,
+  .mobileWrapper tr:nth-child(6)>td>div,
+  .mobileWrapper tr:nth-child(15)>td>div {
+    text-transform: none !important;
+    font-size: 25px !important;
+    letter-spacing: 0 !important;
+    padding-bottom: 20px !important;
+    font-weight: var(--spectrum-table-regular-header-text-font-weight);
+  }
+
+  .designedForDevlopers>div>div>div {
+    padding: 20px !important;
+  }
+
+  .designedForDevlopers img {
+    width: 100% !important;
+  }
+
+  .mobileWrapper table {
+    padding-bottom: 40px !important;
+  }
+
+}
