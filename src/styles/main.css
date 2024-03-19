@@ -1,8 +1,15 @@
-.fireflyService-hero,
-.designedForDevlopers {
-  background: url('../images/background_firefly.jpg') !important;
+.fireflyService-hero {
+  background: url('../images/HeroBackground.png') !important;
   background-repeat: no-repeat;
   background-size: cover !important;
+}
+
+.fireflyService-hero>div {
+  margin: 0% 12%;
+}
+
+.fireflyService-hero>div>div>p {
+  width: 90% !important;
 }
 
 .fireflyService-hero>div>div:first-child {
@@ -20,15 +27,6 @@
 
 .fireflyService-hero p.spectrum-Body--sizeL {
   color: black !important;
-}
-
-.homeFireflyPage {
-  width: 100%;
-  height: 500px;
-  background-image: url('../images/flower_bag.png'), url('../images/hero_bottle.png'), url('../images/juice.png'), url('../images/baby.png');
-  background-size: 35% 60%, 56% 40%, 35% 38%, 56% 58%;
-  background-position: 10% top, top right, left 10% bottom 0%, 100% 100% !important;
-  background-repeat: no-repeat;
 }
 
 .fireflyAnnouncement>div>div {
@@ -121,8 +119,26 @@
   display: none !important;
 }
 
+.designedForDevlopers {
+  background: url('../images/DesignedForDevelopers_background.png') !important;
+  background-repeat: no-repeat;
+  background-size: cover !important;
+}
+
+.designedForDevlopers>div {
+  padding: 0 !important;
+}
+
 .designedForDevlopers h3 {
   font-size: 35px !important;
+}
+
+.designedForDevlopers img {
+  width: 75% !important;
+}
+
+.designedForDevlopers>div>div>div>p {
+  font-size: large !important;
 }
 
 .cardsWrapper {
@@ -133,21 +149,13 @@
   padding: 0 !important;
 }
 
-.cardList h3 {
-  font-size: large !important;
-  text-align: left;
-}
-
-.cardList p {
-  text-align: left;
-}
-
 .cardList>div>p:first-child {
   height: 200px !important;
+  margin-bottom: 0 !important;
 }
 
 .cardList>div>p:last-child {
-  font-size: 15px !important;
+  font-size: 19px !important;
 }
 
 .campaigns a {
@@ -163,7 +171,57 @@
   margin-left: 5% !important;
 }
 
+.serviceWrapper>div {
+  width: 95% !important;
+}
+
+.serviceAPI h3 {
+  font-size: 12px !important;
+  font-weight: 200 !important;
+  margin-bottom: 25px !important;
+}
+
+.serviceWrapper a {
+  background: transparent !important;
+  border: 2px solid !important;
+  width: 150px;
+}
+
+.serviceWrapper a>span {
+  width: 100% !important;
+}
+
+.serviceAPI a>span>span {
+  color: black !important;
+}
+
+.serviceAPI a>span>span>div {
+  display: flex;
+  justify-content: space-around;
+  height: 10px;
+  align-items: center;
+  font-size: 16px;
+}
+
+.serviceAPI a>span>span>div>span {
+  font-weight: bolder !important;
+  font-size: 16px !important;
+}
+
 @media screen and (min-width:320px) and (max-width:1024px) {
+
+  .fireflyService-hero>div {
+    margin: 0% !important;
+    flex-direction: column !important;
+  }
+
+  .fireflyService-hero>div>div:last-child {
+    display: block !important;
+  }
+
+  .fireflyService-hero video {
+    padding: 0 !important;
+  }
 
   .fireflyService-hero>div>div {
     width: 100% !important;
@@ -191,29 +249,13 @@
     padding: 0 !important;
   }
 
-}
-
-@media screen and (min-width:768px) and (max-width:1024px) {
-
-  .homeFireflyPage {
-    height: 600px !important;
-    background-image: url('../images/flower_bag.png'), url('../images/hero_bottle.png'), url('../images/juice.png'), url('../images/baby.png');
-    background-size: 35% 60%, 56% 40%, 35% 38%, 56% 58%;
-    background-position: 5% top, top right 6%, left 5% bottom 0%, 95% 100% !important;
-    background-repeat: no-repeat;
+  .serviceAPI {
+    padding: 5% 0 !important;
   }
 
 }
 
 @media screen and (min-width:320px) and (max-width:767px) {
-
-  .homeFireflyPage {
-    height: 350px !important;
-    background-image: url('../images/flower_bag.png'), url('../images/hero_bottle.png'), url('../images/juice.png'), url('../images/baby.png');
-    background-size: 35% 60%, 56% 40%, 35% 38%, 56% 58%;
-    background-position: 5% top, top right 6%, left 5% bottom 0%, 95% 100% !important;
-    background-repeat: no-repeat;
-  }
 
   .campaigns>div>div>div {
     padding: 30px !important;
@@ -248,8 +290,8 @@
   }
 
   .mobileWrapper th,
-  .mobileWrapper tr:nth-child(7)>td>div,
-  .mobileWrapper tr:nth-child(16)>td>div {
+  .mobileWrapper tr:nth-child(6)>td>div,
+  .mobileWrapper tr:nth-child(15)>td>div {
     text-transform: none !important;
     font-size: 25px !important;
     letter-spacing: 0 !important;
@@ -261,8 +303,8 @@
     padding: 20px !important;
   }
 
-  .designedForDevlopers>div>div>p {
-    padding: 0 !important;
+  .designedForDevlopers img {
+    width: 100% !important;
   }
 
   .mobileWrapper table {

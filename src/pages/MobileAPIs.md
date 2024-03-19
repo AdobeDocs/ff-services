@@ -1,26 +1,26 @@
 import "../styles/main.css";
 
-| Generate                                                                                               |
-| ------------------------------------------------------------------------------------------------------ |
-| <div className="aiImages">Text to Image API![AI images](../images/ai.png)</div>                        |
-| <div className="aiImages">Generative Fill API![AI images](../images/ai.png)</div>                      |
-| <div className="aiImages">Generative Expand API![AI images](../images/ai.png)</div>                    |
-| <div className="aiImages">Text to Image with Generative Match API*![AI images](../images/ai.png)</div> |
-| Upload Image API                                                                                       |
-| <div className="aiImages">Create Mask![AI images](../images/ai.png)</div>                              |
-| Process                                                                                                |
-| <div className="aiImages">Auto Straighten ![AI images](../images/ai.png)</div>                         |
-| <div className="aiImages">Auto Tone![AI images](../images/ai.png)</div>                                |
-| <div className="aiImages">Remove Background![AI images](../images/ai.png)</div>                        |
-| <div className="aiImages">Depth Blur![AI images](../images/ai.png)</div>                               |
-| Apply a Lightroom preset                                                                               |
-| Photoshop Actions API                                                                                  |
-| <div className="aiImages">Product Crop API![AI images](../images/ai.png)</div>                         |
-| Create Rendition API                                                                                   |
-| Assemble                                                                                               |
-| PhotoShop Actions API                                                                                  |
-| Apply Photoshop Edits API                                                                              |
-| Apply Color Edits API                                                                                  |
-| Edit Text Layers API                                                                                   |
-| Create an Artboard API                                                                                 |
-| Replace Smart Object API                                                                               |
+| Generate                                                                             |
+| ------------------------------------------------------------------------------------ |
+| <div className="aiImages">Text to Image API![AI images](../images/AI_icon.png)</div> |
+| <div className="aiImages">Generative Match![AI images](../images/AI_icon.png)</div>  |
+| <div className="aiImages">Generative Fill![AI images](../images/AI_icon.png)</div>   |
+| <div className="aiImages">Generative Expand![AI images](../images/AI_icon.png)</div> |
+| <div className="aiImages">Create Mask![AI images](../images/AI_icon.png)</div>       |
+| Process                                                                              |
+| <div className="aiImages">Remove Background![AI images](../images/AI_icon.png)</div> |
+| <div className="aiImages">Smart Crop![AI images](../images/AI_icon.png)</div>        |
+| Depth Blur                                                                           |
+| <div className="aiImages">Auto Straighten ![AI images](../images/AI_icon.png)</div>  |
+| <div className="aiImages">Auto Tone![AI images](../images/AI_icon.png)</div>         |
+| Apply a Lightroom preset                                                             |
+| Apply a Lightroom Edits                                                              |
+| Add XMP to Image                                                                     |
+| Assemble                                                                             |
+| Run PhotoShop Actions                                                                |
+| Replace Smart Object                                                                 |
+| Create PSD                                                                           |
+| Apply Photoshop Edits                                                                |
+| Edit Text Layers                                                                     |
+| Create Artboard                                                                      |
+| Create Rendition                                                                     |

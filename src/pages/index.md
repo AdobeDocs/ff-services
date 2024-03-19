@@ -2,16 +2,16 @@ import "../styles/main.css";
 import APIS from "./APIS.md";
 import MobileAPIS from "./MobileAPIs.md";
 import Cards from "./Cards.md";
+import Service from "./Services.md"
+import heroVideo from "../videos/AdobeStock_91392108_Video_HD_Preview.mp4";
 
-<Hero slots="heading, text, buttons, assetsImg" customLayout variant="halfwidth" className="fireflyService-hero" />
+<Hero slots="heading, text, buttons" variant="halfwidth" videoUrl={heroVideo} className="fireflyService-hero" />
 
 ## Adobe Firefly Services
 
 A comprehensive set of generative AI and creative APIs to streamline operations and scale content production
 
 - [Learn more](https://developer.adobe.com/express/add-ons)
-
-homeFireflyPage
 
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
@@ -27,7 +27,7 @@ homeFireflyPage
 
 <TextBlock slots="image, heading, text" className="campaigns" />
 
-![Localize Campaigns and Assets](../images/ad_campaigns.png)
+![Localize Campaigns and Assets](../images/UseCase1.png)
 
 ### Localize Campaigns and Assets
 
@@ -39,11 +39,11 @@ Generate localized asset renditions in bulk to power experiences across geos
 
 Streamline creation of asset variants at scale to help personalize campaigns and experiences
 
-![Personalize Campaigns & Assets](../images/campaigns_assets.png)
+![Personalize Campaigns & Assets](../images/UseCase2.png)
 
 <TextBlock slots="image, heading, text" className="campaigns" />
 
-![Accelerate Digital Merchandising](../images/digital_merchandising.png)
+![Accelerate Digital Merchandising](../images/UseCase3.png)
 
 ### Accelerate Digital Merchandising
 
@@ -55,11 +55,11 @@ Quickly generate multiple variations of product shots to standout and increase e
 
 Quickly elevate the quality of digital imagery to meet brand standards, and reduce time spent on repetitive, routine edits
 
-![Reduce Cost of Photo Shoots](../images/photoshoot.png) 
+![Reduce Cost of Photo Shoots](../images/UseCase4.png) 
 
 <TextBlock slots="image, heading, text" className="campaigns" />
 
-![Engage Customers with On-Brand Generative Experiences](../images/brand_generative.png)
+![Engage Customers with On-Brand Generative Experiences](../images/UseCase5.png)
 
 ### Engage customers with on-brand generative experiences
 
@@ -77,14 +77,18 @@ Create engaging and creative experience for consumers to drive brand affinity an
 
 <MobileAPIS />
 
+<WrapperComponent slots="content" repeat="1" theme="lightest" className="serviceWrapper" />
+
+<Service />
+
 <TextBlock slots="heading, text , image" className="designedForDevlopers" />
 
 ### Designed for Developers
 
 Supercharge your creative workflows with our specialized APIs creafted to simplify batch processes. Our APIs are meticulously designed to streamline productions processes, offering seamless integration and unparalleled flexibility. From robust documentation to intuitive endpoints, our developer-friendly APIs pave the way for innovation and efficiency.
 
-![Screenshot 1](../images/AddOn.png)
+![Screenshot 1](../images/DesignedForDevelopers_image.png)
 
-<TextBlock slots="heading" className="fireflyAnnouncement" theme="lightest"/>
+<TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
 ### Contact your Adobe enterprise Account Executive to learn more
