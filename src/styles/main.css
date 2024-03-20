@@ -69,9 +69,13 @@
   padding: 10px !important;
 }
 
+.last_campaigns>div {
+  padding-bottom: 5% !important;
+}
+
 .wrapperForDisplayListItems table {
   width: 80% !important;
-  margin: auto !important;
+  margin: auto auto auto 15% !important;
   background: var(--spectrum-global-color-gray-100) !important;
 }
 
@@ -99,10 +103,8 @@
   border-style: none dotted none none !important;
 }
 
-.wrapperForDisplayListItems tr>td:nth-child(2),
-.wrapperForDisplayListItems th:nth-child(2),
-.wrapperForDisplayListItems th:last-child,
-.wrapperForDisplayListItems tr>td:last-child {
+.wrapperForDisplayListItems tr>td,
+.wrapperForDisplayListItems th {
   padding-left: 50px !important;
 }
 
@@ -171,41 +173,8 @@
   margin-left: 5% !important;
 }
 
-.serviceWrapper>div {
-  width: 95% !important;
-}
-
-.serviceAPI h3 {
-  font-size: 12px !important;
-  font-weight: 200 !important;
-  margin-bottom: 25px !important;
-}
-
-.serviceWrapper a {
-  background: transparent !important;
-  border: 2px solid !important;
-  width: 150px;
-}
-
-.serviceWrapper a>span {
-  width: 100% !important;
-}
-
-.serviceAPI a>span>span {
-  color: black !important;
-}
-
-.serviceAPI a>span>span>div {
-  display: flex;
-  justify-content: space-around;
-  height: 10px;
-  align-items: center;
-  font-size: 16px;
-}
-
-.serviceAPI a>span>span>div>span {
-  font-weight: bolder !important;
-  font-size: 16px !important;
+.miniproductListWrapper>div {
+  width: 90% !important;
 }
 
 @media screen and (min-width:320px) and (max-width:1024px) {
@@ -232,6 +201,10 @@
     margin: 0 !important;
   }
 
+  .fireflyService-hero>div>div:last-child>div {
+    margin: 0 !important;
+  }
+
   .campaigns>div>div>div>p,
   .campaigns h3 {
     width: 100% !important;
@@ -249,8 +222,8 @@
     padding: 0 !important;
   }
 
-  .serviceAPI {
-    padding: 5% 0 !important;
+  .wrapperForDisplayListItems table {
+    margin: auto !important;
   }
 
 }

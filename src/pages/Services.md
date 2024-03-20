@@ -1,31 +1,25 @@
-<TextBlock slots="image, heading, buttons" width="25%" className="serviceAPI" />
+<MiniProductCard slots="image, text , buttons" repeat="4" theme="lightest" inRow="4" variantsType="primary" buttonStyle="outline" />
 
-![Firefly API](../images/Firefly_big.png)
+![Forge the path to customer success](../images/Firefly_big.png)
 
-### Firefly API
+Firefly API
 
-- [<div>Learn more<span> > </span></div>](https://developer-stage.adobe.com/)
+- [Learn more](https://developer-stage.adobe.com/)
 
-<TextBlock slots="image, heading, buttons" width="25%" className="serviceAPI" />
+![Forge the path to customer success](../images/Photoshop_big.png)
 
-![Photoshop API](../images/Photoshop_big.png)
+Photoshop API
 
-### Photoshop API
+- [Learn more](https://developer-stage.adobe.com/)
 
-- [<div>Learn more<span> > </span></div>](https://developer-stage.adobe.com/)
+![Forge the path to customer success](../images/Lightroom_big.png)
 
-<TextBlock slots="image, heading, buttons" width="25%" className="serviceAPI" />
+Lightroom API
 
-![Lightroom API](../images/Lightroom_big.png)
-
-### Lightroom API
-
-- [<div>Learn more<span> > </span></div>](https://developer-stage.adobe.com/)
+- [Learn more](https://developer-stage.adobe.com/)
   
-<TextBlock slots="image, heading, buttons" width="25%" className="serviceAPI" />
+![Forge the path to customer success](../images/ContentTagging.png)
 
-![Content Tagging API](../images/ContentTagging.png)
+Content Tagging API
 
-### Content Tagging API
-
-- [<div>Learn more<span> > </span></div>](https://developer-stage.adobe.com/)
+- [Learn more](https://developer-stage.adobe.com/)

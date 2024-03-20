@@ -3,30 +3,30 @@
 
 ![Eliminate repetitive tasks](../images/ValueProp1.png)
 
-### Eliminate repetitive tasks 
+### Eliminate repetitive tasks
 
-From removing backgrounds to layout adjustments, automate production tasks that slow down the creation of high-quality work.
+From removing backgrounds to cropping images, automate production tasks that slow down creative workflows.
 
 <TextBlock slots="image, heading, text" width="25%"  theme="light" className="cardList" />
 
 ![Produce unlimited variations](../images/ValueProp2.png)
 
-### Produce unlimited variations 
+### Produce unlimited variations
 
-Combine a range of editing actions together into a creative task, enabling you to generate thousands of unique variations of your project....
+Combine multiple actions together at once, enabling you to generate thousands of unique variations of your project.
 
 <TextBlock slots="image, heading, text" width="25%"  theme="light" className="cardList" />
 
-![Incorporate into any workflow ](../images/ValueProp3.png)
+![Integrate into any workflow ](../images/ValueProp3.png)
 
-### Incorporate into any workflow 
+### Integrate into any workflow
 
-Creative APIs give you direct access to powerful generative AI capabilities that work seamlessly with the creative apps you already use....
+Bring powerful generative AI and editing capabilities directly into your creative workflows.
 
 <TextBlock slots="image, heading, text" width="25%"  theme="light" className="cardList" />
 
 ![Maintain quality control ](../images/ValueProp4.png)
 
-### Maintain quality control 
+### Maintain quality control
 
-You trust Creative Cloud for creating your work. Firefly Services connect to the same Adobe technologies to help you create high-quality work even...
+Firefly Services are an extension of the same Creative Cloud applications you trust to create high-quality work.

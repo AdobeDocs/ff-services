@@ -2,20 +2,20 @@ import "../styles/main.css";
 import APIS from "./APIS.md";
 import MobileAPIS from "./MobileAPIs.md";
 import Cards from "./Cards.md";
-import Service from "./Services.md"
+import Service from "./Services.md";
 import heroVideo from "../videos/HeroVideo.mp4";
 
 <Hero slots="heading, text, buttons" variant="halfwidth" videoUrl={heroVideo} className="fireflyService-hero" />
 
-## Adobe Firefly Services
+## Boost content product with the power of AI
 
-A comprehensive set of generative AI and creative APIs to streamline operations and scale content production
+Firefly Services is a comprehensive set of generative AI and creative APIs that streamline workflows.  Quickly scale a few hero assets into thousands of renditions to enable personalized marketing for different customer segments, channels and regions.
 
-- [Learn more](https://developer.adobe.com/express/add-ons)
+- [Learn more](https://developer-stage.adobe.com/firefly-services/docs)
 
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
-### Transform and scale your workflows using our cutting-edge generative AL and creative APIs
+### Transform and scale your workflows using our cutting-edge generative AI and creative APIs
 
 <WrapperComponent slots="content" repeat="1" theme="light" className="cardsWrapper" />
 
@@ -23,7 +23,7 @@ A comprehensive set of generative AI and creative APIs to streamline operations 
 
 <TextBlock slots="heading" className="fireflyAnnouncement creative-cloud-apiWays" theme="lightest"/>
 
-### Firefly Services unlock new ways of working
+### Unlock new ways of working with Firefly Services
 
 <TextBlock slots="image, heading, text" className="campaigns" />
 
@@ -31,13 +31,13 @@ A comprehensive set of generative AI and creative APIs to streamline operations 
 
 ### Localize Campaigns and Assets
 
-Generate localized asset renditions in bulk to power experiences across geos
+Scale content production of geo-specific asset variants for global campaigns and experiences. With Firefly Services, you can quickly generate market specific imagery and combine with other relevant content.
   
 <TextBlock slots="heading, text , image" className="campaigns" />
 
 ### Personalize Campaigns and Assets
 
-Streamline creation of asset variants at scale to help personalize campaigns and experiences
+Keep up with ever-increasing personalization demands with Firefly Services, powered by generative AI. Quickly create imagery that’s relevant to target audiences and then scale production for multiple channels
 
 ![Personalize Campaigns & Assets](../images/UseCase2.png)
 
@@ -47,23 +47,23 @@ Streamline creation of asset variants at scale to help personalize campaigns and
 
 ### Accelerate Digital Merchandising
 
-Quickly generate multiple variations of product shots to standout and increase engagement
-  
+Firefly Services help you create repeatable workflows to quickly generate variations of product shots or refresh composite images for seasonal messages, promotions, and more.
+
 <TextBlock slots="heading, text , image" className="campaigns" />
 
-### Reduce Cost of Photo Shoots & Post-Production
+### Reduce Costs of Photo Shoots & Post-Production
 
-Quickly elevate the quality of digital imagery to meet brand standards, and reduce time spent on repetitive, routine edits
+Ensure all your digital imagery meets brand standards without taxing creative teams.  Firefly Service can manage the repetitive routine tasks.
 
-![Reduce Cost of Photo Shoots](../images/UseCase4.png) 
+![Reduce Cost of Photo Shoots](../images/UseCase4_new.png)
 
-<TextBlock slots="image, heading, text" className="campaigns" />
+<TextBlock slots="image, heading, text" className="campaigns last_campaigns" />
 
-![Engage Customers with On-Brand Generative Experiences](../images/UseCase5.png)
+![Engage Customers with On-Brand Generative Experiences](../images/UseCase5_new.png)
 
-### Engage customers with on-brand generative experiences
+### Engage Customers with On-Brand Generative Experiences
 
-Create engaging and creative experience for consumers to drive brand affinity and loyalty 
+Open up the possibility for customers to create unique digital experiences to drive brand affinity and loyalty using Firefly Services.
 
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
@@ -77,7 +77,7 @@ Create engaging and creative experience for consumers to drive brand affinity an
 
 <MobileAPIS />
 
-<WrapperComponent slots="content" repeat="1" theme="lightest" className="serviceWrapper" />
+<WrapperComponent slots="content" repeat="1" theme="lightest" className="miniproductListWrapper" />
 
 <Service />
 

@@ -13,14 +13,15 @@ import "../styles/main.css";
 | Depth Blur                                                                           |
 | <div className="aiImages">Auto Straighten ![AI images](../images/AI_icon.png)</div>  |
 | <div className="aiImages">Auto Tone![AI images](../images/AI_icon.png)</div>         |
-| Apply a Lightroom preset                                                             |
-| Apply a Lightroom Edits                                                              |
+| Apply Lightroom Presets                                                            |
+| Apply Lightroom Edits                                                              |
 | Add XMP to Image                                                                     |
 | Assemble                                                                             |
-| Run PhotoShop Actions                                                                |
+| Run Photoshop Actions                                                                |
 | Replace Smart Object                                                                 |
 | Create PSD                                                                           |
 | Apply Photoshop Edits                                                                |
 | Edit Text Layers                                                                     |
-| Create Artboard                                                                      |
-| Create Rendition                                                                     |
+| Create Artboards                                                                     |
+| Create Renditions                                                                     |
+| Content Tagging API                                                                     |
