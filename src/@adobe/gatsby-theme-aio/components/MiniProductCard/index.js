@@ -44,7 +44,6 @@ const Minicard = ({
 						align-items : center;
 						flex-direction : column;
 						gap: 10px;
-						margin-bottom: var(--spectrum-global-dimension-size-500);
 
 						@media screen and (max-width: ${TABLET_SCREEN_WIDTH}) {
 						max-width: calc(${layoutColumns(6)}) !important;
@@ -222,8 +221,7 @@ const MiniProductCard = ({
 			className={classNames(className, `spectrum--${theme}`)}
 			css={css`
             background: var(--spectrum-global-color-gray-100);
-            padding: var(--spectrum-global-dimension-size-600) 0
-            var(--spectrum-global-dimension-size-200) 0;
+            padding: var(--spectrum-global-dimension-size-1200) 0;
           `}
 
 		>
