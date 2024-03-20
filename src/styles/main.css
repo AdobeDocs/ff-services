@@ -61,12 +61,12 @@
   width: 75%;
 }
 
-.campaigns>div>div>div>p {
-  width: 65%;
+.campaigns>div>div>p {
+  width: 100%
 }
 
 .campaigns>div {
-  padding: 10px !important;
+  padding: 30px !important;
 }
 
 .last_campaigns>div {
@@ -205,7 +205,7 @@
     margin: 0 !important;
   }
 
-  .campaigns>div>div>div>p,
+  .campaigns>div>div>p,
   .campaigns h3 {
     width: 100% !important;
   }
