@@ -20,7 +20,7 @@ module.exports = {
       },
       {
         title: 'Documentation',
-        path : 'https://developer.adobe.com/express/add-ons/docs/guides/'
+        path : 'https://developer-stage.adobe.com/firefly-services/docs/'
       }
     ]
   },
