@@ -2,7 +2,7 @@ import "../styles/main.css";
 import APIS from "./APIS.md";
 import MobileAPIS from "./MobileAPIs.md";
 import Cards from "./Cards.md";
-import Service from "./Services.md"
+import Service from "./Services.md";
 import heroVideo from "../videos/HeroVideo.mp4";
 
 <Hero slots="heading, text, buttons" variant="halfwidth" videoUrl={heroVideo} className="fireflyService-hero" />
@@ -57,7 +57,7 @@ Quickly elevate the quality of digital imagery to meet brand standards, and redu
 
 ![Reduce Cost of Photo Shoots](../images/UseCase4.png) 
 
-<TextBlock slots="image, heading, text" className="campaigns" />
+<TextBlock slots="image, heading, text" className="campaigns last_campaigns" />
 
 ![Engage Customers with On-Brand Generative Experiences](../images/UseCase5.png)
 
@@ -77,7 +77,7 @@ Create engaging and creative experience for consumers to drive brand affinity an
 
 <MobileAPIS />
 
-<WrapperComponent slots="content" repeat="1" theme="lightest" className="serviceWrapper" />
+<WrapperComponent slots="content" repeat="1" theme="lightest" className="miniproductListWrapper" />
 
 <Service />
 

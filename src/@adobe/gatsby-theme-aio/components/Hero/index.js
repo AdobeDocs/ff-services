@@ -1,6 +1,6 @@
 
 /*
- * Copyright 2020 Adobe. All rights reserved.
+ * Copyright 2024 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -863,21 +863,31 @@ const Hero = ({
               </div>
                 :
                 image ? <HeroImage image={image} styles={`position: absolute;`} /> : videoUrl &&
-                  <video loop="true" muted="true" autoPlay preload="metadata" playsInline css={css`
-                  display: inline;
-                  width: 90%;
-                  height:100%;
-                  box-sizing: border-box;
-                  padding: var(--spectrum-global-dimension-size-200);
-              
-                  @media screen and (max-width: ${TABLET_SCREEN_WIDTH}) {
-                    display: block;
-                    width: 100%;
-                  }
-                  }
-                `}>
-                    <source src={videoUrl} type="video/mp4" />
-                  </video>
+                  <div
+                    css={css`
+                      width : 100%;
+                      display: flex;
+                      justify-content: center;
+                      margin: 150px 0;
+                    `}
+                  >
+                    <video loop="true" muted="true" autoPlay preload="metadata" playsInline css={css`
+                        display: inline;
+                        width: 600px;
+                        height:100%;
+                        box-sizing: border-box;
+                        padding: var(--spectrum-global-dimension-size-200);
+                        border-radius : 25px ;
+                    
+                        @media screen and (max-width: ${TABLET_SCREEN_WIDTH}) {
+                          display: block;
+                          width: 100%;
+                        }
+                        }
+                      `}>
+                      <source src={videoUrl} type="video/mp4" />
+                    </video>
+                  </div>
               }
 
             </div>
