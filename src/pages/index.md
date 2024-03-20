@@ -55,7 +55,7 @@ Quickly generate multiple variations of product shots to standout and increase e
 
 Quickly elevate the quality of digital imagery to meet brand standards, and reduce time spent on repetitive, routine edits
 
-![Reduce Cost of Photo Shoots](../images/UseCase4.png) 
+![Reduce Cost of Photo Shoots](../images/UseCase4.png)
 
 <TextBlock slots="image, heading, text" className="campaigns last_campaigns" />
 
@@ -63,7 +63,7 @@ Quickly elevate the quality of digital imagery to meet brand standards, and redu
 
 ### Engage customers with on-brand generative experiences
 
-Create engaging and creative experience for consumers to drive brand affinity and loyalty 
+Create engaging and creative experience for consumers to drive brand affinity and loyalty
 
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
