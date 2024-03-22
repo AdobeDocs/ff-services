@@ -1,3 +1,52 @@
+---
+keywords:
+  - Adobe Firefly
+  - Firefly Services
+  - Enterprise
+  - Firefly API
+  - Photoshop API
+  - Content Tagging API
+  - Lightroom API
+  - Content Tagging
+  - Lightroom
+  - Photoshop
+  - Firefly
+  - Text to image
+  - Generative match
+  - Generative expand
+  - Generative fill
+  - Create mask
+  - Generative AI
+  - Remove background
+  - Automate creative workflow
+  - Localize campaigns and assets
+  - Personalize and assets
+  - Accelerate digital merchandising
+  - Reduce costs of photo shoots
+  - On-brand generative experiences
+  - Product crop
+  - Photoshop actions
+  - Smart Crop
+  - Depth Blur
+  - Auto Straighten
+  - Auto Tone
+  - Apply Lightroom Presets
+  - Apply Lightroom Edits
+  - Add XMP to Image
+  - Run Photoshop Actions
+  - Replace Smart Objects
+  - Create PSD
+  - Apply Photoshop Edits
+  - Edit Text layers
+  - Create artboards
+  - Create renditions
+  - SDK
+title: Adobe Firefly Services
+description: Adobe Firefly Services is a comprehensive set of generative AI and creative APIs.
+contributors:
+  - https://github.com/amandahuarng
+---
+
 import "../styles/main.css";
 import APIS from "./APIS.md";
 import MobileAPIS from "./MobileAPIs.md";
@@ -117,7 +166,7 @@ Leverage Adobe Photoshop's AI/ML-powered Create Mask API to accurately identify 
 
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
-### Generative AI APIs and industry standard image editing capabilities
+### Industry-leading image editing and generative APIs
 
 <WrapperComponent slots="content" repeat="1" theme="light" className="wrapperForDisplayListItems" />
 
