@@ -6,6 +6,7 @@
 
 .fireflyService-hero>div {
   margin: 0% 12%;
+  gap: 3%;
 }
 
 .fireflyService-hero>div>div>p {
@@ -21,7 +22,7 @@
 }
 
 .fireflyService-hero>div>div:last-child>div {
-  margin: 115px 0 !important;
+  margin: 95px 0 0 30px !important;
 }
 
 .fireflyService-hero h1 {
@@ -192,13 +193,15 @@
 }
 
 .carousel>div>div>div>div>div {
-  border-color: red;
-  border-radius: 20px;
-  gap: 60px !important;
+  gap: 50px !important;
 }
 
 .carousel>div>div>div>div>div>div:first-child{
-  flex-grow: 2;
+  flex-grow: 3;
+}
+
+.carousel>div>div>div>div>div>div:first-child>h2>p>span>img{
+  border-radius:25px;
 }
 
 .carousel>div>div>div>div>div>div:nth-child(2){
@@ -208,7 +211,8 @@
 }
 
 .fireflyService-hero video{
-  width: 700px !important;
+  width: 750px !important;
+  padding: 0;
 }
 
 

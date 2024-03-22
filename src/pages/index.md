@@ -65,6 +65,56 @@ Ensure all your digital imagery meets brand standards without taxing creative te
 
 Open up the possibility for customers to create unique digital experiences to drive brand affinity and loyalty using Firefly Services.
 
+<Carousel slots="image, heading, text" repeat="8"  theme="light" className="carousel"  />
+
+![Resource 3](../images/carousels/actions.png)
+
+#### Actions
+
+Change the size of an image, apply an effect, then save an image all in one API call. Automate entire workflows in the cloud using Adobe Photoshop's Actions API.
+
+![Resource 3](../images/carousels/create-mask.png)
+
+#### Create mask
+
+Powered by Adobe Photoshop, the Create Mask API identifies the main subject of an image and creates a greyscale mask that you can composite onto other backgrounds.
+
+![Resource 3](../images/carousels/gen-expand.png)
+
+#### Generative Expand
+
+Expand images with generative content using the Generative Expand API, powered by Adobe Firefly. When generating content with a prompt, the image will be expanded to include the prompted content.
+
+![Resource 3](../images/carousels/gen-fill.png)
+
+#### Generative Fill
+
+Add and remove content from images using the Generative Fill API, powered by Adobe Firefly. Easily generate objects to add to an image. Cut out unwanted elements by replacing it with content that makes sense for the image.
+
+![Resource 3](../images/carousels/gen-match.png)
+
+#### Generative Match
+
+Create images at scale that share a consistent style and feel. Our text to image API can take a style reference image and apply it to your prompt.
+
+![Resource 3](../images/carousels/product-crop.png)
+
+#### Product Crop
+
+The Product Crop API is powered by Adobe Photoshop. Eliminate hours of tedious editing work with our smart crop tool, which automatically detects the focal point of an image.
+
+![Resource 3](../images/carousels/remove-bg.png)
+
+#### Remove Background
+
+Powered by Adobe Photoshop, Remove Background API automatically recognizes the subject and creates a perfect cutout of your subject every time.
+
+![Resource 3](../images/carousels/text-to-image.png)
+
+#### Text to Image
+
+Generate images from text prompts using the Text to Image API, powered by Adobe Firefly. 
+
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
 ### Generative AI APIs and industry standard image editing capabilities
@@ -80,20 +130,6 @@ Open up the possibility for customers to create unique digital experiences to dr
 <WrapperComponent slots="content" repeat="1" theme="lightest" className="miniproductListWrapper" />
 
 <Service />
-
-<Carousel slots="image, heading, text" repeat="2"  theme="light" className="carousel"  />
-
-![Resource 3](../images/UseCase2.png)
-
-#### CC Storage API
-
-CC Storage API lets you access and modify assets stored in the Creative Cloud, the world's most popular creative platform.
-
-![Resource 3](../images/UseCase1.png)
-
-#### CC Storage API
-
-CC Storage API lets you access and modify assets stored in the Creative Cloud, the world's most popular creative platform.
 
 <TextBlock slots="heading, text , image" className="designedForDevlopers" />
 
