@@ -131,13 +131,11 @@ Leverage Adobe Photoshop's AI/ML-powered Create Mask API to accurately identify 
 
 <Service />
 
-<TextBlock slots="heading, text , image" className="designedForDevlopers" />
+<TextBlock slots="heading, text, image" className="designedForDevlopers" />
 
 ### Designed for Developers
 
-Boost speed to market, reduce costs, and drive customer engagement and revenue by using Firefly Services in your workflows. Our specialized APIs are crafted to simplify and streamline batch and production processes.
-
-On top of that, we provide a SDK to make it easier to consume these services in the language of your choice.
+Boost speed to market, reduce costs, and drive customer engagement and revenue by using Firefly Services in your workflows. Our specialized APIs are crafted to simplify and streamline batch and production processes. On top of that, we provide a SDK to make it easier to consume these services in the language of your choice.
 
 ![Screenshot 1](./images/DesignedForDevelopers_image.png)
 
