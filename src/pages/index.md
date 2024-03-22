@@ -81,6 +81,20 @@ Open up the possibility for customers to create unique digital experiences to dr
 
 <Service />
 
+<Carousel slots="image, heading, text" repeat="2"  theme="light" className="carousel"  />
+
+![Resource 3](../images/UseCase2.png)
+
+#### CC Storage API
+
+CC Storage API lets you access and modify assets stored in the Creative Cloud, the world's most popular creative platform.
+
+![Resource 3](../images/UseCase1.png)
+
+#### CC Storage API
+
+CC Storage API lets you access and modify assets stored in the Creative Cloud, the world's most popular creative platform.
+
 <TextBlock slots="heading, text , image" className="designedForDevlopers" />
 
 ### Designed for Developers
