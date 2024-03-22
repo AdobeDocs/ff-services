@@ -167,13 +167,21 @@
   padding: 0 !important;
 }
 
+.cardList>div{
+  padding: 0;
+}
+
 .cardList>div>p:first-child {
   height: 200px !important;
   margin-bottom: 0 !important;
 }
 
+.cardList>div>h3 {
+  font-size: 22px !important;
+}
+
 .cardList>div>p:last-child {
-  font-size: 19px !important;
+  font-size: 17px !important;
 }
 
 .campaigns a {
