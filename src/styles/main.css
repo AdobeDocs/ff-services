@@ -20,6 +20,10 @@
   width: 45% !important;
 }
 
+.fireflyService-hero>div>div:last-child>div {
+  margin: 115px 0 !important;
+}
+
 .fireflyService-hero h1 {
   font-family: 'adobe-clean';
   color: black !important;
@@ -201,6 +205,10 @@
   flex-grow: 1;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.fireflyService-hero video{
+  width: 700px !important;
 }
 
 
