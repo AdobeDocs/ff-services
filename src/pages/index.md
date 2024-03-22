@@ -7,7 +7,7 @@ import heroVideo from "../videos/HeroVideo.mp4";
 
 <Hero slots="heading, text, buttons" variant="halfwidth" videoUrl={heroVideo} className="fireflyService-hero" />
 
-## Boost content product with the power of AI
+## Boost content production with the power of AI
 
 Firefly Services is a comprehensive set of generative AI and creative APIs that streamline workflows.  Quickly scale a few hero assets into thousands of renditions to enable personalized marketing for different customer segments, channels and regions.
 
@@ -27,7 +27,7 @@ Firefly Services is a comprehensive set of generative AI and creative APIs that 
 
 <TextBlock slots="image, heading, text" className="campaigns" />
 
-![Localize Campaigns and Assets](../images/UseCase1.png)
+![Localize Campaigns and Assets](../images/UseCase1_new.png)
 
 ### Localize Campaigns and Assets
 
@@ -39,7 +39,7 @@ Scale content production of geo-specific asset variants for global campaigns and
 
 Keep up with ever-increasing personalization demands with Firefly Services, powered by generative AI. Quickly create imagery that’s relevant to target audiences and then scale production for multiple channels
 
-![Personalize Campaigns & Assets](../images/UseCase2.png)
+![Personalize Campaigns & Assets](../images/UseCase2_new.png)
 
 <TextBlock slots="image, heading, text" className="campaigns" />
 
@@ -59,7 +59,7 @@ Ensure all your digital imagery meets brand standards without taxing creative te
 
 <TextBlock slots="image, heading, text" className="campaigns last_campaigns" />
 
-![Engage Customers with On-Brand Generative Experiences](../images/UseCase5_new.png)
+![Engage Customers with On-Brand Generative Experiences](../images/UseCase5_final.png)
 
 ### Engage Customers with On-Brand Generative Experiences
 
@@ -89,6 +89,6 @@ Supercharge your creative workflows with our specialized APIs creafted to simpli
 
 ![Screenshot 1](../images/DesignedForDevelopers_image.png)
 
-<TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
+<TextBlock slots="heading" className="fireflyAnnouncement contactUs" theme="light"/>
 
 ### Contact your Adobe enterprise Account Executive to learn more

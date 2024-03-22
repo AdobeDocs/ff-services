@@ -29,6 +29,16 @@
   color: black !important;
 }
 
+.fireflyAnnouncement>div{
+  padding-top: 70px;
+  padding-bottom: 30px;
+}
+
+.contactUs>div{
+  padding-top: 50px !important;
+  padding-bottom: 50px !important;
+}
+
 .fireflyAnnouncement>div>div {
   width: 100%;
   justify-content: center !important;
