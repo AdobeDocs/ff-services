@@ -201,22 +201,29 @@
   width: 90% !important;
 }
 
-.carousel>div>div>div>div>div {
-  gap: 50px !important;
+.carousel {
+  padding-top:0;
+}
+
+.carousel>div>div>div>div>div>div {
+  color: #6366f1;
+  justify-content: center;
 }
 
 .carousel>div>div>div>div>div>div:first-child{
-  flex-grow: 3;
+  flex-grow: 1;
 }
 
 .carousel>div>div>div>div>div>div:first-child>h2>p>span>picture>img{
   border-radius:25px;
 }
 
+
 .carousel>div>div>div>div>div>div:nth-child(2){
   flex-grow: 1;
   margin-top: auto;
   margin-bottom: auto;
+  padding-right: 7%;
 }
 
 .fireflyService-hero video{
