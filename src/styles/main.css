@@ -205,13 +205,18 @@
   padding-top:0;
 }
 
+
+.carousel>div>div>div>div>div{
+  gap: 50px;
+}
+
 .carousel>div>div>div>div>div>div {
   color: #6366f1;
   justify-content: center;
 }
 
 .carousel>div>div>div>div>div>div:first-child{
-  flex-grow: 1;
+  flex-grow: 1.25;
 }
 
 .carousel>div>div>div>div>div>div:first-child>h2>p>span>picture>img{

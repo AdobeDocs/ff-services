@@ -118,55 +118,56 @@ Generate thousands of images quickly, to provide an experience that empowers cus
 
 ### Industry-leading image editing and generative APIs
 
-<Carousel slots="image, heading, text" repeat="8"  theme="light" imageStyle="max-height:500px;max-width:500px; !important;" className="carousel"  />
+<Carousel slots="image, heading, text" repeat="8"  theme="light" className="carousel"  />
 
-![Text to image](./images/carousels/1x/text-to-image.png)
+![Text to image](./images/carousels/final/text-to-image.png)
 
 #### Text to Image
 
 Generate images from text prompts using the Text to Image API, powered by Adobe Firefly.
 
-![Generative fill](./images/carousels/1x/gen-fill.png)
+ ![Generative fill](./images/carousels/final/gen-fill.png)
 
 #### Generative Fill
 
 Add or replace content from images using the Generative Fill API, powered by Adobe Firefly. Combine with Create Mask or Remove Background APIs to easily create new compositions.
 
-![Generative expand](./images/carousels/1x/gen-expand.png)
+![Generative expand](./images/carousels/final/gen-expand.png)
 
 #### Generative Expand
 
 Use Generative Expand API to extend images to different format dimensions using Adobe Firefly’s outpainting capability.
 
-![Generative match](./images/carousels/1x/gen-match.png)
+![Generative match](./images/carousels/final/gen-match.png)
 
 #### Generative Match
 
 Create images at scale that share a consistent style and feel. Our text to image API can take a style reference image and apply it to your prompt input.
 
-![Remove background](./images/carousels/1x/remove-bg.png)
+![Remove background](./images/carousels/final/remove-bg.png)
 
 #### Remove Background
 
-Experience flawless cutouts effortlessly with our Remove Background API powered by cutting-edge neural network technology and AI advancements in Photoshop.
+Experience flawless cutouts with our Remove Background API powered by cutting-edge neural network technology and AI advancements in Photoshop.
 
-![Actions](./images/carousels/1x/actions.png)
+![Actions](./images/carousels/final/actions.png)
 
 #### Actions
 
-Maximize efficiency and scale content production with Photoshop Actions. Record a series of Photoshop tasks and apply them to input files in bulk saving valuable time
+Maximize efficiency and scale content production with Photoshop Actions. Record a series of Photoshop tasks and apply them to input files in bulk, saving valuable time.
 
-![Product Crop](./images/carousels/1x/product-crop.png)
+![Product Crop](./images/carousels/final/product-crop.png)
 
 #### Product Crop
 
 Unlock the power of our Product Crop API, powered by Adobe Photoshop technology. Achieve pixel perfect imaging editing at scale.
 
-![Create mask](./images/carousels/1x/create-mask.png)
+![Create mask](./images/carousels/final/create-mask.png)
 
 #### Create mask
 
 Leverage Adobe Photoshop's AI/ML-powered Create Mask API to accurately identify image subjects and produce grayscale masks, simplifying background replacement.
+
 <WrapperComponent slots="content" repeat="1" theme="light" className="wrapperForDisplayListItems" />
 
 <APIS />
