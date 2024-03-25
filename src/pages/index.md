@@ -60,7 +60,7 @@ import heroVideo from "../videos/HeroVideo.mp4";
 
 Firefly Services is a comprehensive set of generative AI and creative APIs that automates workflows.  Quickly scale a few hero assets into thousands of renditions.  Generate, edit and assemble images to enable personalized marketing for different customer segments, channels and regions.
 
-- [Learn more](https://developer-stage.adobe.com/firefly-services/docs)
+- [Learn more](https://developer.adobe.com/firefly-services/docs)
 
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
