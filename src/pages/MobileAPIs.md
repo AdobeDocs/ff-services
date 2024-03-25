@@ -24,4 +24,4 @@ import "../styles/main.css";
 | Edit Text Layers                                                                     |
 | Create Artboards                                                                     |
 | Create Renditions                                                                     |
-| Content Tagging API                                                                     |
+| Content Tagging                                                                     |

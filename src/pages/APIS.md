@@ -9,4 +9,4 @@ import "../styles/main.css";
 | <div className="aiImages">Create Mask ![AI images](./images/AI_icon.svg)</div>                                                                        | <div className="aiImages">Auto Tone![AI images](./images/AI_icon.svg)</div>         | Edit Text Layers      |
 |       | Apply Lightroom Presets                                                             | Create Artboards       |
 |                                                                                        | Apply Lightroom Edits | Create Renditions |
-| | Add XMP to Image                                                                     | Content Tagging API                    |
+| | Add XMP to Image                                                                     | Content Tagging                   |
