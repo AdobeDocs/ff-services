@@ -1,4 +1,4 @@
-<MiniProductCard slots="image, text , buttons" repeat="4" theme="lightest" inRow="4" variantsType="primary" buttonStyle="outline" />
+<MiniProductCard slots="image, text , buttons" repeat="4" theme="lightest" inRow="4" variantsType="primary" buttonStyle="outline" className="services" />
 
 ![Forge the path to customer success](./images/Firefly_big.png)
 

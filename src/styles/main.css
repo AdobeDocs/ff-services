@@ -109,7 +109,7 @@
   text-transform: none !important;
   font-size: 25px !important;
   letter-spacing: 0 !important;
-  padding-bottom: 50px !important;
+  padding-bottom: 30px !important;
 }
 
 .wrapperForDisplayListItems td {
@@ -197,12 +197,25 @@
   margin-left: 5% !important;
 }
 
+.services>div>div>div>div{
+  height:auto !important;
+}
+
+.services>div>div>div>div>a>span>span>div>span{
+  display: none;
+}
+
 .miniproductListWrapper>div {
   width: 90% !important;
 }
 
 .carousel {
-  padding-top:0;
+  padding-top:0 !important;
+}
+
+.carousel > div {
+  /* padding-top: 0px important; */
+  padding-bottom: 40px;
 }
 
 

@@ -116,7 +116,7 @@ Generate thousands of images quickly, to provide an experience that empowers cus
 
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
-### Industry-leading image editing and generative APIs
+### The power of Firefly, Photoshop and more, in a single API collection
 
 <Carousel slots="image, heading, text" repeat="8"  theme="light" className="carousel"  />
 
@@ -126,17 +126,17 @@ Generate thousands of images quickly, to provide an experience that empowers cus
 
 Generate images from text prompts using the Text to Image API, powered by Adobe Firefly.
 
- ![Generative fill](./images/carousels/final/gen-fill.png)
-
-#### Generative Fill
-
-Add or replace content from images using the Generative Fill API, powered by Adobe Firefly. Combine with Create Mask or Remove Background APIs to easily create new compositions.
-
 ![Generative expand](./images/carousels/final/gen-expand.png)
 
 #### Generative Expand
 
 Use Generative Expand API to extend images to different format dimensions using Adobe Firefly’s outpainting capability.
+
+ ![Generative fill](./images/carousels/final/gen-fill.png)
+
+#### Generative Fill
+
+Add or replace content from images using the Generative Fill API, powered by Adobe Firefly. Combine with Create Mask or Remove Background APIs to easily create new compositions.
 
 ![Generative match](./images/carousels/final/gen-match.png)
 
@@ -152,7 +152,7 @@ Experience flawless cutouts with our Remove Background API powered by cutting-ed
 
 ![Actions](./images/carousels/final/actions.png)
 
-#### Actions
+#### Photoshop Actions
 
 Maximize efficiency and scale content production with Photoshop Actions. Record a series of Photoshop tasks and apply them to input files in bulk, saving valuable time.
 
@@ -166,7 +166,7 @@ Unlock the power of our Product Crop API, powered by Adobe Photoshop technology.
 
 #### Create mask
 
-Leverage Adobe Photoshop's AI/ML-powered Create Mask API to accurately identify image subjects and produce grayscale masks, simplifying background replacement.
+Leverage Adobe Photoshop’s AI/ML-powered Create Mask API to accurately identify image subjects and produce grayscale masks, simplifying background replacement.
 
 <WrapperComponent slots="content" repeat="1" theme="light" className="wrapperForDisplayListItems" />
 

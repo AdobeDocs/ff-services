@@ -2,7 +2,7 @@ import "../styles/main.css";
 
 | Generate                                                                             |
 | ------------------------------------------------------------------------------------ |
-| <div className="aiImages">Text to Image API![AI images](./images/AI_icon.svg)</div> |
+| <div className="aiImages">Text to Image ![AI images](./images/AI_icon.svg)</div> |
 | <div className="aiImages">Generative Match![AI images](./images/AI_icon.svg)</div>  |
 | <div className="aiImages">Generative Fill![AI images](./images/AI_icon.svg)</div>   |
 | <div className="aiImages">Generative Expand![AI images](./images/AI_icon.svg)</div> |

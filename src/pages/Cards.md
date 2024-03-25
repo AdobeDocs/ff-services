@@ -29,4 +29,4 @@ Bring powerful generative AI and editing capabilities directly into your creativ
 
 ### Maintain quality control
 
-Firefly Services are an extension of the same Creative Cloud applications you trust to create high-quality work.
+An extension of Photoshop and other Creative Cloud applications you trust to create high-quality work.
