@@ -10,6 +10,11 @@
   justify-content: space-between
 }
 
+.fireflyService-hero video {
+  width: 700px !important;
+  padding: 0;
+}
+
 .fireflyService-hero>div>div>p {
   width: 90% !important;
 }
@@ -35,12 +40,12 @@
   color: black !important;
 }
 
-.fireflyAnnouncement>div{
+.fireflyAnnouncement>div {
   padding-top: 70px;
   padding-bottom: 30px;
 }
 
-.contactUs>div{
+.contactUs>div {
   padding-top: 50px !important;
   padding-bottom: 50px !important;
 }
@@ -167,7 +172,7 @@
   padding: 0 !important;
 }
 
-.cardList>div{
+.cardList>div {
   padding: 0;
 }
 
@@ -197,11 +202,11 @@
   margin-left: 5% !important;
 }
 
-.services>div>div>div>div{
-  height:auto !important;
+.services>div>div>div>div {
+  height: auto !important;
 }
 
-.services>div>div>div>div>a>span>span>div>span{
+.services>div>div>div>div>a>span>span>div>span {
   display: none;
 }
 
@@ -210,16 +215,16 @@
 }
 
 .carousel {
-  padding-top:0 !important;
+  padding-top: 0 !important;
 }
 
-.carousel > div {
+.carousel>div {
   /* padding-top: 0px important; */
   padding-bottom: 40px;
 }
 
 
-.carousel>div>div>div>div>div{
+.carousel>div>div>div>div>div {
   gap: 50px;
 }
 
@@ -228,27 +233,20 @@
   justify-content: center;
 }
 
-.carousel>div>div>div>div>div>div:first-child{
+.carousel>div>div>div>div>div>div:first-child {
   flex-grow: 1.25;
 }
 
-.carousel>div>div>div>div>div>div:first-child>h2>p>span>picture>img{
-  border-radius:25px;
+.carousel>div>div>div>div>div>div:first-child>h2>p>span>picture>img {
+  border-radius: 25px;
 }
 
-
-.carousel>div>div>div>div>div>div:nth-child(2){
+.carousel>div>div>div>div>div>div:nth-child(2) {
   flex-grow: 1;
   margin-top: auto;
   margin-bottom: auto;
   padding-right: 7%;
 }
-
-.fireflyService-hero video{
-  width: 700px !important;
-  padding: 0;
-}
-
 
 @media screen and (min-width:320px) and (max-width:1024px) {
 
@@ -299,9 +297,22 @@
     margin: auto !important;
   }
 
+  .cardsWrapper>div{
+    overflow: hidden !important;
+  }
+  
+  .designedForDevlopers img , .miniproductListWrapper>div{
+    width: 100% !important;
+  }
+
 }
 
 @media screen and (min-width:320px) and (max-width:767px) {
+
+  .fireflyService-hero video {
+    width: 280px !important;
+    padding: 0;
+  }
 
   .campaigns>div>div>div {
     padding: 30px !important;
@@ -355,6 +366,15 @@
 
   .mobileWrapper table {
     padding-bottom: 40px !important;
+  }
+
+}
+
+@media screen and (min-width:768px) and (max-width:1024px) {
+
+  .fireflyService-hero video {
+    width: 600px !important;
+    padding: 0;
   }
 
 }
