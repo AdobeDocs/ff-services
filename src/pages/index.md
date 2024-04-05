@@ -62,6 +62,16 @@ Firefly Services is a comprehensive set of generative AI and creative APIs that 
 
 - [Learn more](https://developer.adobe.com/firefly-services/docs)
 
+<TextBlock slots="icons , image, heading, text" theme="lightest" className="newEgestas" />
+
+![AI_ICON](./images/AI_icon.png)
+
+![Egestas Nibh Cursus Bibendum](./images/UseCase1_final.png)
+
+### Egestas Nibh Cursus Bibendum
+
+Etiam porta sem malesuada magna mollis euismod. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
 ### Automate your workflows using our cutting-edge generative AI and creative APIs

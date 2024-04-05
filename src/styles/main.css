@@ -40,6 +40,20 @@
   color: black !important;
 }
 
+.newEgestas h3 {
+  font-size: 40px;
+  width: 75%;
+}
+
+.newEgestas>div>div>div>p:first-child {
+  margin-bottom: 25px !important;
+}
+
+.newEgestas>div>div>div>p:last-child {
+  font-size: large !important;
+  width: 75% !important;
+}
+
 .fireflyAnnouncement>div {
   padding-top: 70px;
   padding-bottom: 30px;
@@ -266,6 +280,15 @@
   .fireflyService-hero>div>div {
     width: 100% !important;
   }
+  
+  .newEgestas>div {
+    padding: 5% !important;
+  }
+
+  .newEgestas>div>div>div>p:last-child,
+  .newEgestas h3{
+    width: 100% !important;
+  }
 
   .fireflyAnnouncement>div>div>div {
     width: 100% !important;
@@ -297,11 +320,12 @@
     margin: auto !important;
   }
 
-  .cardsWrapper>div{
+  .cardsWrapper>div {
     overflow: hidden !important;
   }
-  
-  .designedForDevlopers img , .miniproductListWrapper>div{
+
+  .designedForDevlopers img,
+  .miniproductListWrapper>div {
     width: 100% !important;
   }
 
