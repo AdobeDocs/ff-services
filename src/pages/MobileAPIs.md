@@ -11,7 +11,7 @@ import "../styles/main.css";
 | <div className="aiImages">Remove Background![AI images](./images/AI_icon.svg)</div> |
 | <div className="aiImages">Smart Crop![AI images](./images/AI_icon.svg)</div>        |
 | Depth Blur                                                                           |
-| <div className="aiImages">Auto Straighten ![AI images](./images/AI_icon.svg)</div>  |
+| <div className="aiImages">Auto Straighten</div>  |
 | <div className="aiImages">Auto Tone![AI images](./images/AI_icon.svg)</div>         |
 | Apply Lightroom Presets                                                            |
 | Apply Lightroom Edits                                                              |
