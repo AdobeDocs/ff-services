@@ -11,7 +11,7 @@
  * @license  MIT
  */
 
-/*! algoliasearch.umd.js | 4.22.1 | © Algolia, inc. | https://github.com/algolia/algoliasearch-client-javascript */
+/*! algoliasearch.umd.js | 4.23.2 | © Algolia, inc. | https://github.com/algolia/algoliasearch-client-javascript */
 
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
