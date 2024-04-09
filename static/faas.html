@@ -1,208 +1,151 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html class="spectrum spectrum--light spectrum--medium" dir="ltr" lang="eng">
- <head>
+
+<head>
   <title> FaaS Test FaaS form </title>
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="stylesheet" href="styles/lazy-styles.css">
   <script async src="https://www.adobe.com/marketingtech/main.min.js"></script>
-<script>
-  function isStageOrProd(host) {
-    if (host.indexOf(('localhost') >= 0) || host.indexOf('developer-stage') >= 0) {
-      return 'dev';
-    } else if (host.indexOf('developer.adobe.com') >= 0) {
-      return 'production';
-    }
-  }
-
-  function setAnalytics() {
-    console.log('setting analytics');
-    if (isStageOrProd(window.location.host) === 'production') {
-      window.marketingtech = {
-        adobe: {
-          launch: {
-            property: 'global',
-            environment: 'production',
-          },
-          analytics: {
-            additionalAccounts: 'pgeo1xxpnwadobeio-prod',
-          }
-        }
-      };
-    } else if (isStageOrProd(window.location.host) === 'dev') {
-      window.marketingtech = {
-        adobe: {
-          launch: {
-            property: 'global',
-            environment: 'dev',
-          },
-          analytics: {
-            additionalAccounts: 'pgeo1xxpnwadobeio-qa',
-          }
-        }
+  <script>
+    function isStageOrProd(host) {
+      if (host.indexOf(('localhost') >= 0) || host.indexOf('developer-stage') >= 0) {
+        return 'dev';
+      } else if (host.indexOf('developer.adobe.com') >= 0) {
+        return 'production';
       }
-
-      console.log(window.marketingtech)
     }
-  }
 
-  (function () {
-    setAnalytics();
-  })()
-</script>
- </head>
+    function setAnalytics() {
+      console.log('setting analytics');
+      if (isStageOrProd(window.location.host) === 'production') {
+        window.marketingtech = {
+          adobe: {
+            launch: {
+              property: 'global',
+              environment: 'production',
+            },
+            analytics: {
+              additionalAccounts: 'pgeo1xxpnwadobeio-prod',
+            }
+          }
+        };
+      } else if (isStageOrProd(window.location.host) === 'dev') {
+        window.marketingtech = {
+          adobe: {
+            launch: {
+              property: 'global',
+              environment: 'dev',
+            },
+            analytics: {
+              additionalAccounts: 'pgeo1xxpnwadobeio-qa',
+            }
+          }
+        }
 
- <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" language="javascript" src="https://dev.apps.enterprise.adobe.com/faas/service/jquery.faas-current.js"></script>
-    <script type="text/javascript" language="javascript">
-    ;(function($) {
-        $(document).ready(function(e) {
-            $("#form").faas({ //change targeted element to fit your page
-                "id": 26,
-                "l": "en_us", //locale
-                "d": "https://www.adobe.com", //thank you page url
-                "as": true, /*auto submit - optional*/
-                //"ar": true,
-                "pc": { //pre-populate sources
-                  "1": "js",
-                  "2": "faas_submission",
-                  "3": "sfdc",
-                  "4": 'demandbase'
-                },
-                "q": {  // this is the question configuration
+        console.log(window.marketingtech)
+      }
+    }
 
-                        "14": { //Country
-                                "c": [
-                                        "2580",
-                                        "1035",
-                                        "1579",
-                                        "1432"
-                                ]
-                        },
-                        "18": { //Industry
-                                "c": [
-                                        "429",
-                                        "431",
-                                        "3128",
-                                        "438"
-                                ]
-                        },
-                        "19": { //Functional Area
-                                "c": [
-                                        "3157",
-                                        "3158",
-                                        "3159",
-                                        "3160"
-                                ]
-                        },
-                        "20": { //Job Title
-                                "c": [
-                                        "70",
-                                        "71",
-                                        "72",
-                                        "73"
-                                ]
-                        },
-                        "51": { //POI1
-                                "c": [
-                                        "1",
-                                        "2",
-                                        "3",
-                                        "4"
-                                ]
-                        },
-                        "69": { //additional product of interest
-                                "c": [
-                                        "2904",
-                                        "3010",
-                                        "2906"
-                                ]
-                        },
-                        "96": { //POI2
-                                "c": [
-                                        "1",
-                                        "2750",
-                                        "3075"
-                                ]
-                        },
-                        "97": { //additional solutions of interest
-                                "c": [
-                                        "2983",
-                                        "2984",
-                                        "2979"
-                                ]
-                        }
-                },
-                "p": { // this is the prepopulation
-                    "js": { // this is manual prepopulation...
-                            "6": "marketing_web_form", //event type
-                            "7": "request_for_information", //Channel subtype
-                            "31": "30004336", //SKU (/CONSULTINGSERVICE)
-                            "36": "7015Y000003t88dQAA", //campaign ID
-                            "77": "1", //allowmmmailind
-                            "78": "1", //ok to call
-                            "79": "1", //ok to mail
-                            "90": "FAAS", //source system
-                            "92": "2846",
-                            "93": "2851"
-                    }
-                },
-                e: {
-                    /*put all callbacks here*/
-                    afterSubmitCallback: function(data){
-                        data.data.destination += (data.data.destination.indexOf("?") == -1) ? '?' : '&';
-                        data.data.destination += "faas_unique_submission_id=" + data.data.faas_unique_submission_id;
-						var email = $('#Form1_1').val();
-						var organization = $('#Form1_10').val();
-						var apiBaseURL = '<?php echo site_url() ?>';
-						var requestParams = {
-							type : "POST",
-							url: apiBaseURL +'/externalAPIURL',
-							data: JSON.stringify({'userID' : userID, 'email': email, 'organization': organization}),
-							contentType: "application/json; charset=utf-8",
-						};
+    (function () {
+      setAnalytics();
+    })()
+  </script>
+</head>
 
-						requestParams.success = function(response) {};
-						requestParams.error = function(response){};
-						
-						$.ajax(requestParams);
-                    },
-                    afterYiiLoadedCallback: function(){
-                        // Change the label of the Industry
-                        $('label[for="Form1_69"]').empty();
-                        $('label[for="Form1_69"]').append('Select a Solution <span class="required">*</span>');                                          
-                        // Change the label of the Timeframe to purchase
-                        $('label[for="Form1_19"]').empty();
-                        $('label[for="Form1_19"]').append('When do you plan to take training? <span class="required">*</span>');
-                    }
-                }
-            });
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" language="javascript"
+    src="https://dev.apps.enterprise.adobe.com/faas/service/jquery.faas-current.js"></script>
+  <script type="text/javascript" language="javascript">
+      ; (function ($) {
+        $(document).ready(function (e) {
+          $("#form").faas({ //change targeted element to fit your page
+            "id": 26,
+            "l": "en_us", //locale
+            "d": "https://www.adobe.com", //thank you page url
+            "as": false, /*auto submit - optional*/
+            //"ar": true,
+            "pc": { //pre-populate sources
+              "1": "js",
+              "2": "faas_submission",
+              "3": "sfdc",
+              "4": 'demandbase'
+            },
+
+            "p": {
+              "js": {
+                "36": "70114000002XWHZAA4", //Production_Campaign_Id
+                "77": "1",
+                "78": "1",
+                "79": "1",
+                "90": "DESBU",
+                "92": "2846", //form_type
+                "93": "2851", //form_subtype
+                "94": "3084" // product of interest
+                //"6": "marketing_web_form",
+                //"7": "whitepaper_form",
+                //"31": "Acrobat",
+              }
+            }
+            ,
+            e: {
+              /*put all callbacks here*/
+              // old doc cloud stuff:
+              //         afterSubmitCallback: function(data){
+              //             data.data.destination += (data.data.destination.indexOf("?") == -1) ? '?' : '&';
+              //             data.data.destination += "faas_unique_submission_id=" + data.data.faas_unique_submission_id;
+              // var email = $('#Form1_1').val();
+              // var organization = $('#Form1_10').val();
+              // var apiBaseURL = '<?php echo site_url() ?>';
+              // var requestParams = {
+              // 	type : "POST",
+              // 	url: apiBaseURL +'/externalAPIURL',
+              // 	data: JSON.stringify({'userID' : userID, 'email': email, 'organization': organization}),
+              // 	contentType: "application/json; charset=utf-8",
+              // };
+
+              // requestParams.success = function(response) {};
+              // requestParams.error = function(response){};
+
+              // $.ajax(requestParams);
+              //         },
+              //         afterYiiLoadedCallback: function(){
+              //             // Change the label of the Industry
+              //             $('label[for="Form1_69"]').empty();
+              //             $('label[for="Form1_69"]').append('Select a Solution <span class="required">*</span>');                                          
+              //             // Change the label of the Timeframe to purchase
+              //             $('label[for="Form1_19"]').empty();
+              //             $('label[for="Form1_19"]').append('When do you plan to take training? <span class="required">*</span>');
+              //         }
+            }
+          });
         });
-    })(jQuery);
-</script>
-<div class="resource-form">
-  <div class="block faas white column2 faas-form-40">
-    <div class="faas-header">
-      <div class="caption">
-        Get info about pricing, billing, and licensing.
+      })(jQuery);
+  </script>
+  <div class="resource-form">
+    <div class="block faas white column2 faas-form-40">
+      <div class="faas-header">
+        <div class="caption">
+          Get info about pricing, billing, and licensing.
+        </div>
+        <div class="faq-text">
+          Please visit our
+          <a class="link-content" target="_blank" href="/document-services/faq/sales/">
+            FAQ
+          </a>
+          or fill out the form below to speak with an Adobe rep.
+        </div>
+        <div class="faq-text">
+          For technical inquiries, submit a tech support request
+          <a class="link-content" target="_blank" href="/document-services/pricing/contact/support/">
+            here.
+          </a>
+        </div>
       </div>
-      <div class="faq-text">
-        Please visit our
-        <a class="link-content" target="_blank" href="/document-services/faq/sales/">
-          FAQ
-        </a>
-        or fill out the form below to speak with an Adobe rep.
+      <div class="faas faas-form" id="form">
       </div>
-      <div class="faq-text">
-        For technical inquiries, submit a tech support request
-        <a class="link-content" target="_blank" href="/document-services/pricing/contact/support/">
-          here.
-        </a>
-      </div>
-    </div>
-    <div class="faas faas-form" id="form">
     </div>
   </div>
-</div>
- </body>
+</body>
+
 </html>
