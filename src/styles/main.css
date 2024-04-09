@@ -376,9 +376,7 @@
     text-align: initial !important;
   }
 
-  .mobileWrapper th,
-  .mobileWrapper tr:nth-child(6)>td>div,
-  .mobileWrapper tr:nth-child(15)>td>div {
+  .mobileWrapper th{
     text-transform: none !important;
     font-size: 25px !important;
     letter-spacing: 0 !important;
