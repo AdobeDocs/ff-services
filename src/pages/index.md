@@ -53,6 +53,7 @@ import MobileAPIS from "./MobileAPIs.md";
 import Cards from "./Cards.md";
 import Service from "./Services.md";
 import heroVideo from "../videos/HeroVideo.mp4";
+import GetCredentialExternal from "./credential/GetCredentialExternal.js";
 
 <Hero slots="heading, text, buttons" variant="halfwidth" videoUrl={heroVideo} className="fireflyService-hero" />
 
@@ -200,3 +201,5 @@ Increase speed to market, reduce costs, and drive customer engagement and revenu
 <TextBlock slots="heading" className="fireflyAnnouncement contactUs" theme="light"/>
 
 ### Contact your Adobe Enterprise Account Executive to learn more
+
+<GetCredentialExternal />

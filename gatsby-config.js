@@ -10,6 +10,8 @@
  * governing permissions and limitations under the License.
  */
 
+const { createProxyMiddleware } = require("http-proxy-middleware");
+
 module.exports = {
   pathPrefix: process.env.PATH_PREFIX || '/firefly-services/',
   siteMetadata: {
@@ -19,10 +21,24 @@ module.exports = {
         path: '/'
       },
       {
+        title: 'Contact',
+        path: '/contact'
+      },
+      {
         title: 'Documentation',
-        path : 'https://developer.adobe.com/firefly-services/docs/'
+        path: 'https://developer.adobe.com/firefly-services/docs/'
       }
     ]
+  },
+  developMiddleware: app => {
+    app.use(
+      "/console/api",
+      createProxyMiddleware({
+        target: "https://developer-stage.adobe.com",
+        secure: false,
+        changeOrigin: true,
+      })
+    )
   },
   plugins: [`@adobe/gatsby-theme-aio`]
 };
