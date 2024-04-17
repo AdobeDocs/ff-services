@@ -10,6 +10,7 @@ import { JoinBetaProgram } from './JoinBetaProgram';
 import { NoDeveloperAccessError } from "./NoDeveloperAccessError"
 import { MAX_MOBILE_WIDTH, MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH } from './FormFields';
 import ErrorBoundary from './ErrorBoundary';
+import { PreviousCredential } from './PreviousCredential';
 
 const GetCredential = ({ credentialType = 'apiKey', children, className, service = "CCEmbedCompanionAPI" }) => {
 
@@ -58,7 +59,10 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
 
               `}
             >
-              {!window.adobeIMS?.isSignedInUser() ? <GetCredential.SignIn signInProps={getCredentialData?.[SignIn]} /> : <GetCredential.Form formProps={getCredentialData} credentialType={credentialType} service={service} />}
+              {!window.adobeIMS?.isSignedInUser() ? <GetCredential.SignIn signInProps={getCredentialData?.[SignIn]} /> : 
+              // <GetCredential.Form formProps={getCredentialData} credentialType={credentialType} service={service} />
+              <PreviousCredential formProps={getCredentialData?.[CredentialForm]}  />
+              }
             </div>
           </section>
         </ErrorBoundary>

@@ -34,7 +34,7 @@ module.exports = {
     app.use(
       "/console/api",
       createProxyMiddleware({
-        target: "https://developer-stage.adobe.com",
+        target: "https://developer-stage.adobe.com/console/api",
         secure: false,
         changeOrigin: true,
       })

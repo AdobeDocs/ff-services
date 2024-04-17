@@ -12,7 +12,6 @@ const ChangeOrganization = ({ setModalOpen, redirectToBeta, setRedirectBetaProgr
 
     const orgInfo = localStorage?.getItem('OrgInfo');
     getOrganization().then((data) => {
-      console.log('data', data)
       setOrgans(data);
       data?.map((value, index) => {
         const orgData = JSON.parse(orgInfo);

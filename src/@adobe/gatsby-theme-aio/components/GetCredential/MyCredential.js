@@ -7,6 +7,8 @@ import JSZip from 'jszip';
 import JSZipUtils from 'jszip-utils';
 import { saveAs } from 'file-saver';
 import { Toast } from '@adobe/gatsby-theme-aio/src/components/Toast';
+import firefly from "./images/firefly.png"
+import ps from "./images/ps.png"
 
 const MyCredential = ({
   credentialProps,
@@ -112,6 +114,21 @@ const MyCredential = ({
       setIsDownloadStart(false)
     }
   };
+
+  const testCredential = [
+    {
+      key: "Credential ID",
+      value: "20fdf910ffe949549a63e2ca6d517376"
+    },
+    {
+      key: "Client secret",
+      value: "Retrieve and copy client secret"
+    },
+    {
+      key: "Scopes",
+      value: "openid, AdobeID, read_organizations"
+    }
+  ]
 
   return (
     <div
@@ -273,8 +290,28 @@ const MyCredential = ({
                 `}
               >
                 <KeyIcon />
-                <h3 className="spectrum-Heading spectrum-Heading--sizeM">{formData['CredentialName']}</h3>
+                <div
+                  css={css`
+                    display : flex ;
+                    flex-direction : column;
+                    gap: 8px;
+                  `}
+                >
+                  <h3 className="spectrum-Heading spectrum-Heading--sizeM">
+                    {/* {formData['CredentialName']} */}MyNewOAuthServer2ServerCredential
+                  </h3>
+                  <div
+                    css={css`
+                      display : flex;
+                      gap : 10px;                    
+                    `}
+                  >
+                    <img src={firefly} css={css`width: 35px;`} />
+                    <img src={ps} css={css`width: 35px;`} />
+                  </div>
+                </div>
               </div>
+
               <hr
                 css={css`
                   margin:0;
@@ -289,7 +326,52 @@ const MyCredential = ({
                   gap: 32px;
                 `}
               >
-                {Credential?.map(({ key, value }, index) => {
+
+                <div css={css`
+                  display : flex;
+                  flex-direction : column;
+                  gap:16px;
+                `}>
+                  <h4 className="spectrum-Heading spectrum-Heading--sizeS">Access Token</h4>
+                  <button css={css`width: 180px;`} className="spectrum-Button spectrum-Button--fill spectrum-Button--accent spectrum-Button--sizeM">
+                    <span className="spectrum-Button-label">Generate and copy token</span>
+                  </button>
+                </div>
+
+                <div css={css`
+                  display : flex;
+                  flex-direction : column;
+                  gap:16px;
+                `}>
+                  <h4 className="spectrum-Heading spectrum-Heading--sizeS">Developer Console Project</h4>
+
+
+                  <div css={css`display:flex;`}>
+                    <div><p className="spectrum-Body spectrum-Body--sizeS"
+                      css={css`
+                      font-family: Source Code Pro,Monaco,monospace;
+                      white-space: normal;
+                      overflow-wrap: anywhere;
+                      max-width: 300px;
+                      color: #0265DC;
+                    `}
+                    >MyNewOAuthServer2ServerCredential</p></div>
+                    <div css={
+                      css`
+                        margin-left:10px;
+                        @media screen and (min-width:${MIN_MOBILE_WIDTH}) and (max-width:${MAX_TABLET_SCREEN_WIDTH}){
+                          display:none;
+                        }
+                      }`
+                    }><LinkOut /></div>
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="spectrum-Heading spectrum-Heading--sizeS">Credential details</h4>
+                </div>
+
+                {testCredential?.map(({ key, value }, index) => {
                   return (
                     <>
                       {value &&
@@ -301,51 +383,72 @@ const MyCredential = ({
                               gap:8px;
                             `}
                           >
-                            <h4 className="spectrum-Heading spectrum-Heading--sizeS">{key}</h4>
+                            <p className="spectrum-Body spectrum-Body--sizeS">{key}</p>
                             <div
                               css={css` 
                                 display:flex;
                                 align-items: center;
                                 gap: 24px; 
                               `}>
-                              <p className="spectrum-Body spectrum-Body--sizeS"
-                                css={css`
-                                  font-family: Source Code Pro,Monaco,monospace;
-                                  white-space: normal;
-                                  overflow-wrap: anywhere;
-                                  max-width: 300px;
-                                `}
-                              >{value}</p>
 
-                              <div css={css`position:relative;display:${key === "Organization" ? "none" : "block"}`}>
-                                <button className="spectrum-ActionButton spectrum-ActionButton--sizeM"
-                                  onMouseEnter={() => setTooltipOpen(index)}
-                                  onMouseLeave={handleLeave}
-                                  onClick={() => handleCopy(value, index)}
+
+                              {key === "Client secret" ?
+                                <button class="spectrum-Button spectrum-Button--outline spectrum-Button--primary spectrum-Button--sizeM"
                                   css={css`
+                                    cursor : pointer;
+                                    border: 1px solid var(--spectrum-global-color-gray-400);
+                                    border-radius: 3px;
+                                    padding: 3px 6px;
+                                    height:32px;
+                                    background :transparent;
+                                  `}
+                                >
+                                  <span class="spectrum-ActionButton-label">{value}</span>
+                                </button> :
+                                <p className="spectrum-Body spectrum-Body--sizeS"
+                                  css={css`
+                                    font-family: Source Code Pro,Monaco,monospace;
+                                    white-space: normal;
+                                    overflow-wrap: anywhere;
+                                    max-width: 300px;
+                                  `}
+                                >{value}</p>
+                              }
+
+                              {key !== "Client secret" &&
+
+                                <div css={css`position:relative;display:${key === "Organization" ? "none" : "block"}`}>
+                                  <button className="spectrum-ActionButton spectrum-ActionButton--sizeM"
+                                    onMouseEnter={() => setTooltipOpen(index)}
+                                    onMouseLeave={handleLeave}
+                                    onClick={() => handleCopy(value, index)}
+                                    css={css`
                                     border: 1px solid var(--spectrum-global-color-gray-400);
                                     border-radius: 3px;
                                     padding: 3px 6px;
                                   `}
-                                >
-                                  {<span className="spectrum-ActionButton-label"><CopyIcon /></span>}
-                                </button>
+                                  >
+                                    {<span className="spectrum-ActionButton-label"><CopyIcon /></span>}
+                                  </button>
 
-                                {isTooltipOpen === index && (
-                                  <span
-                                    className="spectrum-Tooltip spectrum-Tooltip--top is-open"
-                                    css={css`
+                                  {isTooltipOpen === index && (
+                                    <span
+                                      className="spectrum-Tooltip spectrum-Tooltip--top is-open"
+                                      css={css`
                                       position: absolute;
                                       bottom: 25px;
                                       top: unset;
                                       white-space: nowrap;
                                     `}
-                                  >
-                                    <span className="spectrum-Tooltip-label">Copy</span>
-                                    <span className="spectrum-Tooltip-tip"></span>
-                                  </span>
-                                )}
-                              </div>
+                                    >
+                                      <span className="spectrum-Tooltip-label">Copy</span>
+                                      <span className="spectrum-Tooltip-tip"></span>
+                                    </span>
+                                  )}
+                                </div>
+
+                              }
+
                             </div>
                           </div>
                         </>

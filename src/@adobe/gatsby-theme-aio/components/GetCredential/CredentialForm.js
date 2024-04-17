@@ -12,6 +12,7 @@ import { ContextHelp } from './ContextHelp';
 import { Toast } from '@adobe/gatsby-theme-aio/src/components/Toast';
 import { NoDeveloperAccessError } from './NoDeveloperAccessError';
 import Context from '@adobe/gatsby-theme-aio/src/components/Context';
+import { Products } from './Products';
 
 const hostnameRegex = /^(localhost:\d{1,5}|(\*\.|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+)|\*|(\*\.[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+))$/;
 const credentialNameRegex = /^(?=[A-Za-z0-9\s]{6,}$)[A-Za-z0-9\s]*$/;
@@ -38,13 +39,12 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
   const { ims } = useContext(Context);
 
   const credentialForm = formProps?.[CredentialForm];
+  console.log('credentialForm', credentialForm)
   const isFormValue = credentialForm?.children?.filter(data => Object.keys(data.props).some(key => key.startsWith('contextHelp')));
 
   const getValueFromLocalStorage = async () => {
     const orgInfo = localStorage?.getItem('OrgInfo');
-    console.log('orgInfo', await getOrganization(setOrganizationValue))
     const getOrgs = await getOrganization(setOrganizationValue);
-    console.log('getOrgs', getOrgs)
     if (orgInfo === null) {
       if (getOrgs?.length === 1) {
         setShowOrganization(false);
@@ -53,10 +53,10 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
     else if (getOrgs) {
       const orgData = JSON.parse(orgInfo);
       setShowOrganization(orgData.orgLen === 1 ? false : true);
-      setOrganizationValue(orgData);
+      // setOrganizationValue(orgData);
     }
     if (!getOrgs) {
-      setOrganizationValue({});
+      // setOrganizationValue({});
       setShowCreateForm(false)
     }
   }
@@ -111,7 +111,7 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
 
   useEffect(() => {
     if (!organization) {
-      setOrganizationValue(undefined);
+      // setOrganizationValue(undefined);
       setShowCreateForm(false);
       // setIsError(true)
     }
@@ -120,7 +120,7 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
     }
     else {
       if (Object.keys(organization)?.length === 0) {
-        setOrganizationValue(undefined);
+        // setOrganizationValue(undefined);
         setShowCreateForm(false);
       }
     }
@@ -186,34 +186,37 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
       services: [{ sdkCode: service }],
     };
 
-    try {
-      const response = await fetch(`/console/api/organizations/${organization?.id}/integrations/adobeid`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
-          "x-api-key": window?.adobeIMS?.adobeIdData?.client_id,
-        },
-        body: JSON.stringify(data),
-      });
-
-      const resResp = await response.json();
-
-      if (response.status === 200) {
-        setResponse(resResp);
-        setShowCredential(true);
+    setShowCredential(true);
         setAlertShow(true);
-      } else if (resResp?.messages) {
-        setAlertShow(true);
-        setIsValid(false);
-        setErrorResp(resResp?.messages[0]?.message);
-        setShowCreateForm(true);
-      }
-    } catch (error) {
-      setIsError(true);
-    } finally {
-      setLoading(false);
-    }
+
+    // try {
+    //   const response = await fetch(`/console/api/organizations/918/integrations/adobeid`, {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       "Authorization": `Bearer ${token}`,
+    //       "x-api-key": "UDPWeb1"
+    //     },
+    //     body: JSON.stringify(data),
+    //   });
+
+    //   const resResp = await response.json();
+
+    //   if (response.status === 200) {
+    //     setResponse(resResp);
+    //     setShowCredential(true);
+    //     setAlertShow(true);
+    //   } else if (resResp?.messages) {
+    //     setAlertShow(true);
+    //     setIsValid(false);
+    //     setErrorResp(resResp?.messages[0]?.message);
+    //     setShowCreateForm(true);
+    //   }
+    // } catch (error) {
+    //   setIsError(true);
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   const sideObject = formField?.[Side];
@@ -222,7 +225,7 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
   const downloads = formField?.[Downloads];
   const download = formField?.[Download];
 
-  console.log('isError && !showCreateForm && !showCredential', showCreateForm , organization , isError)
+  console.log('howCredential && !showCreateForm', showCredential && !showCreateForm)
 
   return (
     <>
@@ -232,14 +235,14 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
           css={css`
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 48px;
           `}
         >
           <div
             css={css`
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 48px;
             color:var(--spectrum-global-color-gray-800);
             width: 100%;
             height: 100%;
@@ -250,22 +253,29 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
             }
           `}
           >
-            {credentialForm?.title && <h3 className="spectrum-Heading spectrum-Heading--sizeL">{credentialForm?.title}</h3>}
-            {credentialForm?.paragraph &&
-              <p
-                className="spectrum-Body spectrum-Body--sizeL">
-                {credentialForm?.paragraph}
-              </p>
-            }
-            <p
-              className="spectrum-Body spectrum-Body--sizeS"
-              css={css`color:var(--spectrum-global-color-gray-800);`}
+            <div
+              css={css`
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+              `}
             >
-              You're creating this credential in  {organization?.type === "developer" ? "in your personal developer organization" : <span>[<b>{organization?.name}</b>] </span>}.
-              {showOrganization &&
-                <button
-                  tabIndex="0"
-                  css={css`
+              {credentialForm?.title && <h3 className="spectrum-Heading spectrum-Heading--sizeL">{credentialForm?.title}</h3>}
+              {credentialForm?.paragraph &&
+                <p
+                  className="spectrum-Body spectrum-Body--sizeL">
+                  {credentialForm?.paragraph}
+                </p>
+              }
+              <p
+                className="spectrum-Body spectrum-Body--sizeS"
+                css={css`color:var(--spectrum-global-color-gray-800);`}
+              >
+                You're creating this credential in  {organization?.type === "developer" ? "in your personal developer organization" : <span>[<b>{organization?.name}</b>] </span>}.
+                {showOrganization &&
+                  <button
+                    tabIndex="0"
+                    css={css`
                     border: none;
                     padding:0;
                     font-family:'adobe-clean';
@@ -274,12 +284,13 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
                     text-decoration:underline;
                     color: var(--spectrum-global-color-gray-800);
                     cursor:pointer;`
-                  }
-                  onClick={() => setModalOpen(true)}
-                >
-                  Change organization?
-                </button>}
-            </p>
+                    }
+                    onClick={() => setModalOpen(true)}
+                  >
+                    Change organization?
+                  </button>}
+              </p>
+            </div>
           </div>
           <div
             css={css`
@@ -309,7 +320,7 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
               <div
                 css={css`
                   display:flex;
-                  gap:24px;
+                  gap:32px;
                   flex-direction:column;
                   width: 100%;
                 `}
@@ -318,6 +329,7 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
                 {allowedOrigins && <AllowedOrigins originsProps={allowedOrigins} isFormValue={isFormValue} formData={formData} handleChange={handleChange} />}
                 {downloads && download && <Downloads downloadsProp={downloads} type="Downloads" formData={formData} handleChange={handleChange} />}
                 {formData['Downloads'] && download && <Download downloadProp={download} formData={formData} isFormValue={isFormValue} handleChange={handleChange} />}
+                <Products />
                 <div css={css`display: flex; gap: 10px;`}>
                   <input type="checkbox" checked={formData['Agree']} onChange={(e) => handleChange(e, 'Agree')} />
                   <p css={css`color:var(--spectrum-global-color-gray-800);margin:0;`} >{`By checking this box, you agree to `}
@@ -335,14 +347,14 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
                 <button
                   id="credentialButton"
                   className={`spectrum-Button spectrum-Button--fill spectrum-Button--accent spectrum-Button--sizeM`}
-                  css={css`width:fit-content;margin-top:10px`} onClick={createCredential} disabled={!isValid} >
+                  css={css`width:fit-content;margin-top:10px`} onClick={createCredential} /* disabled={!isValid} */ >
                   <span className="spectrum-Button-label">Create credential</span>
                 </button>
               </div>
             </div>
             {sideObject ? <SideContent sideContent={sideObject?.children} /> : null}
           </div>
-          <p
+          {/* <p
             className="spectrum-Body spectrum-Body--sizeS"
             css={css` 
               color:var(--spectrum-global-color-gray-800);
@@ -365,7 +377,7 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
               `}>
               Go to Developer Console
             </a>
-          </p>
+          </p> */}
         </div>
       }
 
