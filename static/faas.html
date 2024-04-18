@@ -1,12 +1,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html class="spectrum spectrum--light spectrum--medium" dir="ltr" lang="eng">
-
-<head>
-  <title> FaaS Test FaaS form </title>
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="stylesheet" href="styles/lazy-styles.css">
-  <script async src="https://www.adobe.com/marketingtech/main.min.js"></script>
-  <script>
+    <head>
+        <title> FaaS Test FaaS form</title>
+        <link rel="stylesheet" href="styles/styles.css"/>
+        <link rel="stylesheet" href="styles/lazy-styles.css"/>
+        <script async src="https://www.adobe.com/marketingtech/main.min.js"></script>
+        <script>
     function isStageOrProd(host) {
       if (host.indexOf(('localhost') >= 0) || host.indexOf('developer-stage') >= 0) {
         return 'dev';
@@ -49,20 +48,18 @@
     (function () {
       setAnalytics();
     })()
-  </script>
-</head>
-
-<body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script type="text/javascript" language="javascript"
-    src="https://dev.apps.enterprise.adobe.com/faas/service/jquery.faas-current.js"></script>
-  <script type="text/javascript" language="javascript">
+        </script>
+    </head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://dev.apps.enterprise.adobe.com/faas/service/jquery.faas-current.js"></script>
+        <script type="text/javascript" language="javascript">
       ; (function ($) {
         $(document).ready(function (e) {
           $("#form").faas({ //change targeted element to fit your page
             "id": 26,
             "l": "en_us", //locale
-            "d": "https://www.adobe.com", //thank you page url
+            "d": "/thankyou", //thank you page url
             "as": false, /*auto submit - optional*/
             //"ar": true,
             "pc": { //pre-populate sources
@@ -90,63 +87,18 @@
             }
             ,
             e: {
-              /*put all callbacks here*/
-              // old doc cloud stuff:
-              //         afterSubmitCallback: function(data){
-              //             data.data.destination += (data.data.destination.indexOf("?") == -1) ? '?' : '&';
-              //             data.data.destination += "faas_unique_submission_id=" + data.data.faas_unique_submission_id;
-              // var email = $('#Form1_1').val();
-              // var organization = $('#Form1_10').val();
-              // var apiBaseURL = '<?php echo site_url() ?>';
-              // var requestParams = {
-              // 	type : "POST",
-              // 	url: apiBaseURL +'/externalAPIURL',
-              // 	data: JSON.stringify({'userID' : userID, 'email': email, 'organization': organization}),
-              // 	contentType: "application/json; charset=utf-8",
-              // };
-
-              // requestParams.success = function(response) {};
-              // requestParams.error = function(response){};
-
-              // $.ajax(requestParams);
-              //         },
-              //         afterYiiLoadedCallback: function(){
-              //             // Change the label of the Industry
-              //             $('label[for="Form1_69"]').empty();
-              //             $('label[for="Form1_69"]').append('Select a Solution <span class="required">*</span>');                                          
-              //             // Change the label of the Timeframe to purchase
-              //             $('label[for="Form1_19"]').empty();
-              //             $('label[for="Form1_19"]').append('When do you plan to take training? <span class="required">*</span>');
-              //         }
+              afterSubmitCallback: function (data) {
+                top.location.href = "/thankyou";
+              }
             }
           });
         });
       })(jQuery);
-  </script>
-  <div class="resource-form">
-    <div class="block faas white column2 faas-form-40">
-      <div class="faas-header">
-        <div class="caption">
-          Get info about pricing, billing, and licensing.
+        </script>
+        <div class="resource-form">
+            <div class="block faas white column2 faas-form-40">
+                <div class="faas faas-form" id="form"></div>
+            </div>
         </div>
-        <div class="faq-text">
-          Please visit our
-          <a class="link-content" target="_blank" href="/document-services/faq/sales/">
-            FAQ
-          </a>
-          or fill out the form below to speak with an Adobe rep.
-        </div>
-        <div class="faq-text">
-          For technical inquiries, submit a tech support request
-          <a class="link-content" target="_blank" href="/document-services/pricing/contact/support/">
-            here.
-          </a>
-        </div>
-      </div>
-      <div class="faas faas-form" id="form">
-      </div>
-    </div>
-  </div>
-</body>
-
+    </body>
 </html>
