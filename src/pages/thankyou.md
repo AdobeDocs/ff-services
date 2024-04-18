@@ -7,4 +7,3 @@ import "../styles/main.css";
 <TitleBlock slots="heading" theme="lightest" />
 
 ### Thank you for contacting us.
-
