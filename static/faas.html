@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html class="spectrum spectrum--light spectrum--medium" dir="ltr" lang="eng">
+    <head>
+        <title> FaaS Test FaaS form</title>
+        <link rel="stylesheet" href="styles/styles.css"/>
+        <link rel="stylesheet" href="styles/lazy-styles.css"/>
+        <script async src="https://www.adobe.com/marketingtech/main.min.js"></script>
+        <script>
+    function isStageOrProd(host) {
+      if (host.indexOf(('localhost') >= 0) || host.indexOf('developer-stage') >= 0) {
+        return 'dev';
+      } else if (host.indexOf('developer.adobe.com') >= 0) {
+        return 'production';
+      }
+    }
+
+    function setAnalytics() {
+      console.log('setting analytics');
+      if (isStageOrProd(window.location.host) === 'production') {
+        window.marketingtech = {
+          adobe: {
+            launch: {
+              property: 'global',
+              environment: 'production',
+            },
+            analytics: {
+              additionalAccounts: 'pgeo1xxpnwadobeio-prod',
+            }
+          }
+        };
+      } else if (isStageOrProd(window.location.host) === 'dev') {
+        window.marketingtech = {
+          adobe: {
+            launch: {
+              property: 'global',
+              environment: 'dev',
+            },
+            analytics: {
+              additionalAccounts: 'pgeo1xxpnwadobeio-qa',
+            }
+          }
+        }
+
+        console.log(window.marketingtech)
+      }
+    }
+
+    (function () {
+      setAnalytics();
+    })()
+        </script>
+    </head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://dev.apps.enterprise.adobe.com/faas/service/jquery.faas-current.js"></script>
+        <script type="text/javascript" language="javascript">
+      ; (function ($) {
+        $(document).ready(function (e) {
+          $("#form").faas({ //change targeted element to fit your page
+            "id": 26,
+            "l": "en_us", //locale
+            "d": "/thankyou", //thank you page url
+            "as": false, /*auto submit - optional*/
+            //"ar": true,
+            "pc": { //pre-populate sources
+              "1": "js",
+              "2": "faas_submission",
+              "3": "sfdc",
+              "4": 'demandbase'
+            },
+
+            "p": {
+              "js": {
+                "31": "30004336", // SKU
+                "36": "7015Y000003t88dQAA", //Production_Campaign_Id
+                "77": "1",
+                "78": "1",
+                "79": "1",
+                "90": "DESBU",
+                "92": "2846", //form_type
+                "93": "2851", //form_subtype
+                "94": "3084", // product of interest
+                "6": "marketing_web_form",
+                "7": "request_for_information",
+                "31": "firefly",
+              }
+            }
+            ,
+            e: {
+              afterSubmitCallback: function (data) {
+                top.location.href = "/thankyou";
+              }
+            }
+          });
+        });
+      })(jQuery);
+        </script>
+        <div class="resource-form">
+            <div class="block faas white column2 faas-form-40">
+                <div class="faas faas-form" id="form"></div>
+            </div>
+        </div>
+    </body>
+</html>
