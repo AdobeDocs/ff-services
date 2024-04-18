@@ -59,7 +59,7 @@
           $("#form").faas({ //change targeted element to fit your page
             "id": 26,
             "l": "en_us", //locale
-            "d": "/thankyou", //thank you page url
+            "d": "/firefly-services/thankyou", //thank you page url
             "as": false, /*auto submit - optional*/
             //"ar": true,
             "pc": { //pre-populate sources
@@ -88,7 +88,7 @@
             ,
             e: {
               afterSubmitCallback: function (data) {
-                top.location.href = "/thankyou";
+                top.location.href = "/firefly-services/thankyou";
               }
             }
           });
