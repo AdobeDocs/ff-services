@@ -1,12 +1,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html class="spectrum spectrum--light spectrum--medium" dir="ltr" lang="eng">
-
-<head>
-  <title> FaaS Test FaaS form </title>
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="stylesheet" href="styles/lazy-styles.css">
-  <script async src="https://www.adobe.com/marketingtech/main.min.js"></script>
-  <script>
+    <head>
+        <title> FaaS Test FaaS form</title>
+        <link rel="stylesheet" href="styles/styles.css"/>
+        <link rel="stylesheet" href="styles/lazy-styles.css"/>
+        <script async src="https://www.adobe.com/marketingtech/main.min.js"></script>
+        <script>
     function isStageOrProd(host) {
       if (host.indexOf(('localhost') >= 0) || host.indexOf('developer-stage') >= 0) {
         return 'dev';
@@ -49,14 +48,12 @@
     (function () {
       setAnalytics();
     })()
-  </script>
-</head>
-
-<body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script type="text/javascript" language="javascript"
-    src="https://dev.apps.enterprise.adobe.com/faas/service/jquery.faas-current.js"></script>
-  <script type="text/javascript" language="javascript">
+        </script>
+    </head>
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript" language="javascript" src="https://dev.apps.enterprise.adobe.com/faas/service/jquery.faas-current.js"></script>
+        <script type="text/javascript" language="javascript">
       ; (function ($) {
         $(document).ready(function (e) {
           $("#form").faas({ //change targeted element to fit your page
@@ -122,31 +119,29 @@
           });
         });
       })(jQuery);
-  </script>
-  <div class="resource-form">
-    <div class="block faas white column2 faas-form-40">
-      <div class="faas-header">
-        <div class="caption">
-          Get info about pricing, billing, and licensing.
+        </script>
+        <div class="resource-form">
+            <div class="block faas white column2 faas-form-40">
+                <div class="faas-header">
+                    <div class="caption">
+                        Get info about pricing, billing, and licensing.
+                    </div>
+                    <div class="faq-text">
+                        Please visit our
+                        <a class="link-content" target="_blank" href="/document-services/faq/sales/">
+                            FAQ
+                        </a>
+                        or fill out the form below to speak with an Adobe rep.
+                    </div>
+                    <div class="faq-text">
+                        For technical inquiries, submit a tech support request
+                        <a class="link-content" target="_blank" href="/document-services/pricing/contact/support/">
+                            here.
+                        </a>
+                    </div>
+                </div>
+                <div class="faas faas-form" id="form"></div>
+            </div>
         </div>
-        <div class="faq-text">
-          Please visit our
-          <a class="link-content" target="_blank" href="/document-services/faq/sales/">
-            FAQ
-          </a>
-          or fill out the form below to speak with an Adobe rep.
-        </div>
-        <div class="faq-text">
-          For technical inquiries, submit a tech support request
-          <a class="link-content" target="_blank" href="/document-services/pricing/contact/support/">
-            here.
-          </a>
-        </div>
-      </div>
-      <div class="faas faas-form" id="form">
-      </div>
-    </div>
-  </div>
-</body>
-
+    </body>
 </html>

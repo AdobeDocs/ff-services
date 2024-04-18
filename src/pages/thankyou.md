@@ -1,3 +1,4 @@
-<Media slots="video"/>
+<TitleBlock slots="heading" theme="light" />
 
-<https://www.youtube.com/watch?v=mkgpeWbHrjA>
+### Thank you for contacting us.
+
