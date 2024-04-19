@@ -282,6 +282,7 @@
 .contactUsHerobgImage h1 {
   color: #000000 !important;
   font-size: var(--spectrum-heading-xxl-text-size, var(--spectrum-alias-heading-xxl-text-size)) !important;
+  font-family: 'adobe-clean' !important;
 }
 
 @media screen and (min-width:320px) and (max-width:1024px) {
