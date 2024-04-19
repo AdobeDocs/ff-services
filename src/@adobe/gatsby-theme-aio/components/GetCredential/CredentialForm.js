@@ -39,7 +39,6 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
   const { ims } = useContext(Context);
 
   const credentialForm = formProps?.[CredentialForm];
-  console.log('credentialForm', credentialForm)
   const isFormValue = credentialForm?.children?.filter(data => Object.keys(data.props).some(key => key.startsWith('contextHelp')));
 
   const getValueFromLocalStorage = async () => {
@@ -53,10 +52,10 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
     else if (getOrgs) {
       const orgData = JSON.parse(orgInfo);
       setShowOrganization(orgData.orgLen === 1 ? false : true);
-      // setOrganizationValue(orgData);
+      setOrganizationValue(orgData);
     }
     if (!getOrgs) {
-      // setOrganizationValue({});
+      setOrganizationValue({});
       setShowCreateForm(false)
     }
   }
@@ -87,6 +86,17 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
   }
 
   useEffect(() => {
+    if (window.adobeIMS?.isSignedInUser()) {
+      setTimeout(() => {
+        setLoading(false)
+      }, 1000)
+    }
+    else {
+      setLoading(true)
+    }
+  }, [window.adobeIMS?.isSignedInUser()])
+
+  useEffect(() => {
     setTimeout(() => {
       setOrganization(false);
     }, 8000);
@@ -111,16 +121,21 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
 
   useEffect(() => {
     if (!organization) {
-      // setOrganizationValue(undefined);
+      setOrganizationValue(undefined);
       setShowCreateForm(false);
-      // setIsError(true)
+      setLoading(true);
     }
     else if (organization && Object.keys(organization)?.length !== 0) {
       setShowCreateForm(true)
+      setIsError(true)
+      setTimeout(() => {
+        setLoading(false)
+        setIsError(false)
+      }, 2000)
     }
     else {
       if (Object.keys(organization)?.length === 0) {
-        // setOrganizationValue(undefined);
+        setOrganizationValue(undefined);
         setShowCreateForm(false);
       }
     }
@@ -141,7 +156,7 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
     const isValidCredentialName = credentialNameRegex.test(formData.CredentialName) && formData['CredentialName']?.length >= 6;
     const isCheckAllowedOrgins = requiredFields.filter((data) => data.name === "AllowedOrigins")
     const validateAllowedOrigins = formData['AllowedOrigins']?.split(',').map((data) => hostnameRegex.test(data.trim()));
-    const isAllowedOriginsValid = isCheckAllowedOrgins ? validateAllowedOrigins?.every((value) => value === true) && formData["AllowedOrigins"] !== undefined && formData["AllowedOrigins"]?.length !== 0 : true;
+    const isAllowedOriginsValid = isCheckAllowedOrgins.length ? validateAllowedOrigins?.every((value) => value === true) && formData["AllowedOrigins"] !== undefined && formData["AllowedOrigins"]?.length !== 0 : true;
 
     const isValid = isValidCredentialName && isAllowedOriginsValid && formData.Agree === true;
 
@@ -186,37 +201,34 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
       services: [{ sdkCode: service }],
     };
 
-    setShowCredential(true);
+    try {
+      const response = await fetch(`/console/api/organizations/${organization?.id}/integrations/adobeid`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`,
+          "x-api-key": window?.adobeIMS?.adobeIdData?.client_id,
+        },
+        body: JSON.stringify(data),
+      });
+
+      const resResp = await response.json();
+
+      if (response.status === 200) {
+        setResponse(resResp);
+        setShowCredential(true);
         setAlertShow(true);
-
-    // try {
-    //   const response = await fetch(`/console/api/organizations/918/integrations/adobeid`, {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "Authorization": `Bearer ${token}`,
-    //       "x-api-key": "UDPWeb1"
-    //     },
-    //     body: JSON.stringify(data),
-    //   });
-
-    //   const resResp = await response.json();
-
-    //   if (response.status === 200) {
-    //     setResponse(resResp);
-    //     setShowCredential(true);
-    //     setAlertShow(true);
-    //   } else if (resResp?.messages) {
-    //     setAlertShow(true);
-    //     setIsValid(false);
-    //     setErrorResp(resResp?.messages[0]?.message);
-    //     setShowCreateForm(true);
-    //   }
-    // } catch (error) {
-    //   setIsError(true);
-    // } finally {
-    //   setLoading(false);
-    // }
+      } else if (resResp?.messages) {
+        setAlertShow(true);
+        setIsValid(false);
+        setErrorResp(resResp?.messages[0]?.message);
+        setShowCreateForm(true);
+      }
+    } catch (error) {
+      setIsError(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const sideObject = formField?.[Side];
@@ -224,8 +236,6 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
   const allowedOrigins = formField?.[AllowedOrigins];
   const downloads = formField?.[Downloads];
   const download = formField?.[Download];
-
-  console.log('howCredential && !showCreateForm', showCredential && !showCreateForm)
 
   return (
     <>
@@ -347,37 +357,13 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
                 <button
                   id="credentialButton"
                   className={`spectrum-Button spectrum-Button--fill spectrum-Button--accent spectrum-Button--sizeM`}
-                  css={css`width:fit-content;margin-top:10px`} onClick={createCredential} /* disabled={!isValid} */ >
+                  css={css`width:fit-content;margin-top:10px`} onClick={createCredential} disabled={!isValid} >
                   <span className="spectrum-Button-label">Create credential</span>
                 </button>
               </div>
             </div>
             {sideObject ? <SideContent sideContent={sideObject?.children} /> : null}
           </div>
-          {/* <p
-            className="spectrum-Body spectrum-Body--sizeS"
-            css={css` 
-              color:var(--spectrum-global-color-gray-800);
-              
-              @media screen and (min-width:${MIN_MOBILE_WIDTH}) and (max-width:${MAX_TABLET_SCREEN_WIDTH}){
-                padding-left: 0;
-              }
-
-            `} >
-            Have existing credentials?
-            <a href="/console/" target="_blank" rel="noreferrer"
-              css={css`
-                margin-left : 10px;
-                color:var(--spectrum-global-color-gray-800);
-
-                &:hover {
-                  color:var(--spectrum-global-color-gray-900);
-                }
-
-              `}>
-              Go to Developer Console
-            </a>
-          </p> */}
         </div>
       }
 
@@ -394,7 +380,7 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
           }
         </>
       }
-      {loading && !showCredential && <Loading credentials={credentialForm} downloadStatus={formData['Downloads']} />}
+      {loading && !showCredential && !isError && !showCreateForm && organization && <Loading credentials={credentialForm} isCreateCredential downloadStatus={formData['Downloads']} />}
       {modalOpen && (
         <ChangeOrganization
           setModalOpen={setModalOpen}
@@ -407,11 +393,11 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
           setOrganizationValue={setOrganizationValue}
         />
       )}
-      {isError && !showCreateForm && !showCredential && <IllustratedMessage errorMessage={formProps?.[IllustratedMessage]} />}
+      {(!organization || isError) && loading && <Loading />}
+      {isError && !showCreateForm && !showCredential && !organization && <IllustratedMessage errorMessage={formProps?.[IllustratedMessage]} />}
       {showCredential && !showCreateForm && <MyCredential credentialProps={formProps} response={response} setShowCreateForm={setShowCreateForm} setShowCredential={setShowCredential} organizationName={organization?.name} formData={formData} orgID={organization?.id} />}
       {redirectToBeta && <JoinBetaProgram joinBeta={formProps?.[JoinBetaProgram]} />}
-      {!showCreateForm && !organization && !isError && <NoDeveloperAccessError developerAccessError={formProps?.[NoDeveloperAccessError]} title={credentialForm?.title} emailID={emailID} />}
-
+      {!showCreateForm && !organization && !isError && !loading && <NoDeveloperAccessError developerAccessError={formProps?.[NoDeveloperAccessError]} title={credentialForm?.title} emailID={emailID} />}
     </>
   )
 }

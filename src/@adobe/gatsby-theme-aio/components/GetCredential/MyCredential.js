@@ -298,7 +298,7 @@ const MyCredential = ({
                   `}
                 >
                   <h3 className="spectrum-Heading spectrum-Heading--sizeM">
-                    {/* {formData['CredentialName']} */}MyNewOAuthServer2ServerCredential
+                    {formData['CredentialName']}
                   </h3>
                   <div
                     css={css`
@@ -355,7 +355,7 @@ const MyCredential = ({
                       max-width: 300px;
                       color: #0265DC;
                     `}
-                    >MyNewOAuthServer2ServerCredential</p></div>
+                    >{formData['CredentialName']}</p></div>
                     <div css={
                       css`
                         margin-left:10px;

@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import '@spectrum-css/contextualhelp/dist/index-vars.css';
 import classNames from "classnames";
 import { MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH } from './FormFields';
+import { PreviousProject } from './PreviousProject';
 
 
 const PreviousCredential = ({ formProps }) => {
@@ -131,7 +132,7 @@ const PreviousCredential = ({ formProps }) => {
             `}
           />
           <div>
-              <PreviousCredential />
+            <PreviousProject />
           </div>
         </div>
       </div>
