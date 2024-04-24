@@ -12,7 +12,7 @@ const GetCredentialExternal = () => {
 
         <GetCredential.Form.CredentialName label="Credential name" description="Credential name must be unique and between 3 and 45 characters long. A project will be automatically created with the same name in Adobe Developer Console." range="45" />
 
-        {/* <GetCredential.Form.AllowedOrigins label="Allowed domains (up to 5)" contextHelp={true} contextHelpHeading="What are allowed domains" placeholder="Example: www.domain-1.com, www.domain-2.com, *.my-domain.com, localhost:5000" contextHelpText="To prevent a third party from using your client ID on their own website, the use of your client ID is restricted to a list of domains that you specifically authorize." contextHelpLink="https://www.adobe.com/" contextHelpLabelForLink="Learn more in our documentation" description="Use wildcards to enter multiple subdomains (*.my-domains.com) or commas to separete multiple domains (www.domain-1.com,www.domain-2.com). During local development, you can include post greater than 1023 with localhost (e.g. localhost:3000). Standard ports(80,443) will be used for non-localhost domains." /> */}
+        <GetCredential.Form.AllowedOrigins label="Allowed domains (up to 5)" contextHelp={true} contextHelpHeading="What are allowed domains" placeholder="Example: www.domain-1.com, www.domain-2.com, *.my-domain.com, localhost:5000" contextHelpText="To prevent a third party from using your client ID on their own website, the use of your client ID is restricted to a list of domains that you specifically authorize." contextHelpLink="https://www.adobe.com/" contextHelpLabelForLink="Learn more in our documentation" description="Use wildcards to enter multiple subdomains (*.my-domains.com) or commas to separete multiple domains (www.domain-1.com,www.domain-2.com). During local development, you can include post greater than 1023 with localhost (e.g. localhost:3000). Standard ports(80,443) will be used for non-localhost domains." />
 
         <GetCredential.Form.Downloads label="Download a personalized code sample" contextHelp={true} contextHelpHeading="Select Language">
           <GetCredential.Form.Download title="JavaScript" href="https://acrobatservices.adobe.com/dc-integration-creation-app-cdn/8bab684/files/samples_q3_2023/PROD/dc-pdf-services-sdk-java-samples.zip" />
@@ -23,17 +23,16 @@ const GetCredentialExternal = () => {
 
         <GetCredential.Form.Side>
           <div style="display : flex ; gap : 16px ; flex-direction : column;">
-            <h3 className="spectrum-Heading spectrum-Heading--sizeS side-header" >OAuth server-to-server credentiall</h3>
-            <p className="spectrum-Body spectrum-Body--sizeM">This credential allows you to use industry standard OAuth2.0 libraries to generate access tokens using the OAuth 2.0 client credentials grant type.</p>
+            <h3 className="spectrum-Heading spectrum-Heading--sizeS side-header" >API key credential</h3>
+            <p className="spectrum-Body spectrum-Body--sizeM">Submitting this form creates an API Key credential. The API key credential identifies your application to Adobe servers and can help accept or reject requests originating from certain domains.</p>
             <h3 className="spectrum-Heading spectrum-Heading--sizeS side-header" >Learn more</h3>
             <a className="side-documentation" style={{ color: "#0265DC" }} href='https://some_help_link'>Authentication documentation</a>
             <a className='side-documentation' style={{ color: "#0265DC" }} href='https://some_help_link'>Firefly - Firefly and Creative Cloud Automation API documentation</a>
             <a className='side-documentation' style={{ color: "#0265DC" }} href='https://some_help_link'>Adobe Photoshop API documentation</a>
-            <a className='side-documentation' style={{ color: "#0265DC" }} href='https://some_help_link'>Quota usage guide</a>
           </div>
         </GetCredential.Form.Side>
 
-      </GetCredential.Form> 
+      </GetCredential.Form>
 
       <GetCredential.UnknownError helpLink="https://some_help_link" helpLinkText="Get Help" className="unKnownError" />
 
@@ -41,13 +40,12 @@ const GetCredentialExternal = () => {
 
         <GetCredential.Form.Side>
           <div style="display : flex ; gap : 16px ; flex-direction : column;">
-            <h3 className="spectrum-Heading spectrum-Heading--sizeS side-header" >OAuth server-to-server credentiall</h3>
-            <p className="spectrum-Body spectrum-Body--sizeM">This credential allows you to use industry standard OAuth2.0 libraries to generate access tokens using the OAuth 2.0 client credentials grant type.</p>
+            <h3 className="spectrum-Heading spectrum-Heading--sizeS side-header" >API key credential</h3>
+            <p className="spectrum-Body spectrum-Body--sizeM">Submitting this form creates an API Key credential. The API key credential identifies your application to Adobe servers and can help accept or reject requests originating from certain domains.</p>
             <h3 className="spectrum-Heading spectrum-Heading--sizeS side-header" >Learn more</h3>
             <a className="side-documentation" style={{ color: "#0265DC" }} href='https://some_help_link'>Authentication documentation</a>
             <a className='side-documentation' style={{ color: "#0265DC" }} href='https://some_help_link'>Firefly - Firefly and Creative Cloud Automation API documentation</a>
             <a className='side-documentation' style={{ color: "#0265DC" }} href='https://some_help_link'>Adobe Photoshop API documentation</a>
-            <a className='side-documentation' style={{ color: "#0265DC" }} href='https://some_help_link'>Quota usage guide</a>
           </div>
         </GetCredential.Form.Side>
 

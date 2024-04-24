@@ -21,10 +21,6 @@ module.exports = {
         path: '/'
       },
       {
-        title: 'Contact',
-        path: '/contact'
-      },
-      {
         title: 'Documentation',
         path: 'https://developer.adobe.com/firefly-services/docs/'
       }

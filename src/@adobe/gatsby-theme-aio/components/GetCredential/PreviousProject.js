@@ -1,40 +1,61 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { css } from "@emotion/react";
 import '@spectrum-css/contextualhelp/dist/index-vars.css';
 import { MAX_MOBILE_WIDTH, MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH, MIN_TABLET_SCREEB_WIDTH, LinkOut, KeyIcon, CopyIcon } from './FormFields';
 import { Picker } from "@adobe/gatsby-theme-aio/src/components/Picker";
 import firefly from "./images/firefly.png"
 import ps from "./images/ps.png"
+import { Toast } from '@adobe/gatsby-theme-aio/src/components/Toast';
 
 const PreviousProject = () => {
 
-  const [selectedIndex, setSelectedIndex] = useState();
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [isTooltipOpen, setTooltipOpen] = useState(null);
-  const [isCopiedTooltip, setCopiedTooltip] = useState('')
+  const [isCopiedTooltip, setCopiedTooltip] = useState('');
+  const [previousCredential, setPreviousCredentials] = useState({})
 
-  const organization = [
+  const previousProjects = [
     {
-      name: 'Oraganization1'
+      name: 'Oraganization1',
+      credentials: [
+        {
+          key: "Credential ID",
+          value: "20fsadadasdasd9549a63e2ca6d517376"
+        },
+        {
+          key: "Client secret",
+          value: "Retrieve and copy client secret"
+        },
+        {
+          key: "Scopes",
+          value: "openid, AdobeID, read_organizations"
+        }
+      ]
     },
     {
-      name: 'Oraganization2'
-    },
-  ]
-
-  const testCredential = [
-    {
-      key: "Credential ID",
-      value: "20fdf910ffe949549a63e2ca6d517376"
-    },
-    {
-      key: "Client secret",
-      value: "Retrieve and copy client secret"
-    },
-    {
-      key: "Scopes",
-      value: "openid, AdobeID, read_organizations"
+      name: 'Oraganization2',
+      credentials: [
+        {
+          key: "Credential ID",
+          value: "20fdf910ffe949549a63e2ca6d98765as"
+        },
+        {
+          key: "Client secret",
+          value: "Retrieve and copy client secret"
+        },
+        {
+          key: "Scopes",
+          value: "openid, AdobeID, read_organizations"
+        }
+      ]
     }
   ]
+
+  const filterSelectedProject = previousProjects.filter((data, index) => selectedIndex === index);
+
+  useEffect(() => {
+    setPreviousCredentials(filterSelectedProject[0])
+  }, [selectedIndex])
 
   const handleCopy = (value) => {
     navigator.clipboard.writeText(value);
@@ -132,7 +153,7 @@ const PreviousProject = () => {
           >
             <Picker
               isQuiet
-              items={organization.map((organs, k) => {
+              items={previousProjects.map((organs, k) => {
                 return {
                   title: organs?.name,
                   selected: k === selectedIndex
@@ -147,7 +168,7 @@ const PreviousProject = () => {
 
         </div>
 
-        {/* ----------- form ------------  */}
+        {/* ----------- credential form ------------  */}
 
         <div
           css={css`
@@ -175,7 +196,7 @@ const PreviousProject = () => {
               css={css`
                   display:flex;
                   gap:20px;
-                  align-items:center;
+                  align-items:flex-start;
                 `}
             >
               <KeyIcon />
@@ -261,7 +282,7 @@ const PreviousProject = () => {
                 <h4 className="spectrum-Heading spectrum-Heading--sizeS">Credential details</h4>
               </div>
 
-              {testCredential?.map(({ key, value }, index) => {
+              {previousCredential?.credentials?.map(({ key, value }, index) => {
                 return (
                   <>
                     {value &&
@@ -392,8 +413,11 @@ const PreviousProject = () => {
         </div>
 
       </div>
+      {isCopiedTooltip && <Toast variant='success' message="Copied to clipboard" disable={1000} customDisableFunction={setCopiedTooltip} />}
     </>
+
   )
-}
+};
+
 
 export { PreviousProject };

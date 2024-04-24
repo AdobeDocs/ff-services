@@ -17,7 +17,21 @@ import { Products } from './Products';
 const hostnameRegex = /^(localhost:\d{1,5}|(\*\.|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+)|\*|(\*\.[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+))$/;
 const credentialNameRegex = /^(?=[A-Za-z0-9\s]{6,}$)[A-Za-z0-9\s]*$/;
 
-const CredentialForm = ({ formProps, credentialType, service }) => {
+const CredentialForm = ({
+  formProps,
+  credentialType,
+  service,
+  organization,
+  setOrganizationValue,
+  organizationChange,
+  setOrganization,
+  alertShow,
+  setAlertShow,
+  redirectToBeta,
+  setRedirectBetaProgram,
+  modalOpen,
+  setModalOpen
+}) => {
 
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -27,12 +41,7 @@ const CredentialForm = ({ formProps, credentialType, service }) => {
   const [showCredential, setShowCredential] = useState(false);
   const [formField, setFormField] = useState([]);
   const [formData, setFormData] = useState({});
-  const [modalOpen, setModalOpen] = useState(false);
-  const [redirectToBeta, setRedirectBetaProgram] = useState(false);
   const [isValid, setIsValid] = useState(false);
-  const [alertShow, setAlertShow] = useState(false);
-  const [organizationChange, setOrganization] = useState(false);
-  const [organization, setOrganizationValue] = useState({});
   const [showOrganization, setShowOrganization] = useState(true);
   const [emailID, setEmailID] = useState('');
 

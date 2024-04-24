@@ -4,9 +4,23 @@ import '@spectrum-css/contextualhelp/dist/index-vars.css';
 import classNames from "classnames";
 import { MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH } from './FormFields';
 import { PreviousProject } from './PreviousProject';
+import { ChangeOrganization } from './ChangeOrganization';
 
 
-const PreviousCredential = ({ formProps }) => {
+const PreviousCredential = ({
+  formProps,
+  setPrevious,
+  showOrganization,
+  setOrganizationValue,
+  organizationChange,
+  setOrganization,
+  alertShow,
+  setAlertShow,
+  redirectToBeta,
+  setRedirectBetaProgram,
+  modalOpen,
+  setModalOpen
+}) => {
 
   const credentialForm = formProps;
 
@@ -52,10 +66,10 @@ const PreviousCredential = ({ formProps }) => {
               css={css`color:var(--spectrum-global-color-gray-800);`}
             >
               You’re viewing in [<b>Adobe IO DEV</b>].
-              {/* {showOrganization && */}
-              <button
-                tabIndex="0"
-                css={css`
+              {showOrganization &&
+                <button
+                  tabIndex="0"
+                  css={css`
                     border: none;
                     padding:0;
                     font-family:'adobe-clean';
@@ -64,12 +78,12 @@ const PreviousCredential = ({ formProps }) => {
                     text-decoration:underline;
                     color: var(--spectrum-global-color-gray-800);
                     cursor:pointer;`
-                }
-              // onClick={() => setModalOpen(true)}
-              >
-                Change organization?
-              </button>
-              {/* } */}
+                  }
+                  onClick={() => setModalOpen(true)}
+                >
+                  Change organization?
+                </button>
+              }
             </p>
           </div>
         </div>
@@ -110,6 +124,7 @@ const PreviousCredential = ({ formProps }) => {
               <p className="spectrum-Body spectrum-Body--sizeL">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
               <h3 className='spectrum-Heading spectrum-Heading--sizeM'>Need another credential?</h3>
               <button className="spectrum-Button spectrum-Button--fill spectrum-Button--primary spectrum-Button--sizeM"
+                onClick={() => setPrevious(false)}
                 css={css`
                   width : 180px;
                   height : 32px;
@@ -136,6 +151,18 @@ const PreviousCredential = ({ formProps }) => {
           </div>
         </div>
       </div>
+      {modalOpen && (
+        <ChangeOrganization
+          setModalOpen={setModalOpen}
+          redirectToBeta={redirectToBeta}
+          setRedirectBetaProgram={setRedirectBetaProgram}
+          setAlertShow={setAlertShow}
+          alertShow={alertShow}
+          organizationChange={organizationChange}
+          setOrganization={setOrganization}
+          setOrganizationValue={setOrganizationValue}
+        />
+      )}
     </>
   )
 }

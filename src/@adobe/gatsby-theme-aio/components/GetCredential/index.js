@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { SignIn } from "./SignIn"
 import { css } from "@emotion/react";
 import PropTypes from 'prop-types';
@@ -11,10 +11,20 @@ import { NoDeveloperAccessError } from "./NoDeveloperAccessError"
 import { MAX_MOBILE_WIDTH, MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH } from './FormFields';
 import ErrorBoundary from './ErrorBoundary';
 import { PreviousCredential } from './PreviousCredential';
+import { Loading } from './Loading';
 
 const GetCredential = ({ credentialType = 'apiKey', children, className, service = "CCEmbedCompanionAPI" }) => {
 
   const isBrowser = typeof window !== "undefined";
+  const [isPrevious, setPrevious] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [redirectToBeta, setRedirectBetaProgram] = useState(false);
+  const [alertShow, setAlertShow] = useState(false);
+  const [organizationChange, setOrganization] = useState(false);
+  const [organization, setOrganizationValue] = useState({});
+  const [showOrganization, setShowOrganization] = useState(true);
+  const [initialLoad, setInitialLoad] = useState(false)
+
 
   let getCredentialData = {};
   React.Children.forEach(children, (child) => {
@@ -23,6 +33,17 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
       getCredentialData[child.type] = child.props;
     }
   });
+
+  const isMyCredential = JSON.parse(localStorage.getItem("myCredential"))
+
+  useEffect(() => {
+    if (isMyCredential) {
+      setPrevious(true)
+    }
+    else {
+      setPrevious(false)
+    }
+  }, [])
 
   return (
     <>
@@ -60,8 +81,11 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
               `}
             >
               {!window.adobeIMS?.isSignedInUser() ? <GetCredential.SignIn signInProps={getCredentialData?.[SignIn]} /> :
-                <GetCredential.Form formProps={getCredentialData} credentialType={credentialType} service={service} />
-                // <PreviousCredential formProps={getCredentialData?.[CredentialForm]}  />
+                initialLoad ? <Loading /> :
+                  isPrevious ?
+                    <PreviousCredential formProps={getCredentialData?.[CredentialForm]} setPrevious={setPrevious} showOrganization={showOrganization} setOrganizationValue={setOrganizationValue} organizationChange={organizationChange} setOrganization={setOrganization} alertShow={alertShow} setAlertShow={setAlertShow} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} modalOpen={modalOpen} setModalOpen={setModalOpen} organization={organization} /> :
+
+                    <GetCredential.Form formProps={getCredentialData} credentialType={credentialType} service={service} modalOpen={modalOpen} setModalOpen={setModalOpen} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} alertShow={alertShow} setAlertShow={setAlertShow} organizationChange={organizationChange} setOrganization={setOrganization} organization={organization} setOrganizationValue={setOrganizationValue} showOrganization={showOrganization} setShowOrganization={setShowOrganization} />
               }
             </div>
           </section>

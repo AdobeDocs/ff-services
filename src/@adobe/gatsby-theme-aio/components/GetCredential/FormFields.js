@@ -142,8 +142,6 @@ export const getOrganization = async (setOrganizationValue) => {
   try {
 
     const token = window.adobeIMS?.getTokenFromStorage()?.token;
-    console.log('token', token)
-
 
     if (token) {
       const response = await fetch("/console/api/organizations", {
@@ -156,10 +154,6 @@ export const getOrganization = async (setOrganizationValue) => {
       });
 
       const organization = await response.json();
-
-      const jsonVal = { id: "918", name: "MAC New Feature Testing", orgLen: 1, type: "entp" }
-      // const organization = [jsonVal];
-
 
       if (setOrganizationValue) {
         setOrganizationValue(organization[0]);

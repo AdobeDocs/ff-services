@@ -39,6 +39,7 @@ const MyCredential = ({
       value: organizationName
     }
   ];
+  localStorage.setItem("myCredential", JSON.stringify(Credential))
 
   useEffect(() => {
     const OrgInfo = localStorage?.getItem('OrgInfo');
@@ -114,21 +115,6 @@ const MyCredential = ({
       setIsDownloadStart(false)
     }
   };
-
-  const testCredential = [
-    {
-      key: "Credential ID",
-      value: "20fdf910ffe949549a63e2ca6d517376"
-    },
-    {
-      key: "Client secret",
-      value: "Retrieve and copy client secret"
-    },
-    {
-      key: "Scopes",
-      value: "openid, AdobeID, read_organizations"
-    }
-  ]
 
   return (
     <div
@@ -286,7 +272,7 @@ const MyCredential = ({
                 css={css`
                   display:flex;
                   gap:20px;
-                  align-items:center;
+                  align-items:flex-start;
                 `}
               >
                 <KeyIcon />
@@ -327,7 +313,7 @@ const MyCredential = ({
                 `}
               >
 
-                <div css={css`
+                {/* <div css={css`
                   display : flex;
                   flex-direction : column;
                   gap:16px;
@@ -336,7 +322,7 @@ const MyCredential = ({
                   <button css={css`width: 180px;`} className="spectrum-Button spectrum-Button--fill spectrum-Button--accent spectrum-Button--sizeM">
                     <span className="spectrum-Button-label">Generate and copy token</span>
                   </button>
-                </div>
+                </div> */}
 
                 <div css={css`
                   display : flex;
@@ -371,7 +357,7 @@ const MyCredential = ({
                   <h4 className="spectrum-Heading spectrum-Heading--sizeS">Credential details</h4>
                 </div>
 
-                {testCredential?.map(({ key, value }, index) => {
+                {Credential?.map(({ key, value }, index) => {
                   return (
                     <>
                       {value &&
