@@ -4,6 +4,21 @@ import firefly from "./images/firefly.png"
 import ps from "./images/ps.png"
 
 const Products = () => {
+
+  const productList = [
+    {
+      name: " Firefly - Firefly and Creative Cloud Automation API",
+      icon: firefly
+    },
+    {
+      name: "Adobe Photoshop API",
+      icon: ps
+    },
+    {
+      name: "Adobe Analytics"
+    }
+  ]
+
   return (
     <div>
       <div
@@ -19,21 +34,49 @@ const Products = () => {
           Included products and services
         </label>
 
+
+        {productList.map((data, index) => {
+          if (index < 2)
+            return (
+              <div
+                css={css`
+              display : flex;
+              align-items : center;
+              gap:10px;
+            `}
+              >
+                <img src={data?.icon} css={css`width: 35px;`} />
+                <label for="textfield-m" className="spectrum-FieldLabel spectrum-FieldLabel--sizeM"
+                  css={css` color: var(--spectrum-global-color-gray-700)`}
+                >
+                  {data?.name}
+                </label>
+              </div>
+            )
+        })}
+
         <div
           css={css`
-            display : flex;
-            align-items : center;
-            gap:10px;
-          `}
+              display : flex;
+              align-items : center;
+              gap:10px;
+            `}
         >
-          <img src={firefly} css={css`width: 35px;`} />
+          <div css={css`width: 35px;`} />
           <label for="textfield-m" className="spectrum-FieldLabel spectrum-FieldLabel--sizeM"
             css={css` color: var(--spectrum-global-color-gray-700)`}
           >
-            Firefly - Firefly and Creative Cloud Automation API
+            <a href="" css={css`
+             text-decoration-color: blue;
+              color: blue;  
+              display: "inline-block";
+             `
+            }>+{productList.length - 2} more</a>
           </label>
         </div>
-        <div
+
+
+        {/* <div
           css={css`
             display : flex;
             align-items : center;
@@ -46,7 +89,7 @@ const Products = () => {
           >
             Adobe Photoshop API
           </label>
-        </div>
+        </div> */}
 
       </div>
     </div>

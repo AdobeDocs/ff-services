@@ -23,7 +23,8 @@ const MyCredential = ({
   const [isTooltipOpen, setTooltipOpen] = useState(null);
   const [organization, setOrganizationValue] = useState({});
   const [isDownloadStart, setIsDownloadStart] = useState();
-  const [isCopiedTooltip, setCopiedTooltip] = useState('')
+  const [isCopiedTooltip, setCopiedTooltip] = useState('');
+  const [myCredentials, setMyCredentials] = useState([])
 
   const Credential = [
     {
@@ -39,7 +40,20 @@ const MyCredential = ({
       value: organizationName
     }
   ];
-  localStorage.setItem("myCredential", JSON.stringify(Credential))
+
+  useEffect(() => {
+    const getItemFromLocalStorage = JSON.parse(localStorage.getItem("myCredential"))
+    let setCredentialValue;
+    const credentialName = formData['CredentialName'];
+    const keyCredential = { "name": credentialName, credential: Credential }
+    if (getItemFromLocalStorage) {
+      setCredentialValue = [keyCredential, ...getItemFromLocalStorage]
+    }
+    else {
+      setCredentialValue = [keyCredential]
+    }
+    localStorage.setItem("myCredential", JSON.stringify(setCredentialValue))
+  }, [])
 
   useEffect(() => {
     const OrgInfo = localStorage?.getItem('OrgInfo');

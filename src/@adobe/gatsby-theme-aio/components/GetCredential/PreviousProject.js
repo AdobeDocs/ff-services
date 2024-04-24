@@ -14,42 +14,7 @@ const PreviousProject = () => {
   const [isCopiedTooltip, setCopiedTooltip] = useState('');
   const [previousCredential, setPreviousCredentials] = useState({})
 
-  const previousProjects = [
-    {
-      name: 'Oraganization1',
-      credentials: [
-        {
-          key: "Credential ID",
-          value: "20fsadadasdasd9549a63e2ca6d517376"
-        },
-        {
-          key: "Client secret",
-          value: "Retrieve and copy client secret"
-        },
-        {
-          key: "Scopes",
-          value: "openid, AdobeID, read_organizations"
-        }
-      ]
-    },
-    {
-      name: 'Oraganization2',
-      credentials: [
-        {
-          key: "Credential ID",
-          value: "20fdf910ffe949549a63e2ca6d98765as"
-        },
-        {
-          key: "Client secret",
-          value: "Retrieve and copy client secret"
-        },
-        {
-          key: "Scopes",
-          value: "openid, AdobeID, read_organizations"
-        }
-      ]
-    }
-  ]
+  const previousProjects = JSON.parse(localStorage.getItem("myCredential"))
 
   const filterSelectedProject = previousProjects.filter((data, index) => selectedIndex === index);
 
@@ -208,7 +173,7 @@ const PreviousProject = () => {
                   `}
               >
                 <h3 className="spectrum-Heading spectrum-Heading--sizeM">
-                  {/* {formData['CredentialName']} */}MyNewOAuthServer2ServerCredential
+                  {/* {formData['CredentialName']} */} {previousProjects[selectedIndex].name}
                 </h3>
                 <div
                   css={css`
@@ -237,7 +202,7 @@ const PreviousProject = () => {
                 `}
             >
 
-              <div css={css`
+              {/* <div css={css`
                   display : flex;
                   flex-direction : column;
                   gap:16px;
@@ -246,7 +211,7 @@ const PreviousProject = () => {
                 <button css={css`width: 180px;`} className="spectrum-Button spectrum-Button--fill spectrum-Button--accent spectrum-Button--sizeM">
                   <span className="spectrum-Button-label">Generate and copy token</span>
                 </button>
-              </div>
+              </div> */}
 
               <div css={css`
                   display : flex;
@@ -265,7 +230,7 @@ const PreviousProject = () => {
                       max-width: 300px;
                       color: #0265DC;
                     `}
-                  >MyNewOAuthServer2ServerCredential</p></div>
+                  >{previousProjects[selectedIndex].name}</p></div>
                   <div css={
                     css`
                         margin-left:10px;
@@ -282,7 +247,7 @@ const PreviousProject = () => {
                 <h4 className="spectrum-Heading spectrum-Heading--sizeS">Credential details</h4>
               </div>
 
-              {previousCredential?.credentials?.map(({ key, value }, index) => {
+              {previousCredential?.credential?.map(({ key, value }, index) => {
                 return (
                   <>
                     {value &&
