@@ -275,21 +275,12 @@
   height: 700px;
 }
 
-.contactUsHerobgImage {
-  background: url("../pages/images/HeroBackground.png") !important;
-}
-
-.contactUsHerobgImage h1 {
-  color: #000000 !important;
-  font-size: var(--spectrum-heading-xxl-text-size, var(--spectrum-alias-heading-xxl-text-size)) !important;
-  font-family: 'adobe-clean' !important;
-}
-
 .thankYouContent p {
   font-weight: lighter !important;
+  font-size: var(--spectrum-body-l-text-size, var(--spectrum-global-dimension-font-size-500)) !important;
 }
 
-.contactUsHerobgImage{
+.contactUsHerobgImage {
   display: none !important;
 }
 
