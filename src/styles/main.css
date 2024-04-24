@@ -280,6 +280,10 @@
   font-size: var(--spectrum-body-l-text-size, var(--spectrum-global-dimension-font-size-500)) !important;
 }
 
+.thankYouContent>div{
+  max-width: 100% !important;
+}
+
 .contactUsHerobgImage {
   display: none !important;
 }
