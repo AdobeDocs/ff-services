@@ -7,5 +7,5 @@ import "../styles/main.css";
 <WrapperComponent slots="content" repeat="1" theme="lightest" />
 
 <div className="iframe-container">
-    <iframe id="fassForm" src="/faas.html" frameBorder="0" scrolling="no"></iframe>
+    <iframe id="fassForm" src="/firefly-services/faas.html" frameBorder="0" scrolling="no"></iframe>
 </div>
