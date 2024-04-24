@@ -4,7 +4,6 @@ import "../styles/main.css";
 
 # We'll be in touch.
 
-<TitleBlock slots="heading" theme="lightest" />
+<TitleBlock slots="text" theme="lightest" className="thankYouContent" />
 
-### Thank you for contacting us.
-
+Thank you for your interest in Adobe. Your request has been submitted to an Adobe representative who will contact you shortly.
