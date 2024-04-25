@@ -187,6 +187,8 @@ Increase speed to market, reduce costs, and drive customer engagement and revenu
 
 ![Screenshot 1](./images/DesignedForDevelopers_image.png)
 
-<TextBlock slots="heading" className="fireflyAnnouncement contactUs" theme="light"/>
+<TextBlock slots="heading, buttons" className="fireflyAnnouncement contactUs" theme="light"/>
 
 ### Contact your Adobe Enterprise Account Executive to learn more
+
+- [Contact us](./faas)
