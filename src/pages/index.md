@@ -191,4 +191,4 @@ Increase speed to market, reduce costs, and drive customer engagement and revenu
 
 ### Contact your Adobe Enterprise Account Executive to learn more
 
-- [Contact us](./faas)
+- [Contact us](./faas/)
