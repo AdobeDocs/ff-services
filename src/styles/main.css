@@ -275,6 +275,19 @@
   height: 700px;
 }
 
+.thankYouContent p {
+  font-weight: lighter !important;
+  font-size: var(--spectrum-body-l-text-size, var(--spectrum-global-dimension-font-size-500)) !important;
+}
+
+.thankYouContent>div{
+  max-width: 100% !important;
+}
+
+.contactUsHerobgImage>div>h1 {
+  font-family: 'adobe-clean' !important;
+}
+
 .contactUsHerobgImage {
   background: url("../pages/images/HeroBackground.png") !important;
 }
