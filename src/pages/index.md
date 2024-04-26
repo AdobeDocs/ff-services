@@ -175,6 +175,7 @@ Leverage Adobe Photoshop’s AI/ML-powered Create Mask API to accurately identif
 <WrapperComponent slots="content" repeat="1" theme="light" className="mobileWrapper" />
 
 <MobileAPIS />
+
 <WrapperComponent slots="content" repeat="1" theme="lightest" className="miniproductListWrapper" />
 
 <Service />
@@ -191,4 +192,4 @@ Increase speed to market, reduce costs, and drive customer engagement and revenu
 
 ### Contact your Adobe Enterprise Account Executive to learn more
 
-- [Contact us](./faas/)
+- [Contact Us](/faas)
