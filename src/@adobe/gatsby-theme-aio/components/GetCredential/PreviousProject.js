@@ -6,15 +6,34 @@ import { Picker } from "@adobe/gatsby-theme-aio/src/components/Picker";
 import firefly from "./images/firefly.png"
 import ps from "./images/ps.png"
 import { Toast } from '@adobe/gatsby-theme-aio/src/components/Toast';
+import CustomPopover from '../CustomPopover';
 
-const PreviousProject = () => {
+const PreviousProject = ({ previousProject }) => {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isTooltipOpen, setTooltipOpen] = useState(null);
   const [isCopiedTooltip, setCopiedTooltip] = useState('');
   const [previousCredential, setPreviousCredentials] = useState({})
 
-  const previousProjects = JSON.parse(localStorage.getItem("myCredential"))
+  const previousProjects = JSON.parse(localStorage.getItem("myCredential"));
+
+  const productList = [
+    {
+      name: " Firefly - Firefly and Creative Cloud Automation API",
+      icon: firefly
+    },
+    {
+      name: "Adobe Photoshop API",
+      icon: ps
+    },
+    {
+      name: "Adobe Analytics",
+      icon: firefly
+    },
+    {
+      name: "Adobe products"
+    }
+  ]
 
   const filterSelectedProject = previousProjects.filter((data, index) => selectedIndex === index);
 
@@ -38,8 +57,8 @@ const PreviousProject = () => {
         flex-direction : column;
         gap:24px;
       `}>
-        <h3 className='spectrum-Heading spectrum-Heading--sizeM'>Previously created projects</h3>
-        <p className="spectrum-Body spectrum-Body--sizeL">Select a project and access your existing credentials for Firefly - Firefly and Creative Cloud Automation.</p>
+        {previousProject?.title && <h3 className='spectrum-Heading spectrum-Heading--sizeM'>{previousProject?.title}</h3>}
+        {previousProject?.paragraph && <p className="spectrum-Body spectrum-Body--sizeL">{previousProject?.paragraph}</p>}
         <div>
 
           <div>
@@ -130,7 +149,6 @@ const PreviousProject = () => {
             />
           </div>
           <p className="spectrum-Body spectrum-Body--sizeS" css={css`color: #464646`}>Only your projects that contain credentials are shown.</p>
-
         </div>
 
         {/* ----------- credential form ------------  */}
@@ -162,6 +180,7 @@ const PreviousProject = () => {
                   display:flex;
                   gap:20px;
                   align-items:flex-start;
+                  position : relative;
                 `}
             >
               <KeyIcon />
@@ -178,11 +197,46 @@ const PreviousProject = () => {
                 <div
                   css={css`
                       display : flex;
-                      gap : 10px;                    
+                      gap : 10px; 
+                      align-items : center;  
                     `}
                 >
-                  <img src={firefly} css={css`width: 35px;`} />
-                  <img src={ps} css={css`width: 35px;`} />
+                  {productList.map((data, index) => {
+                    if (index < 3)
+                      return (
+                        <>
+                          {isTooltipOpen === index && (
+                            <span
+                              className={`spectrum-Tooltip spectrum-Tooltip--top is-open`}
+                              css={css`
+                                position: absolute;
+                                white-space: nowrap;
+                                top: 5px;
+                                left : ${6 * index}vh !important;
+                                max-width : 100% ;
+                              `}
+                            >
+                              <span className="spectrum-Tooltip-label" css={css`padding : 2px;`}>{data?.name}</span>
+                              <span className="spectrum-Tooltip-tip"
+                                css={css`
+                                left: calc(${18 + index}* var(--spectrum-tooltip-neutral-tip-width, var(--spectrum-global-dimension-size-100))) !important;
+                              `}
+                              ></span>
+                            </span>
+                          )}
+                          <img
+                            onMouseEnter={() => setTooltipOpen(index)}
+                            onMouseLeave={handleLeave}
+                            src={data?.icon}
+                            css={css`
+                              width: 35px;
+                              cursor : pointer;
+                            `}
+                          />
+                        </>
+                      )
+                  })}
+                  <CustomPopover productList={productList} />
                 </div>
               </div>
             </div>
@@ -307,20 +361,6 @@ const PreviousProject = () => {
                                   {<span className="spectrum-ActionButton-label"><CopyIcon /></span>}
                                 </button>
 
-                                {isTooltipOpen === index && (
-                                  <span
-                                    className="spectrum-Tooltip spectrum-Tooltip--top is-open"
-                                    css={css`
-                                      position: absolute;
-                                      bottom: 25px;
-                                      top: unset;
-                                      white-space: nowrap;
-                                    `}
-                                  >
-                                    <span className="spectrum-Tooltip-label">Copy</span>
-                                    <span className="spectrum-Tooltip-tip"></span>
-                                  </span>
-                                )}
                               </div>
 
                             }

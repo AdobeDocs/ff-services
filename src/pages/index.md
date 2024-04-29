@@ -63,7 +63,7 @@ Firefly Services is a comprehensive set of generative AI and creative APIs that 
 
 - [Learn more](https://developer.adobe.com/firefly-services/docs)
 
-<TextBlock slots="icons, image, heading, text" theme="lightest" className="videoBlock" />
+<!-- <TextBlock slots="icons, image, heading, text" theme="lightest" className="videoBlock" />
 
 ![Coming soon](./images/coming_soon_512w.png)
 
@@ -200,6 +200,6 @@ Increase speed to market, reduce costs, and drive customer engagement and revenu
 
 <TextBlock slots="heading" className="fireflyAnnouncement contactUs" theme="light"/>
 
-### Contact your Adobe Enterprise Account Executive to learn more
+### Contact your Adobe Enterprise Account Executive to learn more -->
 
 <GetCredentialExternal />

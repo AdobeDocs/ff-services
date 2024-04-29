@@ -20,7 +20,6 @@ const ChangeOrganization = ({ setModalOpen, redirectToBeta, setRedirectBetaProgr
         }
       })
     });
-    // document.documentElement.style.overflow = 'hidden';
 
   }, []);
 

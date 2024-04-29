@@ -9,6 +9,7 @@ import { saveAs } from 'file-saver';
 import { Toast } from '@adobe/gatsby-theme-aio/src/components/Toast';
 import firefly from "./images/firefly.png"
 import ps from "./images/ps.png"
+import CustomPopover from '../CustomPopover';
 
 const MyCredential = ({
   credentialProps,
@@ -40,6 +41,23 @@ const MyCredential = ({
       value: organizationName
     }
   ];
+
+  const productList = [
+    {
+      name: " Firefly - Firefly and Creative Cloud Automation API",
+      icon: firefly
+    },
+    {
+      name: "Adobe Photoshop API",
+      icon: ps
+    },
+    {
+      name: "Adobe Analytics"
+    },
+    {
+      name: "Adobe products"
+    }
+  ]
 
   useEffect(() => {
     const getItemFromLocalStorage = JSON.parse(localStorage.getItem("myCredential"))
@@ -303,11 +321,17 @@ const MyCredential = ({
                   <div
                     css={css`
                       display : flex;
-                      gap : 10px;                    
+                      gap : 10px; 
+                      align-items : center;                   
                     `}
                   >
-                    <img src={firefly} css={css`width: 35px;`} />
-                    <img src={ps} css={css`width: 35px;`} />
+                    {productList.map((data, index) => {
+                      if (index < 2)
+                        return (
+                          <img src={data?.icon} css={css`width: 35px;`} />
+                        )
+                    })}
+                    <CustomPopover productList={productList} />
                   </div>
                 </div>
               </div>
