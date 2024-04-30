@@ -30,47 +30,69 @@ const PreviousCredential = ({
   const credentialForm = formProps;
 
   const [isShow, setShow] = useState(false);
-  // const [allOrganization, setAllOrganization] = useState([]);
-  // const [selectedIndex, setSelectedIndex] = useState();
-  // const [isModalOpen, setIsModelOpen] = useState()
+  const [allOrganization, setAllOrganization] = useState([]);
+  const [selectedIndex, setSelectedIndex] = useState();
+  const [isModalOpen, setIsModelOpen] = useState(true);
 
-  // const getValueFromLocalStorage = async () => {
-  //   const getOrgs = await getOrganization(setOrganizationValue);
-  //   if (getOrgs) {
-  //     setAllOrganization(getOrgs)
-  //   }
-  // }
+  const getValueFromLocalStorage = async () => {
+    const getOrgs = await getOrganization(setOrganizationValue);
+    setAllOrganization(getOrgs)
 
-  // const organizationRef = useRef();
-  // const organizationRef2 = useRef();
-
-  // const handleClickOutside = e => {
-  //   console.log('ulla',e.target)
-  //   console.log('ulla2',organizationRef.current , organizationRef.current.contains(e.target))
-  //   if (organizationRef.current && !organizationRef.current.contains(e.target)) setShow(false);
-  //   // else setShow(false);
-  // };
-
-  // useEffect(() => {
-  //   const handleClickOutside = e => {
-  //     console.log('ulla',e.target)
-  //     console.log('ulla2',organizationRef.current , organizationRef.current.contains(e.target))
-  //     if (organizationRef.current && !organizationRef.current.contains(e.target)) setShow(false);
-  //     // else setShow(false);
-  //   };
-  //   document.addEventListener('click', handleClickOutside);
-  //   return () => document.removeEventListener('click', handleClickOutside);
-  // },[]);
-
-  const handleClick = () => {
+    let organizationObj = JSON.parse(localStorage.getItem("OrgInfo"))
+    getOrgs?.forEach((org, index) => {
+      if (org.name === organizationObj.name) {
+        setSelectedIndex(index)
+      }
+    })
 
   }
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     getValueFromLocalStorage()
-  //   }, [2000])
-  // }, [])
+  const organizationRef = useRef();
+  const organizationRef2 = useRef();
+
+  const handleClickOutside = (e) => {
+    if (organizationRef2.current && !organizationRef.current.contains(e.target)) {
+      setShow(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
+  const handleClick = (action) => {
+    if (action === "save") {
+      allOrganization.forEach((organs, index) => {
+        if (index === selectedIndex) {
+          setOrganizationValue(organs)
+        }
+      })
+    }
+    setIsModelOpen(false)
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      getValueFromLocalStorage()
+    }, [2000])
+  }, [])
+
+  useEffect(() => {
+    allOrganization.forEach((organs, index) => {
+      if (index === selectedIndex) {
+        const orgData = {
+          "id": organs?.id,
+          "name": organs?.name,
+          "orgLen": organization?.length,
+          "type": organs?.type
+        }
+        localStorage.setItem('OrgInfo', JSON.stringify(orgData));
+      }
+    })
+  }, [selectedIndex])
 
   return (
     <>
@@ -115,14 +137,13 @@ const PreviousCredential = ({
               {showOrganization &&
                 <>
                   <div
-                  // ref={organizationRef2}
+                    ref={organizationRef2}
                   >
                     <div
-                      // ref={organizationRef}
+                      ref={organizationRef}
                       aria-label="credentialProject"
                       aria-controls="credentialProject"
                       aria-expanded={isShow}
-                      id='yuoiu'
                       css={css`
                         text-decoration-color: blue;
                         text-decoration : underline;
@@ -144,13 +165,13 @@ const PreviousCredential = ({
                         position : relative;
                         cursor:pointer;`
                         }
-                        onClick={() => setModalOpen(true)}
+                        onClick={() => { setIsModelOpen(true) }}
                       >
                         Change organization?
                       </button>
                     </div>
                   </div>
-                  {/* <Popover
+                  <Popover
                     id="credentialProject"
                     isOpen={isShow}
                     css={css`
@@ -166,7 +187,10 @@ const PreviousCredential = ({
                         align-items: center;
                         justify-content: center;
                         flex-direction: column;
-                      `}>
+                      `}
+                      // ref={organizationRef}
+                      onClick={isModalOpen ? (event) => event.stopPropagation() : () => { }}
+                    >
                       <div
                         css={css`
                           padding : 40px;
@@ -277,10 +301,10 @@ const PreviousCredential = ({
                                 </div>
 
                                 <div className="spectrum-ButtonGroup spectrum-Dialog-buttonGroup spectrum-Dialog-buttonGroup--noFooter" css={css` gap: 20px; `} >
-                                  <button className="spectrum-Button spectrum-Button--sizeM spectrum-Button--outline spectrum-Button--secondary spectrum-ButtonGroup-item" type="button" onClick={handleClick}>
+                                  <button className="spectrum-Button spectrum-Button--sizeM spectrum-Button--outline spectrum-Button--secondary spectrum-ButtonGroup-item" type="button" onClick={() => { handleClick("cancel") }}>
                                     <span className="spectrum-Button-label">Cancel</span>
                                   </button>
-                                  <button className="spectrum-Button spectrum-Button--sizeM spectrum-Button--fill spectrum-Button--accent spectrum-ButtonGroup-item" type="button"  >
+                                  <button className="spectrum-Button spectrum-Button--sizeM spectrum-Button--fill spectrum-Button--accent spectrum-ButtonGroup-item" type="button" onClick={() => { handleClick("save") }}>
                                     <span className="spectrum-Button-label" >Save</span>
                                   </button>
                                 </div>
@@ -294,7 +318,7 @@ const PreviousCredential = ({
                         }
                       </div>
                     </div>
-                  </Popover> */}
+                  </Popover>
 
                 </>
               }
@@ -365,18 +389,6 @@ const PreviousCredential = ({
           </div>
         </div>
       </div>
-      {modalOpen && (
-        <ChangeOrganization
-          setModalOpen={setModalOpen}
-          redirectToBeta={redirectToBeta}
-          setRedirectBetaProgram={setRedirectBetaProgram}
-          setAlertShow={setAlertShow}
-          alertShow={alertShow}
-          organizationChange={organizationChange}
-          setOrganization={setOrganization}
-          setOrganizationValue={setOrganizationValue}
-        />
-      )}
     </>
   )
 }

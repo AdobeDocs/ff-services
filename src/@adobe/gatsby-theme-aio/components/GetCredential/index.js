@@ -13,18 +13,21 @@ import ErrorBoundary from './ErrorBoundary';
 import { PreviousCredential } from './PreviousCredential';
 import { Loading } from './Loading';
 import { PreviousProject } from './PreviousProject';
+import { Product, Products } from './Products';
+import { defaultTheme, Provider } from '@adobe/react-spectrum';
 
 const GetCredential = ({ credentialType = 'apiKey', children, className, service = "CCEmbedCompanionAPI" }) => {
 
   const isBrowser = typeof window !== "undefined";
-  const [isPrevious, setPrevious] = useState(false);
+  const [isPrevious, setIsPrevious] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [redirectToBeta, setRedirectBetaProgram] = useState(false);
   const [alertShow, setAlertShow] = useState(false);
   const [organizationChange, setOrganization] = useState(false);
   const [organization, setOrganizationValue] = useState({});
   const [showOrganization, setShowOrganization] = useState(true);
-  const [initialLoading, setInitialLoading] = useState(true)
+  const [initialLoading, setInitialLoading] = useState(true);
+  const [isSignedUser, setIsSignedUser] = useState(false);
 
   let getCredentialData = {};
   React.Children.forEach(children, (child) => {
@@ -56,34 +59,49 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
 
   useEffect(() => {
     if (isMyCredential) {
-      setPrevious(true)
+      setIsPrevious(true)
     }
     else {
-      setPrevious(false)
+      setIsPrevious(false)
     }
     setTimeout(() => {
       getValueFromLocalStorage()
-    }, [2000])
+    }, [1000])
   }, []);
 
   useEffect(() => {
-    if (organization && window.adobeIMS?.isSignedInUser()) {
-      setInitialLoading(false)
+    if (isSignedUser) {
+      if (organization) {
+        if (Object?.keys(organization)?.length) {
+          setInitialLoading(false)
+        }
+        else {
+          setInitialLoading(true)
+        }
+      }
     }
     else {
-      setInitialLoading(true)
+      setTimeout(() => {
+        setInitialLoading(false)
+      }, [2500])
     }
-  }, [organization])
+
+  }, [isSignedUser, organization])
+
+  useEffect(() => {
+    setIsSignedUser(window.adobeIMS?.isSignedInUser() ? true : false)
+  }, [window.adobeIMS?.isSignedInUser()])
 
   return (
     <>
       {
         isBrowser &&
         <ErrorBoundary errorMessage={getCredentialData?.[IllustratedMessage]}>
-          <section
-            id="adobe-get-credential"
-            className={classNames(className)}
-            css={css`
+          <Provider theme={defaultTheme} colorScheme="light" height="100%" >
+            <section
+              id="adobe-get-credential"
+              className={classNames(className)}
+              css={css`
                 background: #f8f8f8;
                 padding: var(--spectrum-global-dimension-size-800) 0 var(--spectrum-global-dimension-size-800) 0;
                           
@@ -91,11 +109,11 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
                   padding: var(--spectrum-global-dimension-size-300) var(--spectrum-global-dimension-size-100);
                 }
               `
-            }
-          >
-            <title>Get Credentials</title>
-            <div
-              css={css`
+              }
+            >
+              <title>Get Credentials</title>
+              <div
+                css={css`
                 width: calc(7 * 100% / 9);
                 margin: auto;
                 display: flex;
@@ -109,16 +127,17 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
                 }
 
               `}
-            >
-              {initialLoading ? <Loading /> :
-                !window.adobeIMS?.isSignedInUser() ? <GetCredential.SignIn signInProps={getCredentialData?.[SignIn]} /> :
-                  isPrevious ?
-                    <PreviousCredential previousProject={getCredentialData?.[PreviousProject]} formProps={getCredentialData?.[CredentialForm]} welcomeBack={getCredentialData?.[PreviousCredential]} setPrevious={setPrevious} showOrganization={showOrganization} setOrganizationValue={setOrganizationValue} organizationChange={organizationChange} setOrganization={setOrganization} alertShow={alertShow} setAlertShow={setAlertShow} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} modalOpen={modalOpen} setModalOpen={setModalOpen} organization={organization} /> :
+              >
+                {initialLoading ? <Loading /> :
+                  !window.adobeIMS?.isSignedInUser() ? <GetCredential.SignIn signInProps={getCredentialData?.[SignIn]} /> :
+                    isPrevious ?
+                      <PreviousCredential previousProject={getCredentialData?.[PreviousProject]} formProps={getCredentialData?.[CredentialForm]} welcomeBack={getCredentialData?.[PreviousCredential]} setIsPrevious={setIsPrevious} showOrganization={showOrganization} setOrganizationValue={setOrganizationValue} organizationChange={organizationChange} setOrganization={setOrganization} alertShow={alertShow} setAlertShow={setAlertShow} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} modalOpen={modalOpen} setModalOpen={setModalOpen} organization={organization} /> :
 
-                    <GetCredential.Form formProps={getCredentialData} credentialType={credentialType} service={service} modalOpen={modalOpen} setModalOpen={setModalOpen} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} alertShow={alertShow} setAlertShow={setAlertShow} organizationChange={organizationChange} setOrganization={setOrganization} organization={organization} setOrganizationValue={setOrganizationValue} showOrganization={showOrganization} setShowOrganization={setShowOrganization} />
-              }
-            </div>
-          </section>
+                      <GetCredential.Form formProps={getCredentialData} credentialType={credentialType} service={service} modalOpen={modalOpen} setModalOpen={setModalOpen} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} alertShow={alertShow} setAlertShow={setAlertShow} organizationChange={organizationChange} setOrganization={setOrganization} organization={organization} setOrganizationValue={setOrganizationValue} showOrganization={showOrganization} setShowOrganization={setShowOrganization} />
+                }
+              </div>
+            </section>
+          </Provider>
         </ErrorBoundary>
       }
     </>
@@ -135,6 +154,8 @@ GetCredential.SignIn = SignIn;
 GetCredential.Form = CredentialForm;
 GetCredential.Form.CredentialName = CredentialName;
 GetCredential.Form.AllowedOrigins = AllowedOrigins;
+GetCredential.Form.Products = Products;
+GetCredential.Form.Product = Product;
 GetCredential.Form.Side = Side;
 GetCredential.Form.Downloads = Downloads;
 GetCredential.Form.Download = Download;

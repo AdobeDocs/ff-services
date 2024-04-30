@@ -164,7 +164,9 @@ export const getOrganization = async (setOrganizationValue) => {
           "type": organization[0].type
         }
 
-        localStorage.setItem('OrgInfo', JSON.stringify(orgData));
+        if (!JSON.parse(localStorage.getItem('OrgInfo'))) {
+          localStorage.setItem('OrgInfo', JSON.stringify(orgData));
+        }
       }
       return organization;
     }

@@ -7,6 +7,8 @@ import firefly from "./images/firefly.png"
 import ps from "./images/ps.png"
 import { Toast } from '@adobe/gatsby-theme-aio/src/components/Toast';
 import CustomPopover from '../CustomPopover';
+import { ActionButton, Tooltip, TooltipTrigger } from '@adobe/react-spectrum';
+import { Edit } from '@adobe/gatsby-theme-aio/src/components/Icons';
 
 const PreviousProject = ({ previousProject }) => {
 
@@ -204,36 +206,26 @@ const PreviousProject = ({ previousProject }) => {
                   {productList.map((data, index) => {
                     if (index < 3)
                       return (
-                        <>
-                          {isTooltipOpen === index && (
-                            <span
-                              className={`spectrum-Tooltip spectrum-Tooltip--top is-open`}
-                              css={css`
-                                position: absolute;
-                                white-space: nowrap;
-                                top: 5px;
-                                left : ${6 * index}vh !important;
-                                max-width : 100% ;
-                              `}
-                            >
-                              <span className="spectrum-Tooltip-label" css={css`padding : 2px;`}>{data?.name}</span>
-                              <span className="spectrum-Tooltip-tip"
+                        <div
+                          css={css`
+                            & > button {
+                              border : none !important;
+                            }
+                          `}
+                        >
+                          <TooltipTrigger delay={0}>
+                            <ActionButton aria-label="Edit Name">
+                              <img
+                                src={data?.icon}
                                 css={css`
-                                left: calc(${18 + index}* var(--spectrum-tooltip-neutral-tip-width, var(--spectrum-global-dimension-size-100))) !important;
-                              `}
-                              ></span>
-                            </span>
-                          )}
-                          <img
-                            onMouseEnter={() => setTooltipOpen(index)}
-                            onMouseLeave={handleLeave}
-                            src={data?.icon}
-                            css={css`
-                              width: 35px;
-                              cursor : pointer;
-                            `}
-                          />
-                        </>
+                               width: 35px;
+                               cursor : pointer;
+                             `}
+                              />
+                            </ActionButton>
+                            <Tooltip>{data?.name}</Tooltip>
+                          </TooltipTrigger>
+                        </div>
                       )
                   })}
                   <CustomPopover productList={productList} />
