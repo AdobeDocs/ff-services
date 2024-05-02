@@ -28,6 +28,7 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
   const [showOrganization, setShowOrganization] = useState(true);
   const [initialLoading, setInitialLoading] = useState(true);
   const [isSignedUser, setIsSignedUser] = useState(false);
+  const [isShow, setIsShow] = useState(false);
 
   let getCredentialData = {};
   React.Children.forEach(children, (child) => {
@@ -66,7 +67,7 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
     }
     setTimeout(() => {
       getValueFromLocalStorage()
-    }, [1000])
+    }, [2000])
   }, []);
 
   useEffect(() => {
@@ -131,9 +132,9 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
                 {initialLoading ? <Loading /> :
                   !window.adobeIMS?.isSignedInUser() ? <GetCredential.SignIn signInProps={getCredentialData?.[SignIn]} /> :
                     isPrevious ?
-                      <PreviousCredential previousProject={getCredentialData?.[PreviousProject]} formProps={getCredentialData?.[CredentialForm]} welcomeBack={getCredentialData?.[PreviousCredential]} setIsPrevious={setIsPrevious} showOrganization={showOrganization} setOrganizationValue={setOrganizationValue} organizationChange={organizationChange} setOrganization={setOrganization} alertShow={alertShow} setAlertShow={setAlertShow} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} modalOpen={modalOpen} setModalOpen={setModalOpen} organization={organization} /> :
+                      <PreviousCredential previousProject={getCredentialData?.[PreviousProject]} formProps={getCredentialData?.[CredentialForm]} welcomeBack={getCredentialData?.[PreviousCredential]} setIsPrevious={setIsPrevious} showOrganization={showOrganization} setOrganizationValue={setOrganizationValue} organizationChange={organizationChange} setOrganization={setOrganization} alertShow={alertShow} setAlertShow={setAlertShow} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} modalOpen={modalOpen} setModalOpen={setModalOpen} organization={organization} isShow={isShow} setIsShow={setIsShow} /> :
 
-                      <GetCredential.Form formProps={getCredentialData} credentialType={credentialType} service={service} modalOpen={modalOpen} setModalOpen={setModalOpen} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} alertShow={alertShow} setAlertShow={setAlertShow} organizationChange={organizationChange} setOrganization={setOrganization} organization={organization} setOrganizationValue={setOrganizationValue} showOrganization={showOrganization} setShowOrganization={setShowOrganization} />
+                      <GetCredential.Form formProps={getCredentialData} credentialType={credentialType} service={service} modalOpen={modalOpen} setModalOpen={setModalOpen} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} alertShow={alertShow} setAlertShow={setAlertShow} organizationChange={organizationChange} setOrganization={setOrganization} organization={organization} setOrganizationValue={setOrganizationValue} showOrganization={showOrganization} setShowOrganization={setShowOrganization} isShow={isShow} setIsShow={setIsShow} />
                 }
               </div>
             </section>

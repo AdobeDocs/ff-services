@@ -1,20 +1,18 @@
-import React, { useContext, useEffect, useState, useRef } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { css } from "@emotion/react";
 import '@spectrum-css/contextualhelp/dist/index-vars.css';
 import classNames from "classnames";
 import { MyCredential } from './MyCredential';
 import { Loading } from "./Loading";
 import { IllustratedMessage } from "./IllustratedMessage";
-import { ChangeOrganization } from './ChangeOrganization';
 import { JoinBetaProgram } from './JoinBetaProgram';
-import { AlertIcon, FormFields, getOrganization, MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH, MAX_MOBILE_WIDTH, MIN_TABLET_SCREEB_WIDTH } from './FormFields';
+import { AlertIcon, FormFields, getOrganization, MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH } from './FormFields';
 import { ContextHelp } from './ContextHelp';
 import { Toast } from '@adobe/gatsby-theme-aio/src/components/Toast';
 import { NoDeveloperAccessError } from './NoDeveloperAccessError';
 import Context from '@adobe/gatsby-theme-aio/src/components/Context';
 import { Product, Products } from './Products';
-import { Popover } from '@adobe/gatsby-theme-aio/src/components/Popover';
-import { Picker } from '@adobe/gatsby-theme-aio/src/components/Picker';
+import { Organization } from './Organization';
 
 const hostnameRegex = /^(localhost:\d{1,5}|(\*\.|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+)|\*|(\*\.[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+))$/;
 const credentialNameRegex = /^(?=[A-Za-z0-9\s]{6,}$)[A-Za-z0-9\s]*$/;
@@ -30,9 +28,9 @@ const CredentialForm = ({
   alertShow,
   setAlertShow,
   redirectToBeta,
-  setRedirectBetaProgram,
-  modalOpen,
-  setModalOpen
+  isShow,
+  setIsShow,
+  setRedirectBetaProgram
 }) => {
 
   const [loading, setLoading] = useState(false);
@@ -46,62 +44,8 @@ const CredentialForm = ({
   const [isValid, setIsValid] = useState(false);
   const [showOrganization, setShowOrganization] = useState(true);
   const [emailID, setEmailID] = useState('');
-  const [isModalOpen, setIsModelOpen] = useState(true);
-
 
   const { ims } = useContext(Context);
-
-  const [isShow, setShow] = useState(false);
-  const [allOrganization, setAllOrganization] = useState([]);
-  const [selectedIndex, setSelectedIndex] = useState();
-
-  const organizationRef = useRef();
-  const organizationRef2 = useRef();
-
-  const handleClickOutside = (e) => {
-    if (organizationRef2.current && !organizationRef.current.contains(e.target)) {
-      setShow(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  }, []);
-
-  const handleClick = (action) => {
-    if (action === "save") {
-      allOrganization.forEach((organs, index) => {
-        if (index === selectedIndex) {
-          setOrganizationValue(organs)
-        }
-      })
-    }
-    setIsModelOpen(false)
-  }
-
-  useEffect(() => {
-    setTimeout(() => {
-      getValueFromLocalStorage()
-    }, [2000])
-  }, [])
-
-  useEffect(() => {
-    allOrganization.forEach((organs, index) => {
-      if (index === selectedIndex) {
-        const orgData = {
-          "id": organs?.id,
-          "name": organs?.name,
-          "orgLen": organization?.length,
-          "type": organs?.type
-        }
-        localStorage.setItem('OrgInfo', JSON.stringify(orgData));
-      }
-    })
-  }, [selectedIndex])
-
 
   const credentialForm = formProps?.[CredentialForm];
   const isFormValue = credentialForm?.children?.filter(data => Object.keys(data.props).some(key => key.startsWith('contextHelp')));
@@ -119,12 +63,6 @@ const CredentialForm = ({
       const orgData = JSON.parse(orgInfo);
       setShowOrganization(orgData.orgLen === 1 ? false : true);
       setOrganizationValue(orgData);
-      setAllOrganization(getOrgs);
-      getOrgs?.forEach((org, index) => {
-        if (org.name === orgData.name) {
-          setSelectedIndex(index)
-        }
-      })
     }
     if (!getOrgs) {
       setOrganizationValue({});
@@ -207,7 +145,6 @@ const CredentialForm = ({
     else if (organization && Object.keys(organization)?.length !== 0) {
       setShowCreateForm(true)
       setIsError(true)
-      // setOrganizationValue(orgs)
       setTimeout(() => {
         setLoading(false)
         setIsError(false)
@@ -362,198 +299,10 @@ const CredentialForm = ({
               <p
                 className="spectrum-Body spectrum-Body--sizeS"
                 css={css`color:var(--spectrum-global-color-gray-800);display : inline-flex;`}
-                onClick={() => setShow(true)}
+                onClick={() => setIsShow(true)}
               >
                 You're creating this credential in  {organization?.type === "developer" ? "in your personal developer organization" : <span>[<b>{organization?.name}</b>] </span>}.
-                {showOrganization &&
-                  <>
-                    <div
-                      ref={organizationRef2}
-                    >
-                      <div
-                        ref={organizationRef}
-                        aria-label="credentialProject"
-                        aria-controls="credentialProject"
-                        aria-expanded={isShow}
-                        css={css`
-                        text-decoration-color: blue;
-                        text-decoration : underline;
-                        color: blue;  
-                        display: "inline-block";
-                        cursor:pointer;
-                      `
-                        }>
-                        <button
-                          tabIndex="0"
-                          css={css`
-                        border: none;
-                        padding:0;
-                        font-family:'adobe-clean';
-                        background: transparent;
-                        margin-left :10px;
-                        text-decoration:underline;
-                        color: var(--spectrum-global-color-gray-800);
-                        position : relative;
-                        cursor:pointer;`
-                          }
-                          // onClick={() => { setIsModelOpen(true) }}
-                          onClick={() => { setModalOpen(true); setIsModelOpen(true) }}
-                        >
-                          Change organization?
-                        </button>
-                      </div>
-                    </div>
-                    <Popover
-                      id="credentialProject"
-                      isOpen={isShow}
-                      css={css`
-                      width: var(--spectrum-global-dimension-size-6000);
-                      max-height: var(--spectrum-global-dimension-size-6000);
-                      height: var(--spectrum-global-dimension-size-4600);
-                      margin-top: 20px;
-                      right: 50%;
-                    `}>
-                      <div
-                        css={css`
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        flex-direction: column;
-                      `}
-                        // ref={organizationRef}
-                        onClick={isModalOpen ? (event) => event.stopPropagation() : () => { }}
-                      >
-                        <div
-                          css={css`
-                          padding : 40px;
-                          cursor : pointer;
-                        `}
-                        >
-                          {allOrganization.length ?
-                            <div className="spectrum-Dialog-grid">
-                              <h1 className="spectrum-Dialog-heading spectrum-Dialog-heading--noHeader">Change organization</h1>
-                              <hr className="spectrum-Divider spectrum-Divider--sizeM spectrum-Divider--horizontal spectrum-Dialog-divider" />
-                              <section className="spectrum-Dialog-content">
-                                <div
-                                  css={css`
-                                display:flex;
-                                flex-direction:column;
-                                gap:20px;
-                              `}
-                                >
-                                  <div>
-                                    An organization is the entity that functions like a log-in company that spans all Adobe products and applications. Most often, an organization is your company name.However, a company can have many organizations. Change the organization here.
-                                  </div>
-                                  <div
-                                    css={css`
-                                  display : flex; 
-                                  flex-direction:column;
-                                `}>
-                                    <div className="spectrum-Textfield spectrum-Textfield--sizeM">
-                                      <p
-                                        css={css`color: var(--spectrum-global-color-gray-600);margin:0;`}>
-                                        Organization
-                                      </p>
-                                    </div>
-
-                                    <div
-                                      css={css`
-                        
-                                    & > div > .spectrum-Picker {
-                                      width: 100% !important;
-                                      height: 20px;
-                                    }
-          
-                                    & > div > div {
-                                      width: 86%;
-                                      left: 9%;
-                                      height : 40%;
-          
-                                      @media screen and (min-width:${MIN_MOBILE_WIDTH}) and (max-width:${MAX_MOBILE_WIDTH}){
-                                        width: 82%;
-                                        left: 15%;
-                                      }
-          
-                                      @media screen and (min-width:${MIN_TABLET_SCREEB_WIDTH}) and (max-width:${MAX_TABLET_SCREEN_WIDTH}){
-                                        width: 91%;
-                                        left: 7%;
-                                      }
-          
-                                    }
-          
-                                    & > div > .spectrum-Picker-popover > ul > li > div > div {
-                                      margin : 0 ;
-                                    }
-          
-                                    & > div > .spectrum-Picker-popover > ul > li > div > div > svg {
-                                      @media screen and (min-width:${MIN_MOBILE_WIDTH}) and (max-width:${MAX_TABLET_SCREEN_WIDTH}){
-                                        margin: 3px;
-                                        padding: 0;
-                                      }
-                                    }
-          
-                                      padding: 5px;
-                                      border-radius: 3px;
-                                      border: 1px solid #D0D0D0 !important;
-
-                                    ` }
-                                    >
-                                      <Picker
-                                        isQuiet
-                                        items={allOrganization?.map((organs, k) => {
-                                          return {
-                                            title: organs?.name,
-                                            selected: k === selectedIndex
-                                          }
-                                        })}
-                                        onChange={(index) => {
-                                          setSelectedIndex(index);
-                                        }}
-                                      />
-                                    </div>
-
-                                  </div>
-                                  <div
-                                    css={css`
-                                    display: flex;
-                                    gap: 5px;
-                                  `}
-                                  >
-                                    <span>Can't find your organization?</span>
-                                    <a href="https://some_help_link"
-                                      target="_blank"
-                                      rel="noreferrer"
-                                      css={css`
-                                    color:rgb(0, 84, 182);
-                                    &:hover {
-                                      color: rgb(2, 101, 220);
-                                    }`
-                                      }
-                                    >Learn more about organizations.</a>
-                                  </div>
-
-                                  <div className="spectrum-ButtonGroup spectrum-Dialog-buttonGroup spectrum-Dialog-buttonGroup--noFooter" css={css` gap: 20px; `} >
-                                    <button className="spectrum-Button spectrum-Button--sizeM spectrum-Button--outline spectrum-Button--secondary spectrum-ButtonGroup-item" type="button" onClick={() => { handleClick("cancel") }}>
-                                      <span className="spectrum-Button-label">Cancel</span>
-                                    </button>
-                                    <button className="spectrum-Button spectrum-Button--sizeM spectrum-Button--fill spectrum-Button--accent spectrum-ButtonGroup-item" type="button" onClick={() => { handleClick("save") }}>
-                                      <span className="spectrum-Button-label" >Save</span>
-                                    </button>
-                                  </div>
-                                </div>
-
-                              </section>
-
-                            </div>
-                            :
-                            <Loading />
-                          }
-                        </div>
-                      </div>
-                    </Popover>
-
-                  </>
-                }
+                {showOrganization && <Organization isShow={isShow} setOrganizationValue={setOrganizationValue} setIsShow={setIsShow} organization={organization} />}
               </p>
             </div>
           </div>
@@ -636,18 +385,6 @@ const CredentialForm = ({
         </>
       }
       {loading && !showCredential && !isError && !showCreateForm && organization && <Loading credentials={credentialForm} isCreateCredential downloadStatus={formData['Downloads']} />}
-      {/* {modalOpen && (
-        <ChangeOrganization
-          setModalOpen={setModalOpen}
-          redirectToBeta={redirectToBeta}
-          setRedirectBetaProgram={setRedirectBetaProgram}
-          setAlertShow={setAlertShow}
-          alertShow={alertShow}
-          organizationChange={organizationChange}
-          setOrganization={setOrganization}
-          setOrganizationValue={setOrganizationValue}
-        />
-      )} */}
       {(!organization || isError) && loading && <Loading />}
       {isError && !showCreateForm && !showCredential && !organization && <IllustratedMessage errorMessage={formProps?.[IllustratedMessage]} />}
       {showCredential && !showCreateForm && <MyCredential credentialProps={formProps} response={response} setShowCreateForm={setShowCreateForm} setShowCredential={setShowCredential} organizationName={organization?.name} formData={formData} orgID={organization?.id} />}

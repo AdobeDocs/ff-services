@@ -10,6 +10,7 @@ import { Toast } from '@adobe/gatsby-theme-aio/src/components/Toast';
 import firefly from "./images/firefly.png"
 import ps from "./images/ps.png"
 import CustomPopover from '../CustomPopover';
+import { ActionButton, Tooltip, TooltipTrigger } from '@adobe/react-spectrum';
 
 const MyCredential = ({
   credentialProps,
@@ -25,7 +26,6 @@ const MyCredential = ({
   const [organization, setOrganizationValue] = useState({});
   const [isDownloadStart, setIsDownloadStart] = useState();
   const [isCopiedTooltip, setCopiedTooltip] = useState('');
-  const [myCredentials, setMyCredentials] = useState([])
 
   const Credential = [
     {
@@ -328,7 +328,26 @@ const MyCredential = ({
                     {productList.map((data, index) => {
                       if (index < 2)
                         return (
-                          <img src={data?.icon} css={css`width: 35px;`} />
+                          <div
+                            css={css`
+                              & > button {
+                                border : none !important;
+                              }
+                            `}
+                          >
+                            <TooltipTrigger delay={0}>
+                              <ActionButton aria-label="Edit Name">
+                                <img
+                                  src={data?.icon}
+                                  css={css`
+                                    width: 35px;
+                                    cursor : pointer;
+                                  `}
+                                />
+                              </ActionButton>
+                              <Tooltip>{data?.name}</Tooltip>
+                            </TooltipTrigger>
+                          </div>
                         )
                     })}
                     <CustomPopover productList={productList} />
@@ -565,4 +584,4 @@ const MyCredential = ({
   )
 }
 
-export { MyCredential }
+export { MyCredential };
