@@ -137,6 +137,11 @@ const Organization = ({
             css={css`
               padding : 40px;
               cursor : pointer;
+              
+              .spectrum-Dialog-content{
+                overflow : auto !important;
+              }
+              
             `}
           >
             {allOrganization.length ?
