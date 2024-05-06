@@ -16,7 +16,8 @@ const PreviousCredential = ({
   setOrganizationValue,
   organization,
   setIsShow,
-  isShow
+  isShow,
+  allOrganization
 }) => {
 
   const credentialForm = formProps;
@@ -62,7 +63,7 @@ const PreviousCredential = ({
             >
               You’re viewing in [<b>{organization?.name}</b>].
               {showOrganization &&
-                <Organization isShow={isShow} setOrganizationValue={setOrganizationValue} setIsShow={setIsShow} organization={organization} />
+                <Organization isShow={isShow} setOrganizationValue={setOrganizationValue} setIsShow={setIsShow} organization={organization} allOrganization={allOrganization} />
               }
             </p>
           </div>

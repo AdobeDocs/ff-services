@@ -30,7 +30,8 @@ const CredentialForm = ({
   redirectToBeta,
   isShow,
   setIsShow,
-  setRedirectBetaProgram
+  setRedirectBetaProgram,
+  allOrganization
 }) => {
 
   const [loading, setLoading] = useState(false);
@@ -42,7 +43,6 @@ const CredentialForm = ({
   const [formField, setFormField] = useState([]);
   const [formData, setFormData] = useState({});
   const [isValid, setIsValid] = useState(false);
-  const [showOrganization, setShowOrganization] = useState(true);
   const [emailID, setEmailID] = useState('');
 
   const { ims } = useContext(Context);
@@ -50,21 +50,8 @@ const CredentialForm = ({
   const credentialForm = formProps?.[CredentialForm];
   const isFormValue = credentialForm?.children?.filter(data => Object.keys(data.props).some(key => key.startsWith('contextHelp')));
 
-
   const getValueFromLocalStorage = async () => {
-    const orgInfo = localStorage?.getItem('OrgInfo');
-    const getOrgs = await getOrganization(setOrganizationValue);
-    if (orgInfo === null) {
-      if (getOrgs?.length === 1) {
-        setShowOrganization(false);
-      }
-    }
-    else if (getOrgs) {
-      const orgData = JSON.parse(orgInfo);
-      setShowOrganization(orgData.orgLen === 1 ? false : true);
-      setOrganizationValue(orgData);
-    }
-    if (!getOrgs) {
+    if (!allOrganization) {
       setOrganizationValue({});
       setShowCreateForm(false)
     }
@@ -231,16 +218,16 @@ const CredentialForm = ({
 
       const resResp = await response.json();
 
-      if (response.status === 200) {
-        setResponse(resResp);
-        setShowCredential(true);
-        setAlertShow(true);
-      } else if (resResp?.messages) {
-        setAlertShow(true);
-        setIsValid(false);
-        setErrorResp(resResp?.messages[0]?.message);
-        setShowCreateForm(true);
-      }
+      // if (response.status === 200) {
+      setResponse(resResp);
+      setShowCredential(true);
+      setAlertShow(true);
+      // } else if (resResp?.messages) {
+      //   setAlertShow(true);
+      //   setIsValid(false);
+      //   setErrorResp(resResp?.messages[0]?.message);
+      //   setShowCreateForm(true);
+      // }
     } catch (error) {
       setIsError(true);
     } finally {
@@ -248,7 +235,7 @@ const CredentialForm = ({
     }
   };
 
-  const sideObject = formField?.[Side];
+  const sideObject = formField?.[SideCredential];
   const credentialName = formField?.[CredentialName];
   const allowedOrigins = formField?.[AllowedOrigins];
   const downloads = formField?.[Downloads];
@@ -302,7 +289,7 @@ const CredentialForm = ({
                 onClick={() => setIsShow(true)}
               >
                 You're creating this credential in  {organization?.type === "developer" ? "in your personal developer organization" : <span>[<b>{organization?.name}</b>] </span>}.
-                {showOrganization && <Organization isShow={isShow} setOrganizationValue={setOrganizationValue} setIsShow={setIsShow} organization={organization} />}
+                <Organization isShow={isShow} setOrganizationValue={setOrganizationValue} setIsShow={setIsShow} organization={organization} allOrganization={allOrganization} />
               </p>
             </div>
           </div>
@@ -366,7 +353,7 @@ const CredentialForm = ({
                 </button>
               </div>
             </div>
-            {sideObject ? <SideContent sideContent={sideObject?.children} /> : null}
+            {sideObject ? <SideContent sideContent={sideObject?.children} SideComp={SideCredential} /> : null}
           </div>
         </div>
       }
@@ -387,14 +374,14 @@ const CredentialForm = ({
       {loading && !showCredential && !isError && !showCreateForm && organization && <Loading credentials={credentialForm} isCreateCredential downloadStatus={formData['Downloads']} />}
       {(!organization || isError) && loading && <Loading />}
       {isError && !showCreateForm && !showCredential && !organization && <IllustratedMessage errorMessage={formProps?.[IllustratedMessage]} />}
-      {showCredential && !showCreateForm && <MyCredential credentialProps={formProps} response={response} setShowCreateForm={setShowCreateForm} setShowCredential={setShowCredential} organizationName={organization?.name} formData={formData} orgID={organization?.id} />}
+      {showCredential && !showCreateForm && <MyCredential credentialProps={formProps} response={response} setShowCreateForm={setShowCreateForm} setShowCredential={setShowCredential} organizationName={organization?.name} formData={formData} orgID={organization?.id} organization={organization} />}
       {redirectToBeta && <JoinBetaProgram joinBeta={formProps?.[JoinBetaProgram]} />}
       {!showCreateForm && !organization && !isError && !loading && <NoDeveloperAccessError developerAccessError={formProps?.[NoDeveloperAccessError]} title={credentialForm?.title} emailID={emailID} />}
     </>
   )
 }
 
-const Side = ({ side }) => (side);
+const SideCredential = ({ side }) => (side);
 
 const CredentialName = ({ nameProps, isFormValue, formData, handleChange }) => {
   const inValidName = !credentialNameRegex.test(formData['CredentialName'])
@@ -516,7 +503,7 @@ const Download = ({ downloadProp, formData, isFormValue, handleChange }) => {
   )
 }
 
-const SideContent = ({ sideContent }) => {
+const SideContent = ({ sideContent, SideComp }) => {
   return (
     <>
       <div
@@ -539,10 +526,10 @@ const SideContent = ({ sideContent }) => {
           }
 
         `}>
-        <Side side={sideContent} />
+        <SideComp side={sideContent} />
       </div>
     </>
   )
 }
 
-export { CredentialForm, Side, CredentialName, AllowedOrigins, Downloads, Download, SideContent };
+export { CredentialForm, SideCredential, CredentialName, AllowedOrigins, Downloads, Download, SideContent };

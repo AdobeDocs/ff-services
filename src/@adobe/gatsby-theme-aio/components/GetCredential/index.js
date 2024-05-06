@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { SignIn } from "./SignIn"
 import { css } from "@emotion/react";
 import PropTypes from 'prop-types';
-import { AllowedOrigins, CredentialForm, CredentialName, Download, Downloads, Side } from './CredentialForm';
+import { AllowedOrigins, CredentialForm, CredentialName, Download, Downloads, SideCredential } from './CredentialForm';
 import classNames from "classnames";
 import { IllustratedMessage } from './IllustratedMessage';
-import { MyCredential } from './MyCredential';
+import { AccessToken, ClientId, ClientSecret, CredentialDetails, DevConsoleLink, MyCredential, MyCredentialSide, OrganizationName, Scopes } from './MyCredential';
 import { JoinBetaProgram } from './JoinBetaProgram';
 import { NoDeveloperAccessError } from "./NoDeveloperAccessError"
 import { getOrganization, MAX_MOBILE_WIDTH, MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH } from './FormFields';
@@ -29,6 +29,7 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
   const [initialLoading, setInitialLoading] = useState(true);
   const [isSignedUser, setIsSignedUser] = useState(false);
   const [isShow, setIsShow] = useState(false);
+  const [allOrganization, setAllOrganization] = useState([]);
 
   let getCredentialData = {};
   React.Children.forEach(children, (child) => {
@@ -43,6 +44,7 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
   const getValueFromLocalStorage = async () => {
     const orgInfo = localStorage?.getItem('OrgInfo');
     const getOrgs = await getOrganization(setOrganizationValue);
+    setAllOrganization(getOrgs)
     if (orgInfo === null) {
       if (getOrgs?.length === 1) {
         setShowOrganization(false);
@@ -93,6 +95,22 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
     setIsSignedUser(window.adobeIMS?.isSignedInUser() ? true : false)
   }, [window.adobeIMS?.isSignedInUser()])
 
+  // const myCredentialFields = {};
+
+  // getCredentialData?.[MyCredential].children.forEach(({ type, props }) => {
+  //   myCredentialFields[type] = { ...props };
+  // })
+
+  // const credentialDetails = myCredentialFields[CredentialDetails];
+
+  // credentialDetails?.children.forEach(({ props }) => {
+  //   const { type, ...rest } = props;
+  //   console.log('type', type)
+  //   myCredentialFields[type] = { ...rest }
+  // })
+
+  // console.log('myCredentialField',credentialDetails?.children)
+
   return (
     <>
       {
@@ -132,9 +150,9 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
                 {initialLoading ? <Loading /> :
                   !window.adobeIMS?.isSignedInUser() ? <GetCredential.SignIn signInProps={getCredentialData?.[SignIn]} /> :
                     isPrevious ?
-                      <PreviousCredential previousProject={getCredentialData?.[PreviousProject]} formProps={getCredentialData?.[CredentialForm]} welcomeBack={getCredentialData?.[PreviousCredential]} setIsPrevious={setIsPrevious} showOrganization={showOrganization} setOrganizationValue={setOrganizationValue} organizationChange={organizationChange} setOrganization={setOrganization} alertShow={alertShow} setAlertShow={setAlertShow} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} modalOpen={modalOpen} setModalOpen={setModalOpen} organization={organization} isShow={isShow} setIsShow={setIsShow} /> :
+                      <PreviousCredential previousProject={getCredentialData?.[PreviousProject]} formProps={getCredentialData?.[CredentialForm]} welcomeBack={getCredentialData?.[PreviousCredential]} setIsPrevious={setIsPrevious} showOrganization={showOrganization} setOrganizationValue={setOrganizationValue} organizationChange={organizationChange} setOrganization={setOrganization} alertShow={alertShow} setAlertShow={setAlertShow} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} modalOpen={modalOpen} setModalOpen={setModalOpen} organization={organization} isShow={isShow} setIsShow={setIsShow} allOrganization={allOrganization} /> :
 
-                      <GetCredential.Form formProps={getCredentialData} credentialType={credentialType} service={service} modalOpen={modalOpen} setModalOpen={setModalOpen} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} alertShow={alertShow} setAlertShow={setAlertShow} organizationChange={organizationChange} setOrganization={setOrganization} organization={organization} setOrganizationValue={setOrganizationValue} showOrganization={showOrganization} setShowOrganization={setShowOrganization} isShow={isShow} setIsShow={setIsShow} />
+                      <GetCredential.Form formProps={getCredentialData} credentialType={credentialType} service={service} modalOpen={modalOpen} setModalOpen={setModalOpen} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} alertShow={alertShow} setAlertShow={setAlertShow} organizationChange={organizationChange} setOrganization={setOrganization} organization={organization} setOrganizationValue={setOrganizationValue} showOrganization={showOrganization} setShowOrganization={setShowOrganization} isShow={isShow} setIsShow={setIsShow} allOrganization={allOrganization} />
                 }
               </div>
             </section>
@@ -157,11 +175,19 @@ GetCredential.Form.CredentialName = CredentialName;
 GetCredential.Form.AllowedOrigins = AllowedOrigins;
 GetCredential.Form.Products = Products;
 GetCredential.Form.Product = Product;
-GetCredential.Form.Side = Side;
+GetCredential.Form.Side = SideCredential;
 GetCredential.Form.Downloads = Downloads;
 GetCredential.Form.Download = Download;
 GetCredential.UnknownError = IllustratedMessage;
 GetCredential.Card = MyCredential;
+GetCredential.Card.AccessToken = AccessToken;
+GetCredential.Card.DevConsoleLink = DevConsoleLink;
+GetCredential.Card.CredentialDetails = CredentialDetails;
+GetCredential.Card.CredentialDetails.ClientId = ClientId;
+GetCredential.Card.CredentialDetails.ClientSecret = ClientSecret;
+GetCredential.Card.CredentialDetails.Scopes = Scopes;
+GetCredential.Card.CredentialDetails.OrganizationName = OrganizationName;
+GetCredential.Card.Side = MyCredentialSide;
 GetCredential.NoBetaAccessError = JoinBetaProgram;
 GetCredential.NoDeveloperAccessError = NoDeveloperAccessError;
 GetCredential.WelcomeBack = PreviousCredential;

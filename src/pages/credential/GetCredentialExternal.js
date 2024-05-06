@@ -51,7 +51,18 @@ const GetCredentialExternal = () => {
 
       <GetCredential.Card title="Your credential is ready to use" paragraph="Check the downloads section of your browser for the ZIP file, or find it where you save downloads on your machine." nextStepsLabel="Next steps" nextStepsHref="/credentials/nextsteps" developerConsoleManage="Manage on Developer console" className="card_developer_console">
 
-        <GetCredential.Form.Side>
+        <GetCredential.Card.AccessToken helpText="" buttonLabel="Generate and copy token" heading="Access Token" />
+
+        <GetCredential.Card.DevConsoleLink heading="Developer Console Project" />
+
+        <GetCredential.Card.CredentialDetails heading="Credential Details"  >
+          <GetCredential.Card.CredentialDetails.ClientId type='ClientId' heading="Client ID" />
+          <GetCredential.Card.CredentialDetails.ClientSecret type="ClientSecret" heading="Client Secret" buttonLabel="Retrieve and copy client secret" />
+          <GetCredential.Card.CredentialDetails.Scopes type="Scopes" heading="Scopes" />
+          <GetCredential.Card.CredentialDetails.OrganizationName type="OrganizationName" heading="Organization" />
+        </GetCredential.Card.CredentialDetails>
+
+        <GetCredential.Card.Side>
           <div style="display : flex ; gap : 16px ; flex-direction : column;">
             <h3 className="spectrum-Heading spectrum-Heading--sizeS side-header" >API key credential</h3>
             <p className="spectrum-Body spectrum-Body--sizeM">Submitting this form creates an API Key credential. The API key credential identifies your application to Adobe servers and can help accept or reject requests originating from certain domains.</p>
@@ -60,7 +71,7 @@ const GetCredentialExternal = () => {
             <a className='side-documentation' style={{ color: "#0265DC" }} href='https://some_help_link'>Firefly - Firefly and Creative Cloud Automation API documentation</a>
             <a className='side-documentation' style={{ color: "#0265DC" }} href='https://some_help_link'>Adobe Photoshop API documentation</a>
           </div>
-        </GetCredential.Form.Side>
+        </GetCredential.Card.Side>
 
       </GetCredential.Card>
 

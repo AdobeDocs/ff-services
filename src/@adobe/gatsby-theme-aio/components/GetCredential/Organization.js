@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { css } from "@emotion/react";
 import '@spectrum-css/contextualhelp/dist/index-vars.css';
-import { getOrganization, MAX_MOBILE_WIDTH, MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH, MIN_TABLET_SCREEB_WIDTH } from './FormFields';
+import { MAX_MOBILE_WIDTH, MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH, MIN_TABLET_SCREEB_WIDTH } from './FormFields';
 import { Popover } from '@adobe/gatsby-theme-aio/src/components/Popover';
 import { Picker } from '@adobe/gatsby-theme-aio/src/components/Picker';
 import { Loading } from './Loading';
@@ -9,10 +9,10 @@ import { Loading } from './Loading';
 const Organization = ({
   isShow,
   setOrganizationValue,
-  setIsShow
+  setIsShow,
+  allOrganization
 }) => {
 
-  const [allOrganization, setAllOrganization] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState();
   const [isModalOpen, setIsModelOpen] = useState(true);
 
@@ -33,11 +33,9 @@ const Organization = ({
   }, []);
 
   const getValueFromLocalStorage = async () => {
-    const getOrgs = await getOrganization(setOrganizationValue);
-    setAllOrganization(getOrgs)
 
     let organizationObj = JSON.parse(localStorage.getItem("OrgInfo"))
-    getOrgs?.forEach((org, index) => {
+    allOrganization?.forEach((org, index) => {
       if (org.name === organizationObj.name) {
         setSelectedIndex(index)
       }
@@ -46,7 +44,7 @@ const Organization = ({
   }
 
   useEffect(() => {
-    allOrganization.forEach((organs, index) => {
+    allOrganization?.forEach((organs, index) => {
       if (index === selectedIndex) {
         const orgData = {
           "id": organs?.id,
@@ -68,7 +66,7 @@ const Organization = ({
 
   const handleClick = (action) => {
     if (action === "save") {
-      allOrganization.forEach((organs, index) => {
+      allOrganization?.forEach((organs, index) => {
         if (index === selectedIndex) {
           setOrganizationValue(organs)
         }
@@ -139,12 +137,12 @@ const Organization = ({
               cursor : pointer;
               
               .spectrum-Dialog-content{
-                overflow : auto !important;
+                overflow : hidden !important;
               }
-              
+
             `}
           >
-            {allOrganization.length ?
+            {allOrganization?.length ?
               <div className="spectrum-Dialog-grid">
                 <h1 className="spectrum-Dialog-heading spectrum-Dialog-heading--noHeader">Change organization</h1>
                 <hr className="spectrum-Divider spectrum-Divider--sizeM spectrum-Divider--horizontal spectrum-Dialog-divider" />

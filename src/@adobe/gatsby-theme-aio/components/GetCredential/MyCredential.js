@@ -19,13 +19,23 @@ const MyCredential = ({
   setShowCredential,
   organizationName,
   response,
-  orgID
+  orgID,
+  organization
 }) => {
 
   const [isTooltipOpen, setTooltipOpen] = useState(null);
-  const [organization, setOrganizationValue] = useState({});
   const [isDownloadStart, setIsDownloadStart] = useState();
   const [isCopiedTooltip, setCopiedTooltip] = useState('');
+
+  const myCredentialFields = {};
+
+  credentialProps?.[MyCredential].children.forEach(({ type, props }) => {
+    myCredentialFields[type] = { ...props };
+  })
+
+  const accessToken = myCredentialFields[AccessToken];
+  const cardDevConsoleLink = myCredentialFields[DevConsoleLink];
+  const credentialDetails = myCredentialFields[CredentialDetails]
 
   const Credential = [
     {
@@ -74,13 +84,6 @@ const MyCredential = ({
   }, [])
 
   useEffect(() => {
-    const OrgInfo = localStorage?.getItem('OrgInfo');
-    if (OrgInfo) {
-      setOrganizationValue(JSON.parse(OrgInfo));
-    }
-    else {
-      getOrganization(setOrganizationValue);
-    }
     if (formData['Downloads']) {
       downloadZIP(`/console/api/organizations/${orgID}/projects/${response.projectId}/workspaces/${response.workspaceId}/download`, formData['Download'], formData['zipUrl'])
     }
@@ -370,49 +373,17 @@ const MyCredential = ({
                 `}
               >
 
-                {/* <div css={css`
+                {accessToken && <div css={css`
                   display : flex;
                   flex-direction : column;
                   gap:16px;
                 `}>
-                  <h4 className="spectrum-Heading spectrum-Heading--sizeS">Access Token</h4>
-                  <button css={css`width: 180px;`} className="spectrum-Button spectrum-Button--fill spectrum-Button--accent spectrum-Button--sizeM">
-                    <span className="spectrum-Button-label">Generate and copy token</span>
-                  </button>
-                </div> */}
+                  <AccessToken accessToken={accessToken} />
+                </div>}
 
-                <div css={css`
-                  display : flex;
-                  flex-direction : column;
-                  gap:16px;
-                `}>
-                  <h4 className="spectrum-Heading spectrum-Heading--sizeS">Developer Console Project</h4>
+                {cardDevConsoleLink && <DevConsoleLink cardDevConsoleLink={cardDevConsoleLink} formData={formData} />}
 
-
-                  <div css={css`display:flex;`}>
-                    <div><p className="spectrum-Body spectrum-Body--sizeS"
-                      css={css`
-                      font-family: Source Code Pro,Monaco,monospace;
-                      white-space: normal;
-                      overflow-wrap: anywhere;
-                      max-width: 300px;
-                      color: #0265DC;
-                    `}
-                    >{formData['CredentialName']}</p></div>
-                    <div css={
-                      css`
-                        margin-left:10px;
-                        @media screen and (min-width:${MIN_MOBILE_WIDTH}) and (max-width:${MAX_TABLET_SCREEN_WIDTH}){
-                          display:none;
-                        }
-                      }`
-                    }><LinkOut /></div>
-                  </div>
-                </div>
-
-                <div>
-                  <h4 className="spectrum-Heading spectrum-Heading--sizeS">Credential details</h4>
-                </div>
+                {credentialDetails && <CredentialDetails credentialDetails={credentialDetails} />}
 
                 {Credential?.map(({ key, value }, index) => {
                   return (
@@ -577,11 +548,74 @@ const MyCredential = ({
             </p>
           </div>
         </div>
-        {card?.children ? <SideContent sideContent={card?.children?.props?.children} /> : null}
+        {card?.children ? <SideContent sideContent={myCredentialFields[MyCredentialSide]?.children} SideComp={MyCredentialSide} /> : null}
       </div>
       {isCopiedTooltip && <Toast variant='success' message="Copied to clipboard" disable={1000} customDisableFunction={setCopiedTooltip} />}
     </div>
   )
 }
 
-export { MyCredential };
+const MyCredentialSide = ({ side }) => (side);
+
+const AccessToken = (accessToken) => {
+  return (
+    <>
+      {accessToken?.heading && <h4 className="spectrum-Heading spectrum-Heading--sizeS">{accessToken?.heading}</h4>}
+      {accessToken?.buttonLabel && <button css={css`width: 180px;`} className="spectrum-Button spectrum-Button--fill spectrum-Button--accent spectrum-Button--sizeM">
+        <span className="spectrum-Button-label">{accessToken?.buttonLabel}</span>
+      </button>}
+    </>
+  )
+};
+
+const DevConsoleLink = ({ cardDevConsoleLink, formData }) => {
+  return (
+    <>
+      <div css={css`
+          display : flex;
+          flex-direction : column;
+          gap:16px;
+        `}>
+        {cardDevConsoleLink?.heading && <h4 className="spectrum-Heading spectrum-Heading--sizeS">{cardDevConsoleLink?.heading}</h4>}
+
+        <div css={css`display:flex;`}>
+          <div><p className="spectrum-Body spectrum-Body--sizeS"
+            css={css`
+              font-family: Source Code Pro,Monaco,monospace;
+              white-space: normal;
+              overflow-wrap: anywhere;
+              max-width: 300px;
+              color: #0265DC;
+            `}
+          >{formData['CredentialName']}</p></div>
+          <div css={
+            css`
+              margin-left:10px;
+              @media screen and (min-width:${MIN_MOBILE_WIDTH}) and (max-width:${MAX_TABLET_SCREEN_WIDTH}){
+                display:none;
+              }
+            }`
+          }><LinkOut /></div>
+        </div>
+      </div>
+    </>
+  )
+}
+
+const CredentialDetails = ({ credentialDetails }) => {
+  return (
+    <div>
+      <h4 className="spectrum-Heading spectrum-Heading--sizeS">{credentialDetails.heading}</h4>
+    </div>
+  )
+}
+
+const ClientId = () => { }
+
+const ClientSecret = () => { }
+
+const Scopes = () => { }
+
+const OrganizationName = () => { }
+
+export { MyCredential, MyCredentialSide, AccessToken, DevConsoleLink, CredentialDetails, ClientId, ClientSecret, Scopes, OrganizationName };
