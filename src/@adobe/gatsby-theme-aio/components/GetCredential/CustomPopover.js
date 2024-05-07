@@ -54,7 +54,7 @@ const CustomPopover = ({ productList }) => {
             `}
           >
             {productList.map((product) => {
-              return <div css={css`padding:5px;`}>{product.name}</div>
+              return <div css={css`padding:5px;`}>{product.label}</div>
             })}
           </div>
         </div>

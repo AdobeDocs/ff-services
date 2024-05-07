@@ -3,41 +3,26 @@ import { css } from "@emotion/react";
 import '@spectrum-css/contextualhelp/dist/index-vars.css';
 import { MAX_MOBILE_WIDTH, MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH, MIN_TABLET_SCREEB_WIDTH, LinkOut, KeyIcon, CopyIcon } from './FormFields';
 import { Picker } from "@adobe/gatsby-theme-aio/src/components/Picker";
-import firefly from "./images/firefly.png"
-import ps from "./images/ps.png"
 import { Toast } from '@adobe/gatsby-theme-aio/src/components/Toast';
-import CustomPopover from '../CustomPopover';
+import CustomPopover from './CustomPopover';
 import { ActionButton, Tooltip, TooltipTrigger } from '@adobe/react-spectrum';
-import { Edit } from '@adobe/gatsby-theme-aio/src/components/Icons';
+import classNames from "classnames";
 
-const PreviousProject = ({ previousProject }) => {
+const PreviousProject = ({ returnProps, returnFields, productList }) => {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isTooltipOpen, setTooltipOpen] = useState(null);
   const [isCopiedTooltip, setCopiedTooltip] = useState('');
   const [previousCredential, setPreviousCredentials] = useState({})
 
-  const previousProjects = JSON.parse(localStorage.getItem("myCredential"));
+  const previousProjectsDetails = JSON.parse(localStorage.getItem("myCredential"));
+  const previousProject = returnProps[PreviousProject];
+  const projectsDropdown = returnFields[ProjectsDropdown];
+  const returnAccessToken = returnFields[ReturnAccessToken];
+  const returnDevConsoleLink = returnFields[ReturnDevConsoleLink];
+  const returnManageDeveloperConsole = returnFields[ReturnManageDeveloperConsole];
 
-  const productList = [
-    {
-      name: " Firefly - Firefly and Creative Cloud Automation API",
-      icon: firefly
-    },
-    {
-      name: "Adobe Photoshop API",
-      icon: ps
-    },
-    {
-      name: "Adobe Analytics",
-      icon: firefly
-    },
-    {
-      name: "Adobe products"
-    }
-  ]
-
-  const filterSelectedProject = previousProjects.filter((data, index) => selectedIndex === index);
+  const filterSelectedProject = previousProjectsDetails.filter((data, index) => selectedIndex === index);
 
   useEffect(() => {
     setPreviousCredentials(filterSelectedProject[0])
@@ -50,108 +35,24 @@ const PreviousProject = ({ previousProject }) => {
 
   const handleLeave = () => {
     setTooltipOpen(null);
-  }
+  };
 
   return (
     <>
-      <div css={css`
-        display : flex;
-        flex-direction : column;
-        gap:24px;
-      `}>
+      <div
+        className={classNames(previousProject?.className)}
+        css={css`
+          display : flex;
+          flex-direction : column;
+          gap:24px;
+        `}>
         {previousProject?.title && <h3 className='spectrum-Heading spectrum-Heading--sizeM'>{previousProject?.title}</h3>}
+
         {previousProject?.paragraph && <p className="spectrum-Body spectrum-Body--sizeL">{previousProject?.paragraph}</p>}
-        <div>
 
-          <div>
-            <div css={css`display:flex;`}>
-              <a href="/console/project" target="_blank" rel="noreferrer"
-                css={css`
-                  color:#0265DC;
-                `}
-              >Manage all your projects and credentials on Adobe Developer Console</a>
-              <div css={
-                css`
-                  margin-left:10px;
-                  cursor : pointer;
-                  @media screen and (min-width:${MIN_MOBILE_WIDTH}) and (max-width:${MAX_TABLET_SCREEN_WIDTH}){
-                    display:none;
-                  }
-                
-                & > svg > path{
-                  fill : #0265DC !important;
-                }
-                `
-              }><LinkOut /></div>
-            </div>
-          </div>
+        {returnManageDeveloperConsole && <ReturnManageDeveloperConsole returnManageDeveloperConsole={returnManageDeveloperConsole} />}
 
-        </div>
-
-        <div
-          css={css`
-              display : flex;
-              flex-direction : column;
-              gap:2px;
-          `}
-        >
-          <p className="spectrum-Body spectrum-Body--sizeS" css={css`color: #464646`}>Projects * </p>
-          <div
-            css={css`
-                        
-                & > div > .spectrum-Picker {
-                  width: 100% !important;
-                  height: 20px;
-                }
-
-                & > div > div {
-                  width: 22%;
-
-                  @media screen and (min-width:${MIN_MOBILE_WIDTH}) and (max-width:${MAX_MOBILE_WIDTH}){
-                    width: 82%;
-                    left: 15%;
-                  }
-
-                  @media screen and (min-width:${MIN_TABLET_SCREEB_WIDTH}) and (max-width:${MAX_TABLET_SCREEN_WIDTH}){
-                    width: 91%;
-                    left: 7%;
-                  }
-
-                }
-
-                & > div > .spectrum-Picker-popover > ul > li > div > div {
-                  margin : 0 ;
-                }
-
-                & > div > .spectrum-Picker-popover > ul > li > div > div > svg {
-                  @media screen and (min-width:${MIN_MOBILE_WIDTH}) and (max-width:${MAX_TABLET_SCREEN_WIDTH}){
-                    margin: 3px;
-                    padding: 0;
-                  }
-                }
-
-                  padding: 8px;
-                  border-radius: 3px;
-                  border: 1px solid #909090 !important;
-                  width: 400px;
-
-                ` }
-          >
-            <Picker
-              isQuiet
-              items={previousProjects.map((organs, k) => {
-                return {
-                  title: organs?.name,
-                  selected: k === selectedIndex
-                }
-              })}
-              onChange={(index) => {
-                setSelectedIndex(index);
-              }}
-            />
-          </div>
-          <p className="spectrum-Body spectrum-Body--sizeS" css={css`color: #464646`}>Only your projects that contain credentials are shown.</p>
-        </div>
+        {projectsDropdown && <ProjectsDropdown projectsDropdown={projectsDropdown} previousProjectsDetails={previousProjectsDetails} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />}
 
         {/* ----------- credential form ------------  */}
 
@@ -194,42 +95,11 @@ const PreviousProject = ({ previousProject }) => {
                   `}
               >
                 <h3 className="spectrum-Heading spectrum-Heading--sizeM">
-                  {/* {formData['CredentialName']} */} {previousProjects[selectedIndex].name}
+                  {/* {formData['CredentialName']} */} {previousProjectsDetails[selectedIndex].name}
                 </h3>
-                <div
-                  css={css`
-                      display : flex;
-                      gap : 10px; 
-                      align-items : center;  
-                    `}
-                >
-                  {productList.map((data, index) => {
-                    if (index < 3)
-                      return (
-                        <div
-                          css={css`
-                            & > button {
-                              border : none !important;
-                            }
-                          `}
-                        >
-                          <TooltipTrigger delay={0}>
-                            <ActionButton aria-label="Edit Name">
-                              <img
-                                src={data?.icon}
-                                css={css`
-                               width: 35px;
-                               cursor : pointer;
-                             `}
-                              />
-                            </ActionButton>
-                            <Tooltip>{data?.name}</Tooltip>
-                          </TooltipTrigger>
-                        </div>
-                      )
-                  })}
-                  <CustomPopover productList={productList} />
-                </div>
+
+                {productList && <ReturnProducts productList={productList} />}
+
               </div>
             </div>
 
@@ -248,46 +118,9 @@ const PreviousProject = ({ previousProject }) => {
                 `}
             >
 
-              {/* <div css={css`
-                  display : flex;
-                  flex-direction : column;
-                  gap:16px;
-                `}>
-                <h4 className="spectrum-Heading spectrum-Heading--sizeS">Access Token</h4>
-                <button css={css`width: 180px;`} className="spectrum-Button spectrum-Button--fill spectrum-Button--accent spectrum-Button--sizeM">
-                  <span className="spectrum-Button-label">Generate and copy token</span>
-                </button>
-              </div> */}
+              {returnAccessToken && <ReturnAccessToken returnAccessToken={returnAccessToken} />}
 
-              <div css={css`
-                  display : flex;
-                  flex-direction : column;
-                  gap:16px;
-                `}>
-                <h4 className="spectrum-Heading spectrum-Heading--sizeS">Developer Console Project</h4>
-
-
-                <div css={css`display:flex;`}>
-                  <div><p className="spectrum-Body spectrum-Body--sizeS"
-                    css={css`
-                      font-family: Source Code Pro,Monaco,monospace;
-                      white-space: normal;
-                      overflow-wrap: anywhere;
-                      max-width: 300px;
-                      color: #0265DC;
-                    `}
-                  >{previousProjects[selectedIndex].name}</p></div>
-                  <div css={
-                    css`
-                        margin-left:10px;
-                        cursor : pointer;
-                        @media screen and (min-width:${MIN_MOBILE_WIDTH}) and (max-width:${MAX_TABLET_SCREEN_WIDTH}){
-                          display:none;
-                        }
-                      }`
-                  }><LinkOut /></div>
-                </div>
-              </div>
+              {returnDevConsoleLink && <ReturnDevConsoleLink returnDevConsoleLink={returnDevConsoleLink} previousProjectsDetails={previousProjectsDetails} selectedIndex={selectedIndex} />}
 
               <div>
                 <h4 className="spectrum-Heading spectrum-Heading--sizeS">Credential details</h4>
@@ -417,4 +250,232 @@ const PreviousProject = ({ previousProject }) => {
 };
 
 
-export { PreviousProject };
+const ProjectsDropdown = ({ projectsDropdown, previousProjectsDetails, selectedIndex, setSelectedIndex }) => {
+
+  return (
+
+    <div
+      css={css`
+        display : flex;
+        flex-direction : column;
+        gap:2px;
+    `}
+    >
+      <p className="spectrum-Body spectrum-Body--sizeS" css={css`color: #464646`}>{projectsDropdown?.label} </p>
+      <div
+        css={css`
+                  
+          & > div > .spectrum-Picker {
+            width: 100% !important;
+            height: 20px;
+          }
+
+          & > div > div {
+            width: 22%;
+
+            @media screen and (min-width:${MIN_MOBILE_WIDTH}) and (max-width:${MAX_MOBILE_WIDTH}){
+              width: 82%;
+              left: 15%;
+            }
+
+            @media screen and (min-width:${MIN_TABLET_SCREEB_WIDTH}) and (max-width:${MAX_TABLET_SCREEN_WIDTH}){
+              width: 91%;
+              left: 7%;
+            }
+
+          }
+
+          & > div > .spectrum-Picker-popover > ul > li > div > div {
+            margin : 0 ;
+          }
+
+          & > div > .spectrum-Picker-popover > ul > li > div > div > svg {
+            @media screen and (min-width:${MIN_MOBILE_WIDTH}) and (max-width:${MAX_TABLET_SCREEN_WIDTH}){
+              margin: 3px;
+              padding: 0;
+            }
+          }
+
+            padding: 8px;
+            border-radius: 3px;
+            border: 1px solid #909090 !important;
+            width: 400px;
+
+          ` }
+      >
+        <Picker
+          isQuiet
+          items={previousProjectsDetails.map((organs, k) => {
+            return {
+              title: organs?.name,
+              selected: k === selectedIndex
+            }
+          })}
+          onChange={(index) => {
+            setSelectedIndex(index);
+          }}
+        />
+      </div>
+      <p className="spectrum-Body spectrum-Body--sizeS" css={css`color: #464646`}>{projectsDropdown?.subHeading}</p>
+    </div>
+  )
+}
+
+const ReturnAccessToken = ({ returnAccessToken }) => {
+  return (
+    <div css={css`
+      display : flex;
+      flex-direction : column;
+      gap:16px;
+    `}>
+      <h4 className="spectrum-Heading spectrum-Heading--sizeS">{returnAccessToken?.heading}</h4>
+      <button css={css`width: 180px;`} className="spectrum-Button spectrum-Button--fill spectrum-Button--accent spectrum-Button--sizeM">
+        <span className="spectrum-Button-label">{returnAccessToken?.buttonLabel}</span>
+      </button>
+    </div>
+  )
+}
+
+const ReturnDevConsoleLink = ({ previousProjectsDetails, returnDevConsoleLink, selectedIndex }) => {
+  return (
+    <div css={css`
+      display : flex;
+      flex-direction : column;
+      gap:16px;
+    `}>
+      <h4 className="spectrum-Heading spectrum-Heading--sizeS">{returnDevConsoleLink?.heading}</h4>
+
+      <div css={css`display:flex;`}>
+        <div>
+          <p className="spectrum-Body spectrum-Body--sizeS"
+            css={css`
+            font-family: Source Code Pro,Monaco,monospace;
+            white-space: normal;
+            overflow-wrap: anywhere;
+            max-width: 300px;
+            color: #0265DC;
+          `}
+          >{previousProjectsDetails[selectedIndex].name}</p></div>
+        <div css={
+          css`
+            margin-left:10px;
+            cursor : pointer;
+            @media screen and (min-width:${MIN_MOBILE_WIDTH}) and (max-width:${MAX_TABLET_SCREEN_WIDTH}){
+              display:none;
+            }
+          }`
+        }><LinkOut /></div>
+      </div>
+    </div>
+  )
+}
+
+const ReturnProducts = ({ productList }) => {
+  return (
+
+    <div
+      css={css`
+        display : flex;
+        gap : 10px; 
+        align-items : center;  
+      `}
+    >
+      <ReturnProduct productList={productList} />
+      <CustomPopover productList={productList} />
+    </div>
+  )
+}
+
+const ReturnProduct = ({ productList }) => {
+  return (
+    <>
+      {productList.map((product, index) => {
+        if (index < 2)
+          return (
+            <div
+              css={css`
+                & > button {
+                  border : none !important;
+                }
+              `}
+            >
+              <TooltipTrigger delay={0}>
+                <ActionButton aria-label="Edit Name">
+                  <img
+                    src={product?.icon}
+                    css={css`
+                      width: 35px;
+                      cursor : pointer;
+                    `}
+                  />
+                </ActionButton>
+                <Tooltip>{product?.label}</Tooltip>
+              </TooltipTrigger>
+            </div>
+          )
+      })}
+    </>
+  )
+}
+
+const ReturnManageDeveloperConsole = ({ returnManageDeveloperConsole }) => {
+  return (
+    <div>
+      <div css={css`display:flex;`}>
+        <a href={returnManageDeveloperConsole?.direction} target="_blank" rel="noreferrer"
+          css={css`
+            color:#0265DC;
+          `}
+        >
+          {returnManageDeveloperConsole?.label}
+        </a>
+        <div css={
+          css`
+            margin-left:10px;
+            cursor : pointer;
+
+            @media screen and (min-width:${MIN_MOBILE_WIDTH}) and (max-width:${MAX_TABLET_SCREEN_WIDTH}){
+              display:none;
+            }
+          
+            & > svg > path{
+              fill : #0265DC !important;
+            }
+          `
+        }><LinkOut /></div>
+      </div>
+    </div>
+  )
+}
+
+const ReturnClientDetails = () => {
+  return (
+    <></>
+  )
+}
+
+const ReturnSample = () => {
+  return (
+    <></>
+  )
+}
+
+const ReturnClientSecret = () => {
+  return (
+    <></>
+  )
+}
+
+const ReturnScopes = () => {
+  return (
+    <></>
+  )
+}
+
+const ReturnOrganizationName = () => {
+  return (
+    <></>
+  )
+}
+
+export { PreviousProject, ProjectsDropdown, ReturnAccessToken, ReturnDevConsoleLink, ReturnProducts, ReturnProduct, ReturnManageDeveloperConsole, ReturnSample, ReturnClientSecret, ReturnScopes, ReturnOrganizationName, ReturnClientDetails };

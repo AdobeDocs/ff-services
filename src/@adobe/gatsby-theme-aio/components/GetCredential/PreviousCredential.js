@@ -3,14 +3,15 @@ import { css } from "@emotion/react";
 import '@spectrum-css/contextualhelp/dist/index-vars.css';
 import classNames from "classnames";
 import { MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH } from './FormFields';
-import { PreviousProject } from './PreviousProject';
+import { PreviousProject, ReturnClientDetails, ReturnClientId, ReturnClientSecret, ReturnProducts } from './PreviousProject';
 import { Loading } from './Loading';
 import { Organization } from './Organization';
+import { CredentialForm } from './CredentialForm';
+import { ClientId } from './MyCredential';
 
 const PreviousCredential = ({
   welcomeBack,
-  previousProject,
-  formProps,
+  returnProps,
   setIsPrevious,
   showOrganization,
   setOrganizationValue,
@@ -20,12 +21,34 @@ const PreviousCredential = ({
   allOrganization
 }) => {
 
-  const credentialForm = formProps;
+  const credentialHeader = returnProps[CredentialForm];
+
+
+  const returnFields = {};
+  const productList = [];
+
+  returnProps?.[PreviousProject]?.children.forEach(({ type, props }) => {
+    returnFields[type] = { ...props };
+    if (props?.children) {
+      if (type === RetunrSideComp) {
+        props?.children?.forEach(({ props, type }) => {
+          returnFields[type] = { ...props }
+        })
+      }
+      if (type === ReturnProducts) {
+        props?.children?.forEach(({ props: { label, icon } }) => { productList.push({ label, icon }) })
+      }
+    }
+  })
+
+  const retunrSideComp = returnFields[RetunrSideComp];
+  const returnCustomComp = returnFields[ReturnCustomComp];
+  const returnNewCredential = returnFields[ReturnNewCredential];
 
   return (
     <>
       <div
-        className={classNames(credentialForm?.className)}
+        className={classNames(credentialHeader?.className)}
         css={css`
             display: flex;
             flex-direction: column;
@@ -54,8 +77,8 @@ const PreviousCredential = ({
                 gap: 16px;
               `}
           >
-            {credentialForm?.title && <h3 className="spectrum-Heading spectrum-Heading--sizeXL">{credentialForm?.title}</h3>}
-            {credentialForm?.paragraph && <p className="spectrum-Body spectrum-Body--sizeL"> {credentialForm?.paragraph} </p>}
+            {credentialHeader?.title && <h3 className="spectrum-Heading spectrum-Heading--sizeXL">{credentialHeader?.title}</h3>}
+            {credentialHeader?.paragraph && <p className="spectrum-Body spectrum-Body--sizeL"> {credentialHeader?.paragraph} </p>}
             <p
               className="spectrum-Body spectrum-Body--sizeS"
               onClick={() => setIsShow(true)}
@@ -93,27 +116,7 @@ const PreviousCredential = ({
 
               `}
           >
-            <div
-              css={css`
-                  display:flex;
-                  gap:16px;
-                  flex-direction:column;
-                  width: 100%;
-                `}
-            >
-              {welcomeBack?.title && <h3 className='spectrum-Heading spectrum-Heading--sizeM'>{welcomeBack?.title}</h3>}
-              {welcomeBack?.paragraph && <p className="spectrum-Body spectrum-Body--sizeL">{welcomeBack?.paragraph}</p>}
-              <h3 className='spectrum-Heading spectrum-Heading--sizeM'>Need another credential?</h3>
-              <button className="spectrum-Button spectrum-Button--fill spectrum-Button--primary spectrum-Button--sizeM"
-                onClick={() => setIsPrevious(false)}
-                css={css`
-                  width : 180px;
-                  height : 32px;
-                `}
-              >
-                <span className="spectrum-Button-label">Create new credential</span>
-              </button>
-            </div>
+            {retunrSideComp && <RetunrSideComp returnNewCredential={returnNewCredential} returnCustomComp={returnCustomComp} setIsPrevious={setIsPrevious} />}
           </div>
 
           <div
@@ -128,12 +131,59 @@ const PreviousCredential = ({
             `}
           />
           <div>
-            <PreviousProject previousProject={previousProject} />
+            <PreviousProject returnProps={returnProps} returnFields={returnFields} productList={productList} />
           </div>
         </div>
       </div>
     </>
   )
+};
+
+const RetunrSideComp = ({ setIsPrevious, returnNewCredential, returnCustomComp }) => {
+  return (
+    <>
+      <div
+        css={css`
+          display:flex;
+          gap:30px;
+          flex-direction:column;
+          width: 100%;
+        `}
+      >
+        <ReturnCustomComp returnCustomComp={returnCustomComp} />
+        <ReturnNewCredential returnNewCredential={returnNewCredential} setIsPrevious={setIsPrevious} />
+      </div>
+    </>
+  )
 }
 
-export { PreviousCredential };
+const ReturnCustomComp = ({ returnCustomComp }) => <>{returnCustomComp?.children}</>;
+
+const ReturnNewCredential = ({ returnNewCredential, setIsPrevious }) => {
+  return (
+    <div
+      css={css`
+        display:flex;
+        gap:16px;
+        flex-direction:column;
+        width: 100%;
+      `}
+    >
+      <h3 className='spectrum-Heading spectrum-Heading--sizeM'>{returnNewCredential?.heading}</h3>
+      <button className="spectrum-Button spectrum-Button--fill spectrum-Button--primary spectrum-Button--sizeM"
+        onClick={() => setIsPrevious(false)}
+        css={css`
+          width : 180px;
+          height : 32px;
+        `}
+      >
+        <span className="spectrum-Button-label">{returnNewCredential?.buttonLabel}</span>
+      </button>
+
+    </div>
+  )
+}
+
+const ReturnCredentialDetails = () => { }
+
+export { PreviousCredential, ReturnCustomComp, ReturnNewCredential, RetunrSideComp, ReturnCredentialDetails };

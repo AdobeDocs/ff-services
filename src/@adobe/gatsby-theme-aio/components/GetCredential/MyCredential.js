@@ -9,7 +9,7 @@ import { saveAs } from 'file-saver';
 import { Toast } from '@adobe/gatsby-theme-aio/src/components/Toast';
 import firefly from "./images/firefly.png"
 import ps from "./images/ps.png"
-import CustomPopover from '../CustomPopover';
+import CustomPopover from './CustomPopover';
 import { ActionButton, Tooltip, TooltipTrigger } from '@adobe/react-spectrum';
 
 const MyCredential = ({
@@ -35,7 +35,7 @@ const MyCredential = ({
 
   const accessToken = myCredentialFields[AccessToken];
   const cardDevConsoleLink = myCredentialFields[DevConsoleLink];
-  const credentialDetails = myCredentialFields[CredentialDetails]
+  const credentialDetails = myCredentialFields[Details]
 
   const Credential = [
     {
@@ -383,7 +383,7 @@ const MyCredential = ({
 
                 {cardDevConsoleLink && <DevConsoleLink cardDevConsoleLink={cardDevConsoleLink} formData={formData} />}
 
-                {credentialDetails && <CredentialDetails credentialDetails={credentialDetails} />}
+                {credentialDetails && <Details credentialDetails={credentialDetails} />}
 
                 {Credential?.map(({ key, value }, index) => {
                   return (
@@ -602,7 +602,7 @@ const DevConsoleLink = ({ cardDevConsoleLink, formData }) => {
   )
 }
 
-const CredentialDetails = ({ credentialDetails }) => {
+const Details = ({ credentialDetails }) => {
   return (
     <div>
       <h4 className="spectrum-Heading spectrum-Heading--sizeS">{credentialDetails.heading}</h4>
@@ -610,12 +610,4 @@ const CredentialDetails = ({ credentialDetails }) => {
   )
 }
 
-const ClientId = () => { }
-
-const ClientSecret = () => { }
-
-const Scopes = () => { }
-
-const OrganizationName = () => { }
-
-export { MyCredential, MyCredentialSide, AccessToken, DevConsoleLink, CredentialDetails, ClientId, ClientSecret, Scopes, OrganizationName };
+export { MyCredential, MyCredentialSide, AccessToken, DevConsoleLink, Details };
