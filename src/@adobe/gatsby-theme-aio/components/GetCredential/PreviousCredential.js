@@ -3,14 +3,13 @@ import { css } from "@emotion/react";
 import '@spectrum-css/contextualhelp/dist/index-vars.css';
 import classNames from "classnames";
 import { MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH } from './FormFields';
-import { PreviousProject, ReturnClientDetails, ReturnClientId, ReturnClientSecret, ReturnProducts } from './PreviousProject';
+import { PreviousProject, ReturnClientDetails, ReturnClientId, ReturnClientSecret, ReturnOrganizationName, ReturnProducts, ReturnScopes } from './PreviousProject';
 import { Loading } from './Loading';
 import { Organization } from './Organization';
 import { CredentialForm } from './CredentialForm';
 import { ClientId } from './MyCredential';
 
 const PreviousCredential = ({
-  welcomeBack,
   returnProps,
   setIsPrevious,
   showOrganization,
@@ -37,6 +36,21 @@ const PreviousCredential = ({
       }
       if (type === ReturnProducts) {
         props?.children?.forEach(({ props: { label, icon } }) => { productList.push({ label, icon }) })
+      }
+      if (type === ReturnClientDetails) {
+        returnFields[ReturnClientDetails] = props;
+      }
+      if (type === ReturnClientId) {
+        returnFields[ReturnClientId] = props;
+      }
+      if (type === ReturnClientSecret) {
+        returnFields[ReturnClientSecret] = props;
+      }
+      if (type === ReturnScopes) {
+        returnFields[ReturnScopes] = props;
+      }
+      if (type === ReturnOrganizationName) {
+        returnFields[ReturnOrganizationName] = props;
       }
     }
   })

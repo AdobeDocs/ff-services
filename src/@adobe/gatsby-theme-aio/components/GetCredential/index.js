@@ -5,14 +5,14 @@ import PropTypes from 'prop-types';
 import { AllowedOrigins, CredentialForm, CredentialName, Download, Downloads, SideCredential } from './CredentialForm';
 import classNames from "classnames";
 import { IllustratedMessage } from './IllustratedMessage';
-import { AccessToken, ClientId, ClientSecret, DevConsoleLink, MyCredential, MyCredentialSide, OrganizationName, Scopes } from './MyCredential';
+import { AccessToken, CardClientDetails, CardClientId, CardClientSecret, CardOrganizationName, CardScopes, ClientId, ClientSecret, DevConsoleLink, MyCredential, MyCredentialSide, OrganizationName, Scopes } from './MyCredential';
 import { JoinBetaProgram } from './JoinBetaProgram';
 import { NoDeveloperAccessError } from "./NoDeveloperAccessError"
 import { getOrganization, MAX_MOBILE_WIDTH, MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH } from './FormFields';
 import ErrorBoundary from './ErrorBoundary';
 import { PreviousCredential, RetunrSideComp, ReturnCredentialDetails, ReturnCustomComp, ReturnNewCredential, SAmple } from './PreviousCredential';
 import { Loading } from './Loading';
-import { PreviousProject, ProjectsDropdown, ReturnAccessToken, ReturnClientDetails, ReturnClientId, ReturnClientSecret, ReturnDevConsoleLink, ReturnManageDeveloperConsole, ReturnOrganizationName, ReturnProduct, ReturnProducts, ReturnSample, ReturnScopes, Details } from './PreviousProject';
+import { PreviousProject, ProjectsDropdown, ReturnAccessToken, ReturnClientDetails, ReturnClientSecret, ReturnDevConsoleLink, ReturnManageDeveloperConsole, ReturnOrganizationName, ReturnProduct, ReturnProducts, ReturnClientId, ReturnScopes, Details } from './PreviousProject';
 import { Product, Products } from './Products';
 import { defaultTheme, Provider } from '@adobe/react-spectrum';
 
@@ -95,6 +95,27 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
     setIsSignedUser(window.adobeIMS?.isSignedInUser() ? true : false)
   }, [window.adobeIMS?.isSignedInUser()])
 
+  const myCredentialFields = {}
+  getCredentialData?.[MyCredential].children.forEach(({ type, props }) => {
+
+    myCredentialFields[type] = { ...props };
+    if (type === CardClientDetails) {
+      myCredentialFields[CardClientDetails] = props;
+    }
+    if (type === CardClientId) {
+      myCredentialFields[CardClientId] = props;
+    }
+    if (type === CardClientSecret) {
+      myCredentialFields[CardClientSecret] = props;
+    }
+    if (type === CardScopes) {
+      myCredentialFields[CardScopes] = props;
+    }
+    if (type === CardOrganizationName) {
+      myCredentialFields[CardOrganizationName] = props;
+    }
+  })
+
   return (
     <>
       {
@@ -167,6 +188,14 @@ GetCredential.Card = MyCredential;
 GetCredential.Card.AccessToken = AccessToken;
 GetCredential.Card.DevConsoleLink = DevConsoleLink;
 GetCredential.Card.Side = MyCredentialSide;
+
+GetCredential.Card.Details = CardClientDetails;
+GetCredential.Card.ClientId = CardClientId;
+GetCredential.Card.ClientSecret = CardClientSecret;
+GetCredential.Card.OrganizationName = CardOrganizationName;
+GetCredential.Card.Scopes = CardScopes;
+
+GetCredential.Card.CredentialDetails = Details;
 GetCredential.NoBetaAccessError = JoinBetaProgram;
 GetCredential.NoDeveloperAccessError = NoDeveloperAccessError;
 GetCredential.Return = PreviousProject;
@@ -179,6 +208,11 @@ GetCredential.Return.Side.Custom = ReturnCustomComp;
 GetCredential.Return.Side.NewCredential = ReturnNewCredential;
 GetCredential.Return.Product = ReturnProduct;
 GetCredential.Return.Products = ReturnProducts;
+GetCredential.Return.Details = ReturnClientDetails;
+GetCredential.Return.ClientId = ReturnClientId;
+GetCredential.Return.ClientSecret = ReturnClientSecret;
+GetCredential.Return.OrganizationName = ReturnOrganizationName;
+GetCredential.Return.Scopes = ReturnScopes;
 
 export { GetCredential };
 

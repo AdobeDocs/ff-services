@@ -21,6 +21,10 @@ const PreviousProject = ({ returnProps, returnFields, productList }) => {
   const returnAccessToken = returnFields[ReturnAccessToken];
   const returnDevConsoleLink = returnFields[ReturnDevConsoleLink];
   const returnManageDeveloperConsole = returnFields[ReturnManageDeveloperConsole];
+  const returnClientDetails = returnFields[ReturnClientDetails];
+  const returnClientId = returnFields[ReturnClientId];
+  const returnClientSecret = returnFields[ReturnClientSecret];
+  const returnScopes = returnFields[ReturnScopes];
 
   const filterSelectedProject = previousProjectsDetails.filter((data, index) => selectedIndex === index);
 
@@ -122,9 +126,7 @@ const PreviousProject = ({ returnProps, returnFields, productList }) => {
 
               {returnDevConsoleLink && <ReturnDevConsoleLink returnDevConsoleLink={returnDevConsoleLink} previousProjectsDetails={previousProjectsDetails} selectedIndex={selectedIndex} />}
 
-              <div>
-                <h4 className="spectrum-Heading spectrum-Heading--sizeS">Credential details</h4>
-              </div>
+              {returnClientDetails && <ReturnClientDetails returnClientDetails={returnClientDetails} />}
 
               {previousCredential?.credential?.map(({ key, value }, index) => {
                 return (
@@ -448,13 +450,15 @@ const ReturnManageDeveloperConsole = ({ returnManageDeveloperConsole }) => {
   )
 }
 
-const ReturnClientDetails = () => {
+const ReturnClientDetails = ({ returnClientDetails }) => {
   return (
-    <></>
+    <div>
+      <h4 className="spectrum-Heading spectrum-Heading--sizeS">{returnClientDetails?.heading}</h4>
+    </div>
   )
 }
 
-const ReturnSample = () => {
+const ReturnClientId = () => {
   return (
     <></>
   )
@@ -478,4 +482,4 @@ const ReturnOrganizationName = () => {
   )
 }
 
-export { PreviousProject, ProjectsDropdown, ReturnAccessToken, ReturnDevConsoleLink, ReturnProducts, ReturnProduct, ReturnManageDeveloperConsole, ReturnSample, ReturnClientSecret, ReturnScopes, ReturnOrganizationName, ReturnClientDetails };
+export { PreviousProject, ProjectsDropdown, ReturnAccessToken, ReturnDevConsoleLink, ReturnProducts, ReturnProduct, ReturnManageDeveloperConsole, ReturnClientId, ReturnClientSecret, ReturnScopes, ReturnOrganizationName, ReturnClientDetails };

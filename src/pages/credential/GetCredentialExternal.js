@@ -10,13 +10,9 @@ const GetCredentialExternal = () => {
 
       <GetCredential.SignIn title="Get credentials" paragraph="Create unique credentials that you will use to call multiple APIs from your application." buttonText="Sign in to create credentials" />
 
-      <GetCredential.WelcomeBack title="Welcome back" paragraph="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." />
-
-      <GetCredential.PreviousProject title="Previously created projects" paragraph="Select a project and access your existing credentials for Firefly - Firefly and Creative Cloud Automation." />
-
       <GetCredential.Form title="Get credentials" paragraph="Create unique credentials that you will use to call multiple APIs from your application." className="formClass">
 
-        <GetCredential.Form.CredentialName label="Credential namedfdsfdsfs" description="Credential name must be unique and between 3 and 45 characters long. A project will be automatically created with the same name in Adobe Developer Console." range="45" />
+        <GetCredential.Form.CredentialName label="Credential name" description="Credential name must be unique and between 3 and 45 characters long. A project will be automatically created with the same name in Adobe Developer Console." range="45" />
 
         <GetCredential.Form.AllowedOrigins label="Allowed domains (up to 5)" contextHelp={true} contextHelpHeading="What are allowed domains" placeholder="Example: www.domain-1.com, www.domain-2.com, *.my-domain.com, localhost:5000" contextHelpText="To prevent a third party from using your client ID on their own website, the use of your client ID is restricted to a list of domains that you specifically authorize." contextHelpLink="https://www.adobe.com/" contextHelpLabelForLink="Learn more in our documentation" description="Use wildcards to enter multiple subdomains (*.my-domain.com) or commas to separate multiple domains (www.domain-1.com, www.domain-2.com). During local development, you can include ports greater than 1023 with localhost (e.g. localhost:3000). Standard ports (80, 443) will be used for non-localhost domains." />
 
@@ -53,6 +49,8 @@ const GetCredentialExternal = () => {
 
         <GetCredential.Card.AccessToken helpText="" buttonLabel="Generate and copy token" heading="Access Token" />
 
+        <GetCredential.Card.CredentialDetails heading="Credential Details" />
+
         <GetCredential.Card.DevConsoleLink heading="Developer Console Project" />
 
         <GetCredential.Card.Side>
@@ -65,6 +63,24 @@ const GetCredentialExternal = () => {
             <a className='side-documentation' style={{ color: "#0265DC" }} href='https://some_help_link'>Adobe Photoshop API documentation</a>
           </div>
         </GetCredential.Card.Side>
+
+        <GetCredential.Card.Details heading="Credential details" />
+
+        <GetCredential.Card.ClientId heading="Client Id" />
+
+        <GetCredential.Card.Scopes heading="Scopes" />
+
+        <GetCredential.Card.OrganizationName heading="Organization" />
+
+        <GetCredential.Card.ClientSecret heading="Client Secret" buttonLabel="Retrieve and copy client secret" />
+
+        <GetCredential.Card.ProjectsDropdown label="Projects" subHeading="Only your projects that contain credentials are shown" />
+
+        <GetCredential.Card.ManageDeveloperConsole label="Manage all your projects and credentials on Adobe Developer Console" direction='/console' />
+
+        <GetCredential.Card.AccessToken helpText="" buttonLabel="Generate and copy token" heading="Access Token" />
+
+        <GetCredential.Card.DevConsoleLink heading="Developer Console Project" />
 
       </GetCredential.Card>
 
@@ -81,6 +97,14 @@ const GetCredentialExternal = () => {
         </GetCredential.Return.Side>
 
         <GetCredential.Return.Details heading="Credential details" />
+
+        <GetCredential.Return.ClientId heading="Client Id" />
+
+        <GetCredential.Return.Scopes heading="Scopes" />
+
+        <GetCredential.Return.OrganizationName heading="Organization" />
+
+        <GetCredential.Return.ClientSecret heading="Client Secret" buttonLabel="Retrieve and copy client secret" />
 
         <GetCredential.Return.ProjectsDropdown label="Projects" subHeading="Only your projects that contain credentials are shown" />
 

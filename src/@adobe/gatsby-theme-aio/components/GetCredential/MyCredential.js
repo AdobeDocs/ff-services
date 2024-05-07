@@ -35,7 +35,7 @@ const MyCredential = ({
 
   const accessToken = myCredentialFields[AccessToken];
   const cardDevConsoleLink = myCredentialFields[DevConsoleLink];
-  const credentialDetails = myCredentialFields[Details]
+  const credentialDetails = myCredentialFields[CardClientDetails];
 
   const Credential = [
     {
@@ -383,7 +383,7 @@ const MyCredential = ({
 
                 {cardDevConsoleLink && <DevConsoleLink cardDevConsoleLink={cardDevConsoleLink} formData={formData} />}
 
-                {credentialDetails && <Details credentialDetails={credentialDetails} />}
+                {credentialDetails && <CardClientDetails credentialDetails={credentialDetails} />}
 
                 {Credential?.map(({ key, value }, index) => {
                   return (
@@ -602,7 +602,7 @@ const DevConsoleLink = ({ cardDevConsoleLink, formData }) => {
   )
 }
 
-const Details = ({ credentialDetails }) => {
+const CardClientDetails = ({ credentialDetails }) => {
   return (
     <div>
       <h4 className="spectrum-Heading spectrum-Heading--sizeS">{credentialDetails.heading}</h4>
@@ -610,4 +610,9 @@ const Details = ({ credentialDetails }) => {
   )
 }
 
-export { MyCredential, MyCredentialSide, AccessToken, DevConsoleLink, Details };
+const CardClientId = () => { }
+const CardClientSecret = () => { }
+const CardOrganizationName = () => { }
+const CardScopes = () => { }
+
+export { MyCredential, MyCredentialSide, AccessToken, DevConsoleLink, CardClientDetails, CardClientId, CardClientSecret, CardOrganizationName, CardScopes };
