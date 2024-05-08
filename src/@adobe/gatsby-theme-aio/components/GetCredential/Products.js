@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { css } from "@emotion/react";
-import firefly from "./images/firefly.png"
-import ps from "./images/ps.png"
 import { Popover } from '@adobe/gatsby-theme-aio/src/components/Popover';
+import { ActionButton, Tooltip, TooltipTrigger } from '@adobe/react-spectrum';
+import CustomPopover from './CustomPopover';
 
 const Products = ({ products, product }) => {
 
@@ -27,10 +27,59 @@ const Products = ({ products, product }) => {
   )
 }
 
-export { Products };
-
 const Product = ({ productList }) => {
+  return <CommonProduct productList={productList} />
+}
 
+const CardProduct = ({ productList }) => {
+  return (
+    <>
+      {productList?.map((product, index) => {
+        if (index < 2)
+          return (
+            <div
+              css={css`
+              & > button {
+                border : none !important;
+              }
+            `}
+            >
+              <TooltipTrigger delay={0}>
+                <ActionButton aria-label="Edit Name">
+                  <img
+                    src={product?.icon}
+                    css={css`
+                    width: 35px;
+                    cursor : pointer;
+                  `}
+                  />
+                </ActionButton>
+                <Tooltip>{product?.label}</Tooltip>
+              </TooltipTrigger>
+            </div>
+          )
+      })}
+    </>
+  )
+}
+
+const CardProducts = ({ products, product }) => {
+
+  return (
+    <div
+      css={css`
+        display : flex;
+        gap : 10px; 
+        align-items : center;  
+      `}
+    >
+      <CardProduct productList={product} />
+      <CustomPopover productList={product} />
+    </div>
+  )
+}
+
+const CommonProduct = ({ productList }) => {
   const [isOpen, setIsOpen] = useState(false);
   const buttonRef = useRef();
 
@@ -127,4 +176,4 @@ const Product = ({ productList }) => {
   )
 }
 
-export { Product };
+export { Product, Products, CardProducts, CardProduct };

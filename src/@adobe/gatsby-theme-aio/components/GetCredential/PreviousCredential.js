@@ -11,17 +11,16 @@ import { ClientId } from './MyCredential';
 
 const PreviousCredential = ({
   returnProps,
-  setIsPrevious,
   showOrganization,
   setOrganizationValue,
   organization,
   setIsShow,
   isShow,
-  allOrganization
+  allOrganization,
+  setIsCreateNewCredential
 }) => {
 
   const credentialHeader = returnProps[CredentialForm];
-
 
   const returnFields = {};
   const productList = [];
@@ -40,24 +39,12 @@ const PreviousCredential = ({
       if (type === ReturnClientDetails) {
         returnFields[ReturnClientDetails] = props;
       }
-      if (type === ReturnClientId) {
-        returnFields[ReturnClientId] = props;
-      }
-      if (type === ReturnClientSecret) {
-        returnFields[ReturnClientSecret] = props;
-      }
-      if (type === ReturnScopes) {
-        returnFields[ReturnScopes] = props;
-      }
-      if (type === ReturnOrganizationName) {
-        returnFields[ReturnOrganizationName] = props;
-      }
     }
   })
 
-  const retunrSideComp = returnFields[RetunrSideComp];
-  const returnCustomComp = returnFields[ReturnCustomComp];
-  const returnNewCredential = returnFields[ReturnNewCredential];
+  const retunrSideComp = returnFields?.[RetunrSideComp];
+  const returnCustomComp = returnFields?.[ReturnCustomComp];
+  const returnNewCredential = returnFields?.[ReturnNewCredential];
 
   return (
     <>
@@ -130,7 +117,7 @@ const PreviousCredential = ({
 
               `}
           >
-            {retunrSideComp && <RetunrSideComp returnNewCredential={returnNewCredential} returnCustomComp={returnCustomComp} setIsPrevious={setIsPrevious} />}
+            {retunrSideComp && <RetunrSideComp returnNewCredential={returnNewCredential} returnCustomComp={returnCustomComp} setIsCreateNewCredential={setIsCreateNewCredential} />}
           </div>
 
           <div
@@ -153,7 +140,7 @@ const PreviousCredential = ({
   )
 };
 
-const RetunrSideComp = ({ setIsPrevious, returnNewCredential, returnCustomComp }) => {
+const RetunrSideComp = ({ setIsCreateNewCredential, returnNewCredential, returnCustomComp }) => {
   return (
     <>
       <div
@@ -165,7 +152,7 @@ const RetunrSideComp = ({ setIsPrevious, returnNewCredential, returnCustomComp }
         `}
       >
         <ReturnCustomComp returnCustomComp={returnCustomComp} />
-        <ReturnNewCredential returnNewCredential={returnNewCredential} setIsPrevious={setIsPrevious} />
+        <ReturnNewCredential returnNewCredential={returnNewCredential} setIsCreateNewCredential={setIsCreateNewCredential} />
       </div>
     </>
   )
@@ -173,7 +160,7 @@ const RetunrSideComp = ({ setIsPrevious, returnNewCredential, returnCustomComp }
 
 const ReturnCustomComp = ({ returnCustomComp }) => <>{returnCustomComp?.children}</>;
 
-const ReturnNewCredential = ({ returnNewCredential, setIsPrevious }) => {
+const ReturnNewCredential = ({ returnNewCredential, setIsCreateNewCredential }) => {
   return (
     <div
       css={css`
@@ -185,7 +172,7 @@ const ReturnNewCredential = ({ returnNewCredential, setIsPrevious }) => {
     >
       <h3 className='spectrum-Heading spectrum-Heading--sizeM'>{returnNewCredential?.heading}</h3>
       <button className="spectrum-Button spectrum-Button--fill spectrum-Button--primary spectrum-Button--sizeM"
-        onClick={() => setIsPrevious(false)}
+        onClick={() => setIsCreateNewCredential(true)}
         css={css`
           width : 180px;
           height : 32px;

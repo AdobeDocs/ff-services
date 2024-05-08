@@ -16,17 +16,17 @@ const PreviousProject = ({ returnProps, returnFields, productList }) => {
   const [previousCredential, setPreviousCredentials] = useState({})
 
   const previousProjectsDetails = JSON.parse(localStorage.getItem("myCredential"));
-  const previousProject = returnProps[PreviousProject];
-  const projectsDropdown = returnFields[ProjectsDropdown];
-  const returnAccessToken = returnFields[ReturnAccessToken];
-  const returnDevConsoleLink = returnFields[ReturnDevConsoleLink];
-  const returnManageDeveloperConsole = returnFields[ReturnManageDeveloperConsole];
-  const returnClientDetails = returnFields[ReturnClientDetails];
-  const returnClientId = returnFields[ReturnClientId];
-  const returnClientSecret = returnFields[ReturnClientSecret];
-  const returnScopes = returnFields[ReturnScopes];
+  const previousProject = returnProps?.[PreviousProject];
+  const projectsDropdown = returnFields?.[ProjectsDropdown];
+  const returnAccessToken = returnFields?.[ReturnAccessToken];
+  const returnDevConsoleLink = returnFields?.[ReturnDevConsoleLink];
+  const returnManageDeveloperConsole = returnFields?.[ReturnManageDeveloperConsole];
+  const returnClientDetails = returnFields?.[ReturnClientDetails];
+  const returnClientId = returnFields?.[ReturnClientId];
+  const returnClientSecret = returnFields?.[ReturnClientSecret];
+  const returnScopes = returnFields?.[ReturnScopes];
 
-  const filterSelectedProject = previousProjectsDetails.filter((data, index) => selectedIndex === index);
+  const filterSelectedProject = previousProjectsDetails?.filter((data, index) => selectedIndex === index);
 
   useEffect(() => {
     setPreviousCredentials(filterSelectedProject[0])
@@ -453,33 +453,51 @@ const ReturnManageDeveloperConsole = ({ returnManageDeveloperConsole }) => {
 const ReturnClientDetails = ({ returnClientDetails }) => {
   return (
     <div>
+      <ReturnAPIKey returnClientDetails={returnClientDetails} />
+      <ReturnAllowedOrigins returnClientDetails={returnClientDetails} />
+      <ReturnClientId returnClientDetails={returnClientDetails} />
+      <ReturnClientSecret returnClientDetails={returnClientDetails} />
+      <ReturnOrganizationName returnClientDetails={returnClientDetails} />
+      <ReturnScopes returnClientDetails={returnClientDetails} />
       <h4 className="spectrum-Heading spectrum-Heading--sizeS">{returnClientDetails?.heading}</h4>
     </div>
   )
 }
 
-const ReturnClientId = () => {
+const ReturnAPIKey = ({ returnClientDetails }) => {
   return (
     <></>
   )
 }
 
-const ReturnClientSecret = () => {
+const ReturnAllowedOrigins = ({ returnClientDetails }) => {
   return (
     <></>
   )
 }
 
-const ReturnScopes = () => {
+const ReturnClientId = ({ returnClientDetails }) => {
   return (
     <></>
   )
 }
 
-const ReturnOrganizationName = () => {
+const ReturnClientSecret = ({ returnClientDetails }) => {
   return (
     <></>
   )
 }
 
-export { PreviousProject, ProjectsDropdown, ReturnAccessToken, ReturnDevConsoleLink, ReturnProducts, ReturnProduct, ReturnManageDeveloperConsole, ReturnClientId, ReturnClientSecret, ReturnScopes, ReturnOrganizationName, ReturnClientDetails };
+const ReturnScopes = ({ returnClientDetails }) => {
+  return (
+    <></>
+  )
+}
+
+const ReturnOrganizationName = ({ returnClientDetails }) => {
+  return (
+    <></>
+  )
+}
+
+export { PreviousProject, ProjectsDropdown, ReturnAccessToken, ReturnDevConsoleLink, ReturnProducts, ReturnProduct, ReturnManageDeveloperConsole, ReturnClientId, ReturnClientSecret, ReturnScopes, ReturnOrganizationName, ReturnClientDetails, ReturnAPIKey, ReturnAllowedOrigins };

@@ -2,19 +2,19 @@ import React, { useEffect, useState } from 'react';
 import { SignIn } from "./SignIn"
 import { css } from "@emotion/react";
 import PropTypes from 'prop-types';
-import { AllowedOrigins, CredentialForm, CredentialName, Download, Downloads, SideCredential } from './CredentialForm';
 import classNames from "classnames";
+import { AdobeDeveloperConsole, AllowedOrigins, CredentialForm, CredentialName, Download, Downloads, SideCredential } from './CredentialForm';
+import { AccessToken, CardAllowedOrigins, CardAPIKey, CardClientDetails, CardClientId, CardClientSecret, CardOrganizationName, CardScopes, DevConsoleLink, MyCredential, MyCredentialSide } from './MyCredential';
+import { getOrganization, MAX_MOBILE_WIDTH, MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH } from './FormFields';
+import { PreviousCredential, RetunrSideComp, ReturnCustomComp, ReturnNewCredential } from './PreviousCredential';
+import { PreviousProject, ProjectsDropdown, ReturnAccessToken, ReturnClientDetails, ReturnClientSecret, ReturnDevConsoleLink, ReturnManageDeveloperConsole, ReturnOrganizationName, ReturnProduct, ReturnProducts, ReturnClientId, ReturnScopes, ReturnAllowedOrigins, ReturnAPIKey } from './PreviousProject';
 import { IllustratedMessage } from './IllustratedMessage';
-import { AccessToken, CardClientDetails, CardClientId, CardClientSecret, CardOrganizationName, CardScopes, ClientId, ClientSecret, DevConsoleLink, MyCredential, MyCredentialSide, OrganizationName, Scopes } from './MyCredential';
+import { defaultTheme, Provider } from '@adobe/react-spectrum';
 import { JoinBetaProgram } from './JoinBetaProgram';
 import { NoDeveloperAccessError } from "./NoDeveloperAccessError"
-import { getOrganization, MAX_MOBILE_WIDTH, MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH } from './FormFields';
 import ErrorBoundary from './ErrorBoundary';
-import { PreviousCredential, RetunrSideComp, ReturnCredentialDetails, ReturnCustomComp, ReturnNewCredential, SAmple } from './PreviousCredential';
+import { Product, Products, CardProduct, CardProducts } from './Products';
 import { Loading } from './Loading';
-import { PreviousProject, ProjectsDropdown, ReturnAccessToken, ReturnClientDetails, ReturnClientSecret, ReturnDevConsoleLink, ReturnManageDeveloperConsole, ReturnOrganizationName, ReturnProduct, ReturnProducts, ReturnClientId, ReturnScopes, Details } from './PreviousProject';
-import { Product, Products } from './Products';
-import { defaultTheme, Provider } from '@adobe/react-spectrum';
 
 const GetCredential = ({ credentialType = 'apiKey', children, className, service = "CCEmbedCompanionAPI" }) => {
 
@@ -30,6 +30,8 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
   const [isSignedUser, setIsSignedUser] = useState(false);
   const [isShow, setIsShow] = useState(false);
   const [allOrganization, setAllOrganization] = useState([]);
+  const [showCreateForm, setShowCreateForm] = useState(true);
+  const [isCreateNewCredential, setIsCreateNewCredential] = useState(false)
 
   let getCredentialData = {};
   React.Children.forEach(children, (child) => {
@@ -69,7 +71,7 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
     }
     setTimeout(() => {
       getValueFromLocalStorage()
-    }, [2000])
+    }, [2500])
   }, []);
 
   useEffect(() => {
@@ -95,26 +97,21 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
     setIsSignedUser(window.adobeIMS?.isSignedInUser() ? true : false)
   }, [window.adobeIMS?.isSignedInUser()])
 
-  const myCredentialFields = {}
-  getCredentialData?.[MyCredential].children.forEach(({ type, props }) => {
+  useEffect(() => {
 
-    myCredentialFields[type] = { ...props };
-    if (type === CardClientDetails) {
-      myCredentialFields[CardClientDetails] = props;
+    if (!isPrevious) {
+      setShowCreateForm(true)
     }
-    if (type === CardClientId) {
-      myCredentialFields[CardClientId] = props;
+    else {
+      if (isPrevious && isCreateNewCredential) {
+        setShowCreateForm(true)
+      }
+      else {
+        setShowCreateForm(false)
+      }
     }
-    if (type === CardClientSecret) {
-      myCredentialFields[CardClientSecret] = props;
-    }
-    if (type === CardScopes) {
-      myCredentialFields[CardScopes] = props;
-    }
-    if (type === CardOrganizationName) {
-      myCredentialFields[CardOrganizationName] = props;
-    }
-  })
+
+  }, [isPrevious, isCreateNewCredential])
 
   return (
     <>
@@ -154,10 +151,10 @@ const GetCredential = ({ credentialType = 'apiKey', children, className, service
               >
                 {initialLoading ? <Loading /> :
                   !window.adobeIMS?.isSignedInUser() ? <GetCredential.SignIn signInProps={getCredentialData?.[SignIn]} /> :
-                    isPrevious ?
-                      <PreviousCredential returnProps={getCredentialData} setIsPrevious={setIsPrevious} showOrganization={showOrganization} setOrganizationValue={setOrganizationValue} organizationChange={organizationChange} setOrganization={setOrganization} alertShow={alertShow} setAlertShow={setAlertShow} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} modalOpen={modalOpen} setModalOpen={setModalOpen} organization={organization} isShow={isShow} setIsShow={setIsShow} allOrganization={allOrganization} /> :
+                    isPrevious && !showCreateForm && !isCreateNewCredential ?
+                      <PreviousCredential returnProps={getCredentialData} setIsPrevious={setIsPrevious} showOrganization={showOrganization} setOrganizationValue={setOrganizationValue} organizationChange={organizationChange} setOrganization={setOrganization} alertShow={alertShow} setAlertShow={setAlertShow} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} modalOpen={modalOpen} setModalOpen={setModalOpen} organization={organization} isShow={isShow} setIsShow={setIsShow} allOrganization={allOrganization} setIsCreateNewCredential={setIsCreateNewCredential} /> :
 
-                      <GetCredential.Form formProps={getCredentialData} credentialType={credentialType} service={service} modalOpen={modalOpen} setModalOpen={setModalOpen} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} alertShow={alertShow} setAlertShow={setAlertShow} organizationChange={organizationChange} setOrganization={setOrganization} organization={organization} setOrganizationValue={setOrganizationValue} showOrganization={showOrganization} setShowOrganization={setShowOrganization} isShow={isShow} setIsShow={setIsShow} allOrganization={allOrganization} />
+                      <GetCredential.Form formProps={getCredentialData} credentialType={credentialType} service={service} modalOpen={modalOpen} setModalOpen={setModalOpen} redirectToBeta={redirectToBeta} setRedirectBetaProgram={setRedirectBetaProgram} alertShow={alertShow} setAlertShow={setAlertShow} organizationChange={organizationChange} setOrganization={setOrganization} organization={organization} setOrganizationValue={setOrganizationValue} showOrganization={showOrganization} setShowOrganization={setShowOrganization} isShow={isShow} setIsShow={setIsShow} allOrganization={allOrganization} isPrevious={isPrevious} showCreateForm={showCreateForm} setShowCreateForm={setShowCreateForm} setIsCreateNewCredential={setIsCreateNewCredential} isCreateNewCredential={isCreateNewCredential} />
                 }
               </div>
             </section>
@@ -183,19 +180,21 @@ GetCredential.Form.Product = Product;
 GetCredential.Form.Side = SideCredential;
 GetCredential.Form.Downloads = Downloads;
 GetCredential.Form.Download = Download;
+GetCredential.Form.AdobeDeveloperConsole = AdobeDeveloperConsole;
 GetCredential.UnknownError = IllustratedMessage;
 GetCredential.Card = MyCredential;
 GetCredential.Card.AccessToken = AccessToken;
 GetCredential.Card.DevConsoleLink = DevConsoleLink;
 GetCredential.Card.Side = MyCredentialSide;
-
-GetCredential.Card.Details = CardClientDetails;
-GetCredential.Card.ClientId = CardClientId;
-GetCredential.Card.ClientSecret = CardClientSecret;
-GetCredential.Card.OrganizationName = CardOrganizationName;
-GetCredential.Card.Scopes = CardScopes;
-
-GetCredential.Card.CredentialDetails = Details;
+GetCredential.Card.Product = CardProduct;
+GetCredential.Card.Products = CardProducts;
+GetCredential.Card.CredentialDetails = CardClientDetails;
+GetCredential.Card.CredentialDetails.ClientId = CardClientId;
+GetCredential.Card.CredentialDetails.ClientSecret = CardClientSecret;
+GetCredential.Card.CredentialDetails.OrganizationName = CardOrganizationName;
+GetCredential.Card.CredentialDetails.Scopes = CardScopes;
+GetCredential.Card.CredentialDetails.AllowedOrigins = CardAllowedOrigins;
+GetCredential.Card.CredentialDetails.APIKey = CardAPIKey;
 GetCredential.NoBetaAccessError = JoinBetaProgram;
 GetCredential.NoDeveloperAccessError = NoDeveloperAccessError;
 GetCredential.Return = PreviousProject;
@@ -208,15 +207,12 @@ GetCredential.Return.Side.Custom = ReturnCustomComp;
 GetCredential.Return.Side.NewCredential = ReturnNewCredential;
 GetCredential.Return.Product = ReturnProduct;
 GetCredential.Return.Products = ReturnProducts;
-GetCredential.Return.Details = ReturnClientDetails;
-GetCredential.Return.ClientId = ReturnClientId;
-GetCredential.Return.ClientSecret = ReturnClientSecret;
-GetCredential.Return.OrganizationName = ReturnOrganizationName;
-GetCredential.Return.Scopes = ReturnScopes;
+GetCredential.Return.CredentialDetails = ReturnClientDetails;
+GetCredential.Return.CredentialDetails.ClientId = ReturnClientId;
+GetCredential.Return.CredentialDetails.ClientSecret = ReturnClientSecret;
+GetCredential.Return.CredentialDetails.OrganizationName = ReturnOrganizationName;
+GetCredential.Return.CredentialDetails.Scopes = ReturnScopes;
+GetCredential.Return.CredentialDetails.AllowedOrigins = ReturnAllowedOrigins;
+GetCredential.Return.CredentialDetails.APIKey = ReturnAPIKey;
 
 export { GetCredential };
-
-
-
-
-

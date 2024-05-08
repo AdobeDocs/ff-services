@@ -6,7 +6,7 @@ import { MyCredential } from './MyCredential';
 import { Loading } from "./Loading";
 import { IllustratedMessage } from "./IllustratedMessage";
 import { JoinBetaProgram } from './JoinBetaProgram';
-import { AlertIcon, FormFields, getOrganization, MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH } from './FormFields';
+import { AlertIcon, FormFields, MAX_TABLET_SCREEN_WIDTH, MIN_MOBILE_WIDTH } from './FormFields';
 import { ContextHelp } from './ContextHelp';
 import { Toast } from '@adobe/gatsby-theme-aio/src/components/Toast';
 import { NoDeveloperAccessError } from './NoDeveloperAccessError';
@@ -31,14 +31,17 @@ const CredentialForm = ({
   isShow,
   setIsShow,
   setRedirectBetaProgram,
-  allOrganization
+  allOrganization,
+  showCreateForm,
+  setShowCreateForm,
+  isCreateNewCredential,
+  setIsCreateNewCredential
 }) => {
 
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [response, setResponse] = useState({});
   const [errResp, setErrorResp] = useState("");
-  const [showCreateForm, setShowCreateForm] = useState(true);
   const [showCredential, setShowCredential] = useState(false);
   const [formField, setFormField] = useState([]);
   const [formData, setFormData] = useState({});
@@ -218,16 +221,16 @@ const CredentialForm = ({
 
       const resResp = await response.json();
 
-      // if (response.status === 200) {
-      setResponse(resResp);
-      setShowCredential(true);
-      setAlertShow(true);
-      // } else if (resResp?.messages) {
-      //   setAlertShow(true);
-      //   setIsValid(false);
-      //   setErrorResp(resResp?.messages[0]?.message);
-      //   setShowCreateForm(true);
-      // }
+      if (response.status === 200) {
+        setResponse(resResp);
+        setShowCredential(true);
+        setAlertShow(true);
+      } else if (resResp?.messages) {
+        setAlertShow(true);
+        setIsValid(false);
+        setErrorResp(resResp?.messages[0]?.message);
+        setShowCreateForm(true);
+      }
     } catch (error) {
       setIsError(true);
     } finally {
@@ -242,6 +245,7 @@ const CredentialForm = ({
   const download = formField?.[Download];
   const products = formField?.[Products];
   const product = formField?.[Product];
+  const adobeDeveloperConsole = formField?.[AdobeDeveloperConsole];
 
   return (
     <>
@@ -331,26 +335,8 @@ const CredentialForm = ({
                 {downloads && download && <Downloads downloadsProp={downloads} type="Downloads" formData={formData} handleChange={handleChange} />}
                 {formData['Downloads'] && download && <Download downloadProp={download} formData={formData} isFormValue={isFormValue} handleChange={handleChange} />}
                 <Products products={products} product={product} />
-                <div css={css`display: flex; gap: 10px;`}>
-                  <input type="checkbox" checked={formData['Agree']} onChange={(e) => handleChange(e, 'Agree')} />
-                  <p css={css`color:var(--spectrum-global-color-gray-800);margin:0;`} >{`By checking this box, you agree to `}
-                    <a
-                      href="https://wwwimages2.adobe.com/content/dam/cc/en/legal/servicetou/Adobe-Developer-Additional-Terms_en-US_20230822.pdf"
-                      css={css`
-                        color:rgb(0, 84, 182);
-                        &:hover {
-                          color: rgb(2, 101, 220);
-                        }
-                      `}
-                      target="_blank" rel="noreferrer">Adobe Developer Terms of Use</a>.
-                  </p>
-                </div>
-                <button
-                  id="credentialButton"
-                  className={`spectrum-Button spectrum-Button--fill spectrum-Button--accent spectrum-Button--sizeM`}
-                  css={css`width:fit-content;margin-top:10px`} onClick={createCredential} disabled={!isValid} >
-                  <span className="spectrum-Button-label">Create credential</span>
-                </button>
+                {adobeDeveloperConsole && <AdobeDeveloperConsole formData={formData} adobeDeveloperConsole={adobeDeveloperConsole} handleChange={handleChange} />}
+                <CreateCredential createCredential={createCredential} isValid={isValid} setIsCreateNewCredential={setIsCreateNewCredential} isCreateNewCredential={isCreateNewCredential} />
               </div>
             </div>
             {sideObject ? <SideContent sideContent={sideObject?.children} SideComp={SideCredential} /> : null}
@@ -462,7 +448,7 @@ const Downloads = ({ downloadsProp, handleChange, formData }) => {
 
   return (
     <div css={css` display: flex;gap: 10px;align-items: center;`}>
-      <input type="checkbox" onChange={(e) => handleChange(e, "Downloads")} checked={formData['Downloads']} />
+      <input type="checkbox" css={css`accent-color: #5b5a5a;transform: scale(1.1);`} onChange={(e) => handleChange(e, "Downloads")} checked={formData['Downloads']} />
       <p css={css` color:var(--spectrum-dialog-confirm-description-text-color, var(--spectrum-global-color-gray-800));margin:0;`} > {label} </p>
       <div css={css`cursor:pointer;display: flex;justify-content: center;align-items: center;`}>
         {contextHelp && <ContextHelp heading={contextHelpHeading} text={contextHelpText} link={contextHelpLink} label={contextHelpLabelForLink} />}
@@ -532,4 +518,43 @@ const SideContent = ({ sideContent, SideComp }) => {
   )
 }
 
-export { CredentialForm, SideCredential, CredentialName, AllowedOrigins, Downloads, Download, SideContent };
+const AdobeDeveloperConsole = ({ formData, handleChange, adobeDeveloperConsole }) => {
+  return (
+    <div css={css`display: flex; gap: 10px;`}>
+      <input type="checkbox" css={css`accent-color: #5b5a5a;transform: scale(1.1);`} checked={formData['Agree']} onChange={(e) => handleChange(e, 'Agree')} />
+      <p css={css`color:var(--spectrum-global-color-gray-800);margin:0;display:inline-flex;gap:5px;`} >{adobeDeveloperConsole?.label}
+        <a
+          href={adobeDeveloperConsole?.href}
+          css={css`
+            color:rgb(0, 84, 182);
+            &:hover {adobeDeveloperConsole
+              color: rgb(2, 101, 220);
+            }
+          `}
+          target="_blank" rel="noreferrer">{adobeDeveloperConsole?.linkText}</a>.
+      </p>
+    </div>
+  )
+}
+
+const CreateCredential = ({ createCredential, isValid, setIsCreateNewCredential, isCreateNewCredential }) => {
+  return (
+    <div css={
+      css`
+        display : flex;
+        gap:16px;
+        align-items : center;
+      `
+    }>
+      <button
+        id="credentialButton"
+        className={`spectrum-Button spectrum-Button--fill spectrum-Button--accent spectrum-Button--sizeM`}
+        css={css`width:fit-content;`} onClick={createCredential} disabled={!isValid} >
+        <span className="spectrum-Button-label">Create credential</span>
+      </button>
+      {isCreateNewCredential && <p css={css`text-decoration : underline;margin:0; cursor : pointer;`} onClick={() => setIsCreateNewCredential(false)}>Cancel</p>}
+    </div>
+  )
+}
+
+export { CredentialForm, SideCredential, CredentialName, AllowedOrigins, Downloads, Download, SideContent, AdobeDeveloperConsole };

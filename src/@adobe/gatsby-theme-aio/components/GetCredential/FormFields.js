@@ -160,8 +160,8 @@ export const getOrganization = async (setOrganizationValue) => {
         const orgData = {
           "id": organization[0]?.id,
           "name": organization[0]?.name,
-          "orgLen": organization.length,
-          "type": organization[0].type
+          "orgLen": organization?.length,
+          "type": organization[0]?.type
         }
 
         const oldOrganization = JSON.parse(localStorage.getItem('OrgInfo'));
@@ -170,11 +170,11 @@ export const getOrganization = async (setOrganizationValue) => {
           setOrganizationValue(orgData)
         }
         else {
-          const findOrg = organization?.find((data) => data.id === oldOrganization.id);
+          const findOrg = organization?.find((data) => data?.id === oldOrganization?.id);
           setOrganizationValue({
             "id": findOrg?.id,
             "name": findOrg?.name,
-            "orgLen": organization.length,
+            "orgLen": organization?.length,
             "type": findOrg.type
           })
         }

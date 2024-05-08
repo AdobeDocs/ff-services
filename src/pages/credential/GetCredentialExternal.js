@@ -30,6 +30,8 @@ const GetCredentialExternal = () => {
           <GetCredential.Form.Download title="Ruby" href="https://www.ruby.zip/" />
         </GetCredential.Form.Downloads>
 
+        <GetCredential.Form.AdobeDeveloperConsole label='By checking this box, you agree to' linkText="Adobe Developer Terms of Use" href="https://wwwimages2.adobe.com/content/dam/cc/en/legal/servicetou/Adobe-Developer-Additional-Terms_en-US_20230822.pdf" />
+
         <GetCredential.Form.Side>
           <div style="display : flex ; gap : 16px ; flex-direction : column;">
             <h3 className="spectrum-Heading spectrum-Heading--sizeS side-header" >API key credential</h3>
@@ -47,12 +49,6 @@ const GetCredentialExternal = () => {
 
       <GetCredential.Card title="Your credential is ready to use" paragraph="Check the downloads section of your browser for the ZIP file, or find it where you save downloads on your machine." nextStepsLabel="Next steps" nextStepsHref="/credentials/nextsteps" developerConsoleManage="Manage on Developer console" className="card_developer_console">
 
-        <GetCredential.Card.AccessToken helpText="" buttonLabel="Generate and copy token" heading="Access Token" />
-
-        <GetCredential.Card.CredentialDetails heading="Credential Details" />
-
-        <GetCredential.Card.DevConsoleLink heading="Developer Console Project" />
-
         <GetCredential.Card.Side>
           <div style="display : flex ; gap : 16px ; flex-direction : column;">
             <h3 className="spectrum-Heading spectrum-Heading--sizeS side-header" >API key credential</h3>
@@ -64,15 +60,12 @@ const GetCredentialExternal = () => {
           </div>
         </GetCredential.Card.Side>
 
-        <GetCredential.Card.Details heading="Credential details" />
-
-        <GetCredential.Card.ClientId heading="Client Id" />
-
-        <GetCredential.Card.Scopes heading="Scopes" />
-
-        <GetCredential.Card.OrganizationName heading="Organization" />
-
-        <GetCredential.Card.ClientSecret heading="Client Secret" buttonLabel="Retrieve and copy client secret" />
+        <GetCredential.Card.Products label="Included products and services">
+          <GetCredential.Card.Product label="Firefly - Firefly and Creative Cloud Automation API" icon={firefly} />
+          <GetCredential.Card.Product label="Adobe Photoshop API" icon={ps} />
+          <GetCredential.Card.Product label="Adobe Analytics" />
+          {/* <GetCredential.Card.Product label="Lughtgroom" /> */}
+        </GetCredential.Card.Products>
 
         <GetCredential.Card.ProjectsDropdown label="Projects" subHeading="Only your projects that contain credentials are shown" />
 
@@ -81,6 +74,15 @@ const GetCredentialExternal = () => {
         <GetCredential.Card.AccessToken helpText="" buttonLabel="Generate and copy token" heading="Access Token" />
 
         <GetCredential.Card.DevConsoleLink heading="Developer Console Project" />
+
+        <GetCredential.Card.CredentialDetails heading="Credential details">
+          {/* <GetCredential.Card.CredentialDetails.ClientId heading="ClientId" /> */}
+          {/* <GetCredential.Card.CredentialDetails.Scopes heading="Scopes" /> */}
+          {/* <GetCredential.Card.CredentialDetails.ClientSecret heading="Client Secret" buttonLabel="Retrieve and copy client secret" /> */}
+          <GetCredential.Card.CredentialDetails.APIKey heading="API Key" />
+          <GetCredential.Card.CredentialDetails.OrganizationName heading="Organization" />
+          <GetCredential.Card.CredentialDetails.AllowedOrigins heading="Allowed Domains" />
+        </GetCredential.Card.CredentialDetails>
 
       </GetCredential.Card>
 
@@ -96,15 +98,14 @@ const GetCredentialExternal = () => {
           <GetCredential.Return.Side.NewCredential heading="Need another credential?" buttonLabel="Create new credential" />
         </GetCredential.Return.Side>
 
-        <GetCredential.Return.Details heading="Credential details" />
-
-        <GetCredential.Return.ClientId heading="Client Id" />
-
-        <GetCredential.Return.Scopes heading="Scopes" />
-
-        <GetCredential.Return.OrganizationName heading="Organization" />
-
-        <GetCredential.Return.ClientSecret heading="Client Secret" buttonLabel="Retrieve and copy client secret" />
+        <GetCredential.Return.CredentialDetails heading="Credential details">
+          {/* <GetCredential.Return.CredentialDetails.ClientId heading="ClientId" />
+          <GetCredential.Return.CredentialDetails.Scopes heading="Scopes" />
+        <GetCredential.Return.CredentialDetails.ClientSecret heading="Client Secret" buttonLabel="Retrieve and copy client secret" /> */}
+          <GetCredential.Return.CredentialDetails.APIKey heading="API Key" />
+          <GetCredential.Return.CredentialDetails.OrganizationName heading="Organization" />
+          <GetCredential.Return.CredentialDetails.AllowedOrigins heading="Allowed Domains" />
+        </GetCredential.Return.CredentialDetails>
 
         <GetCredential.Return.ProjectsDropdown label="Projects" subHeading="Only your projects that contain credentials are shown" />
 
