@@ -25,20 +25,18 @@ export const onRouteUpdate = () => {
     }
 
     //Custom Analytics Tracking 
-    if (window.location.pathname === "/") {
-      document.querySelector(".fireflyService-hero")?.setAttribute("daa-lh", "fireflyService hero");
-      document.querySelectorAll(".fireflyService-hero a").forEach(link => {
-        link.setAttribute("daa-ll", link.textContent.trim());
-      })
-      document.querySelector(".services")?.setAttribute("daa-lh", "services");
-      document.querySelectorAll(".services a").forEach(link => {
-        link.setAttribute("daa-ll", link.textContent.trim().slice(0, -2));
-      })
-      document.querySelector(".contactUs")?.setAttribute("daa-lh", "contactUs");
-      document.querySelectorAll(".contactUs a").forEach(link => {
-        link.setAttribute("daa-ll", link.textContent.trim());
-      })
-    }
+    document.querySelector(".fireflyService-hero")?.setAttribute("daa-lh", "fireflyService hero");
+    document.querySelectorAll(".fireflyService-hero a").forEach(link => {
+      link.setAttribute("daa-ll", link.textContent.trim());
+    })
+    document.querySelector(".services")?.setAttribute("daa-lh", "services");
+    document.querySelectorAll(".services a").forEach(link => {
+      link.setAttribute("daa-ll", link.textContent.trim().slice(0, -2));
+    })
+    document.querySelector(".contactUs")?.setAttribute("daa-lh", "contactUs");
+    document.querySelectorAll(".contactUs a").forEach(link => {
+      link.setAttribute("daa-ll", link.textContent.trim());
+    })
   }
 
 };
