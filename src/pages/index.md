@@ -53,6 +53,7 @@ import MobileAPIS from "./MobileAPIs.md";
 import Cards from "./Cards.md";
 import Service from "./Services.md";
 import heroVideo from "../videos/HeroVideo.mp4";
+import bodyVideo from "../videos/ado_5727_firefly_UC3_MASTER_ProRes_20240322c_reduced.mp4";
 
 <Hero slots="heading, text, buttons" variant="halfwidth" videoUrl={heroVideo} className="fireflyService-hero" />
 
@@ -69,6 +70,12 @@ Firefly Services is a comprehensive set of generative AI and creative APIs that 
 <WrapperComponent slots="content" repeat="1" theme="light" className="cardsWrapper" />
 
 <Cards />
+
+<TextBlock slots="heading,text" videoUrl={bodyVideo} position="center" className="fireflyService-body"/>
+
+### Easily translate marketing videos
+
+Spread your message further with AI-powered Enhance Speech, Dubbing and Lip Sync APIs. Improve audio quality and translate spoken dialog into different languages while maintaining the sound of your original voice with matching lip sync.
 
 <TextBlock slots="heading" className="fireflyAnnouncement creative-cloud-apiWays" theme="lightest"/>
 
@@ -175,7 +182,6 @@ Leverage Adobe Photoshop’s AI/ML-powered Create Mask API to accurately identif
 <WrapperComponent slots="content" repeat="1" theme="light" className="mobileWrapper" />
 
 <MobileAPIS />
-
 <WrapperComponent slots="content" repeat="1" theme="lightest" className="miniproductListWrapper" />
 
 <Service />
@@ -192,4 +198,4 @@ Increase speed to market, reduce costs, and drive customer engagement and revenu
 
 ### Contact your Adobe Enterprise Account Executive to learn more
 
-- [Request more information](/faas)
+- [Contact us](./faas/)

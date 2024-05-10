@@ -15,6 +15,13 @@
   padding: 0;
 }
 
+.fireflyService-body video {
+  width: 700px !important;
+  padding: 0;
+  /* Prevent autoplay */
+  pointer-events: none;
+}
+
 .fireflyService-hero>div>div>p {
   width: 90% !important;
 }
