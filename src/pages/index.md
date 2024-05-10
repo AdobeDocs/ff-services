@@ -77,6 +77,15 @@ Firefly Services is a comprehensive set of generative AI and creative APIs that 
 
 Spread your message further with AI-powered Enhance Speech, Dubbing and Lip Sync APIs. Improve audio quality and translate spoken dialog into different languages while maintaining the sound of your original voice with matching lip sync.
 
+
+<TextBlock slots="video, heading, text" theme="light" />
+
+[Creative Cloud for a new era](https://youtu.be/ykYobtBputk?si=r1Vnggg6TXsuOOI1)
+
+### Easily translate marketing videos
+
+Spread your message further with AI-powered Enhance Speech, Dubbing and Lip Sync APIs. Improve audio quality and translate spoken dialog into different languages while maintaining the sound of your original voice with matching lip sync.
+
 <TextBlock slots="heading" className="fireflyAnnouncement creative-cloud-apiWays" theme="lightest"/>
 
 ### Unlock new ways of working with Firefly Services
@@ -89,7 +98,7 @@ Spread your message further with AI-powered Enhance Speech, Dubbing and Lip Sync
 
 Scale content production of geo-specific asset variants for global campaigns and experiences. Rapidly generate market-specific imagery and assemble with other relevant content to create renditions.
   
-<TextBlock slots="heading, text , image" className="campaigns" />
+<TextBlock slots="heading, text, image" className="campaigns" />
 
 ### Personalize Campaigns and Assets
 
