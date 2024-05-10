@@ -1,3 +1,4 @@
+
 const isBrowser = typeof window !== "undefined";
 
 export const onRouteUpdate = () => {
@@ -23,6 +24,22 @@ export const onRouteUpdate = () => {
       fassForm.src = navLinksBaseUrl + '/' + fassForm.src.split("/").pop();
     }
 
+    //Custom Analytics Tracking 
+    document.querySelector(".fireflyService-hero")?.setAttribute("daa-lh", "fireflyService hero");
+    document.querySelectorAll(".fireflyService-hero a").forEach(link => {
+      link.setAttribute("daa-ll", link.textContent.trim());
+    });
+
+    document.querySelector(".services")?.setAttribute("daa-lh", "fireflyService services");
+    document.querySelectorAll(".services a").forEach(link => {
+      let serviceName = link.parentNode.querySelector('div p').textContent;
+      link.setAttribute("daa-ll", serviceName + ' ' + link.textContent.trim().slice(0, -2));
+    });
+
+    document.querySelector(".contactUs")?.setAttribute("daa-lh", "fireflyService contactUs");
+    document.querySelectorAll(".contactUs a").forEach(link => {
+      link.setAttribute("daa-ll", link.textContent.trim());
+    });
   }
 
 };
