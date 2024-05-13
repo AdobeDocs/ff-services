@@ -61,8 +61,8 @@ import bodyVideo from "../videos/ado_5727_firefly_UC3_MASTER_ProRes_20240322c_re
 
 Firefly Services is a comprehensive set of generative AI and creative APIs that automates workflows.  Quickly scale a few hero assets into thousands of renditions.  Generate, edit and assemble images to enable personalized marketing for different customer segments, channels and regions.
 
-- [Contact us](./faas/)
 - [Learn more](https://developer.adobe.com/firefly-services/docs)
+- [Contact us](./faas/)
 
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
