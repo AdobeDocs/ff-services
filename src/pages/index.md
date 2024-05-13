@@ -80,7 +80,6 @@ Spread your message further with AI-powered Enhance Speech, Dubbing and Lip Sync
 
 - [Contact us](./faas/)
 
-
 <TextBlock slots="video, heading, text, buttons" theme="light" />
 
 [Creative Cloud for a new era](https://youtu.be/ykYobtBputk?si=r1Vnggg6TXsuOOI1)
