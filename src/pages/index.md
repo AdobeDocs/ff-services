@@ -61,8 +61,8 @@ import bodyVideo from "../videos/ado_5727_firefly_UC3_MASTER_ProRes_20240322c_re
 
 Firefly Services is a comprehensive set of generative AI and creative APIs that automates workflows.  Quickly scale a few hero assets into thousands of renditions.  Generate, edit and assemble images to enable personalized marketing for different customer segments, channels and regions.
 
-- [Learn more](https://developer.adobe.com/firefly-services/docs)
-- [Contact us](./faas/)
+- [Contact Sales](./faas/)
+- [View documentation](https://developer.adobe.com/firefly-services/docs)
 
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
@@ -72,23 +72,11 @@ Firefly Services is a comprehensive set of generative AI and creative APIs that 
 
 <Cards />
 
-<TextBlock slots="heading, text, buttons" videoUrl={bodyVideo} position="center" className="fireflyService-body"/>
+<TitleBlock slots="heading, video" theme="light" />
 
-### Easily translate marketing videos
+### See Firefly Services in action.
 
-Spread your message further with AI-powered Enhance Speech, Dubbing and Lip Sync APIs. Improve audio quality and translate spoken dialog into different languages while maintaining the sound of your original voice with matching lip sync.
-
-- [Contact us](./faas/)
-
-<TextBlock slots="video, heading, text, buttons" theme="light" />
-
-[Creative Cloud for a new era](https://youtu.be/ykYobtBputk?si=r1Vnggg6TXsuOOI1)
-
-### Easily translate marketing videos
-
-Spread your message further with AI-powered Enhance Speech, Dubbing and Lip Sync APIs. Improve audio quality and translate spoken dialog into different languages while maintaining the sound of your original voice with matching lip sync.
-
-- [Contact us](./faas/)
+- [New Era of Creative Cloud](https://youtu.be/ykYobtBputk?si=r1Vnggg6TXsuOOI1)
 
 <TextBlock slots="heading" className="fireflyAnnouncement creative-cloud-apiWays" theme="lightest"/>
 
@@ -211,4 +199,4 @@ Increase speed to market, reduce costs, and drive customer engagement and revenu
 
 ### Contact your Adobe Enterprise Account Executive to learn more
 
-- [Contact us](./faas/)
+- [Contact Sales](./faas/)
