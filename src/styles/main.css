@@ -49,9 +49,7 @@
 
 .videoBlock h3 {
   font-size: 40px;
-  /* width: 75%; */
 }
-
 
 .videoBlock>div>div>p {
   width: 62%;
@@ -62,11 +60,17 @@
 }
 
 .videoBlock>div>div>div>p:first-child {
+  width: 150px;
+  height: 30px;
   margin-bottom: 20px !important;
 }
 
 .videoBlock>div>div>div>p:last-child {
   font-size: large !important;
+}
+
+.videoBlock img {
+  width: fit-content !important;
 }
 
 .fireflyAnnouncement>div {
@@ -332,7 +336,9 @@
     padding: 0 !important;
   }
 
-  .fireflyService-hero>div>div {
+  .fireflyService-hero>div>div,
+  .videoBlock>div>div>p,
+  .videoBlock>div>div>div {
     width: 100% !important;
   }
 
