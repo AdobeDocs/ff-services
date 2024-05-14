@@ -72,11 +72,13 @@ Firefly Services is a comprehensive set of generative AI and creative APIs that 
 
 <Cards />
 
-<TitleBlock slots="heading, video" theme="light" />
+<TitleBlock slots="heading" theme="light" />
 
 ### See Firefly Services in action.
 
-- [New Era of Creative Cloud](https://youtu.be/ykYobtBputk?si=r1Vnggg6TXsuOOI1)
+<TextBlock slots="video" theme="light" className="videoBlock" />
+
+[Creative Cloud for a new era](https://youtu.be/ykYobtBputk?si=r1Vnggg6TXsuOOI1)
 
 <TextBlock slots="heading" className="fireflyAnnouncement creative-cloud-apiWays" theme="lightest"/>
 

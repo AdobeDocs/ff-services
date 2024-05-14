@@ -15,13 +15,6 @@
   padding: 0;
 }
 
-.fireflyService-body video {
-  width: 700px !important;
-  padding: 0;
-  /* Prevent autoplay */
-  pointer-events: none;
-}
-
 .fireflyService-hero>div>div>p {
   width: 90% !important;
 }
@@ -47,16 +40,21 @@
   color: black !important;
 }
 
-/* .fireflyService>div>div>p>a {
+.fireflyService>div>div>p>a {
   text-decoration: underline !important;
   color: #FFF6FF !important;
-} */
+}
 
-/* .fireflyService-hero a {
+.fireflyService-hero a {
   border-color: #FFF6FF !important;
   background: transparent !important;
   border-radius: 18px !important;
-} */
+}
+
+.videoBlock {
+  width: 100%;
+}
+
 
 .videoBlock h3 {
   font-size: 40px;
