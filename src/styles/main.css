@@ -61,26 +61,10 @@
   display: none !important;
 }
 
-/* .videoBlock h3 {
-  font-size: 40px;
-  width: 75%;
+.media>div>div {
+  width: 70%;
+  padding: 5% 0;
 }
-
-.videoBlock>div>div>p {
-  width: 62%;
-}
-
-.videoBlock>div>div>div {
-  width: 38%;
-}
-
-.videoBlock>div>div>div>p:first-child {
-  margin-bottom: 20px !important;
-}
-
-.videoBlock>div>div>div>p:last-child {
-  font-size: large !important;
-} */
 
 .fireflyAnnouncement>div {
   padding-top: 70px;

@@ -52,6 +52,7 @@ import APIS from "./APIS.md";
 import MobileAPIS from "./MobileAPIs.md";
 import Cards from "./Cards.md";
 import Service from "./Services.md";
+import MediaComp from "./Media.md";
 import heroVideo from "../videos/HeroVideo.mp4";
 import bodyVideo from "../videos/ado_5727_firefly_UC3_MASTER_ProRes_20240322c_reduced.mp4";
 
@@ -76,9 +77,9 @@ Firefly Services is a comprehensive set of generative AI and creative APIs that 
 
 ### See Firefly Services in action.
 
-<TextBlock slots="video" theme="light" className="videoBlock" />
+<WrapperComponent slots="content" repeat="1" theme="light" className="media" />
 
-[Creative Cloud for a new era](https://youtu.be/ykYobtBputk?si=r1Vnggg6TXsuOOI1)
+<MediaComp />
 
 <TextBlock slots="heading" className="fireflyAnnouncement creative-cloud-apiWays" theme="lightest"/>
 
@@ -185,6 +186,7 @@ Leverage Adobe Photoshop’s AI/ML-powered Create Mask API to accurately identif
 <WrapperComponent slots="content" repeat="1" theme="light" className="mobileWrapper" />
 
 <MobileAPIS />
+
 <WrapperComponent slots="content" repeat="1" theme="lightest" className="miniproductListWrapper" />
 
 <Service />
