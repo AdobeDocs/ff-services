@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { css } from "@emotion/react";
 import '@spectrum-css/contextualhelp/dist/index-vars.css';
 import classNames from "classnames";
@@ -10,6 +10,7 @@ import { RetunrSideComp } from './Return/RetunrSideComp';
 import { ReturnProducts } from './Return/ReturnProducts';
 import { ReturnCustomComp } from './Return/ReturnCustomComp';
 import { ReturnNewCredential } from './Return/ReturnNewCredential';
+import GetCredentialContext from './GetCredentialContext';
 
 const PreviousCredential = ({
   returnProps,
@@ -23,6 +24,7 @@ const PreviousCredential = ({
 
   const [isShow, setIsShow] = useState(false);
   const credentialHeader = returnProps[CredentialForm];
+  const { selectedOrganization } = useContext(GetCredentialContext);
 
   const returnFields = {};
   const productList = [];
@@ -87,7 +89,7 @@ const PreviousCredential = ({
               onClick={() => setIsShow(true)}
               css={css`color:var(--spectrum-global-color-gray-800);display : inline-flex`}
             >
-              You’re viewing in {organization?.type === "developer" ? "in your personal developer organization" : <span>[<b>{organization?.name}</b>] </span>}.
+              You’re viewing in  <span>[<b>{selectedOrganization?.name}</b>] </span>.
               {showOrganization &&
                 <Organization setOrganizationChange={setOrganizationChange} isShow={isShow} setOrganizationValue={setOrganizationValue} setIsShow={setIsShow} organization={organization} allOrganization={allOrganization} />
               }
