@@ -45,22 +45,26 @@
   color: #FFF6FF !important;
 }
 
-.fireflyService-hero a {
-  border-color: #FFF6FF !important;
-  background: transparent !important;
+.fireflyService-hero a:first-child {
   border-radius: 18px !important;
+}
+
+.fireflyService-hero a span {
+  color: white !important;
 }
 
 .videoBlock {
   width: 100%;
 }
 
-
-.videoBlock h3 {
-  font-size: 40px;
-  /* width: 75%; */
+.videoBlock>div>div>div:last-child {
+  display: none !important;
 }
 
+/* .videoBlock h3 {
+  font-size: 40px;
+  width: 75%;
+}
 
 .videoBlock>div>div>p {
   width: 62%;
@@ -76,7 +80,7 @@
 
 .videoBlock>div>div>div>p:last-child {
   font-size: large !important;
-}
+} */
 
 .fireflyAnnouncement>div {
   padding-top: 70px;
