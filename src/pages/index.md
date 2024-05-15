@@ -73,9 +73,9 @@ Firefly Services is a comprehensive set of generative AI and creative APIs that 
 
 <Cards />
 
-<TitleBlock slots="heading" theme="light" />
+<TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
-### See Firefly Services in action.
+### See Firefly Services in action
 
 <WrapperComponent slots="content" repeat="1" theme="light" className="media" />
 
@@ -92,7 +92,7 @@ Firefly Services is a comprehensive set of generative AI and creative APIs that 
 ### Localize Campaigns and Assets
 
 Scale content production of geo-specific asset variants for global campaigns and experiences. Rapidly generate market-specific imagery and assemble with other relevant content to create renditions.
-  
+
 <TextBlock slots="heading, text, image" className="campaigns" />
 
 ### Personalize Campaigns and Assets

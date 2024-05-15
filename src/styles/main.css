@@ -64,6 +64,15 @@
 .media>div>div {
   width: 70%;
   padding: 5% 0;
+  padding-top: 0%;
+}
+
+.fireflyTitle {
+  padding-bottom: 15px;
+}
+
+.fireflyTitle h3 {
+  font-size: 37px !important;
 }
 
 .fireflyAnnouncement>div {
@@ -87,7 +96,15 @@
 }
 
 .fireflyAnnouncement h3 {
-  font-size: 37px !important;
+  font-size: 45px !important;
+}
+
+.fireflyAnnouncement-2 h3 {
+  font-size: 45px !important;
+}
+
+.fireflyAnnouncement-2 {
+  padding-bottom: 5px !important;
 }
 
 .creative-cloud-apiWays>div>div>div {
