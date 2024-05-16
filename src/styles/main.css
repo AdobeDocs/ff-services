@@ -15,13 +15,6 @@
   padding: 0;
 }
 
-.fireflyService-body video {
-  width: 700px !important;
-  padding: 0;
-  /* Prevent autoplay */
-  pointer-events: none;
-}
-
 .fireflyService-hero>div>div>p {
   width: 90% !important;
 }
@@ -47,26 +40,39 @@
   color: black !important;
 }
 
-.videoBlock h3 {
-  font-size: 40px;
-  /* width: 75%; */
+.fireflyService>div>div>p>a {
+  text-decoration: underline !important;
+  color: #FFF6FF !important;
 }
 
-
-.videoBlock>div>div>p {
-  width: 62%;
+.fireflyService-hero a:first-child {
+  border-radius: 18px !important;
 }
 
-.videoBlock>div>div>div {
-  width: 38%;
+.fireflyService-hero a span {
+  color: white !important;
 }
 
-.videoBlock>div>div>div>p:first-child {
-  margin-bottom: 20px !important;
+.videoBlock {
+  width: 100%;
 }
 
-.videoBlock>div>div>div>p:last-child {
-  font-size: large !important;
+.videoBlock>div>div>div:last-child {
+  display: none !important;
+}
+
+.media>div>div {
+  width: 70%;
+  padding: 5% 0;
+  padding-top: 0%;
+}
+
+.fireflyTitle {
+  padding-bottom: 15px;
+}
+
+.fireflyTitle h3 {
+  font-size: 37px !important;
 }
 
 .fireflyAnnouncement>div {
@@ -90,7 +96,15 @@
 }
 
 .fireflyAnnouncement h3 {
-  font-size: 37px !important;
+  font-size: 45px !important;
+}
+
+.fireflyAnnouncement-2 h3 {
+  font-size: 45px !important;
+}
+
+.fireflyAnnouncement-2 {
+  padding-bottom: 5px !important;
 }
 
 .creative-cloud-apiWays>div>div>div {
