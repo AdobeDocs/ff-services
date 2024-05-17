@@ -1,3 +1,3 @@
 <Media slots="video"/>
 
-<https://youtu.be/ykYobtBputk?si=r1Vnggg6TXsuOOI1>
+<https://www.youtube.com/watch?v=BYmszgu0XrM>
