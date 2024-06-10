@@ -12,7 +12,7 @@ keywords:
   - Photoshop
   - Firefly
   - Text to image
-  - Generative match
+  - Style reference
   - Generative expand
   - Generative fill
   - Create mask
@@ -149,9 +149,9 @@ Use Generative Expand API to extend images to different format dimensions using 
 
 Add or replace content from images using the Generative Fill API, powered by Adobe Firefly. Combine with Create Mask or Remove Background APIs to easily create new compositions.
 
-![Generative match](./images/carousels/final/gen-match.png)
+![Style reference](./images/carousels/final/gen-match.png)
 
-#### Generative Match
+#### Style Reference
 
 Create images at scale that share a consistent style and feel. Our text to image API can take a style reference image and apply it to your prompt input.
 
