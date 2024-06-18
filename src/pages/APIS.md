@@ -9,5 +9,5 @@ import "../styles/main.css";
 |	<div className="aiImages">Generative Expand  ![AI images](./images/AI_icon.svg)</div>	|	Apply Lightroom Presets	|	Apply Photoshop Edits	|
 |	<div className="aiImages">Create Mask ![AI images](./images/AI_icon.svg)</div>	|	Apply Lightroom Edits	|	Edit Text Layers	|
 |	<div className="aiImages">Generate Similar ![AI images](./images/AI_icon.svg)</div>	|	Add XMP to Image	|	Create Artboards	|
-|	<div className="aiImages">Object Composite ![AI images](./images/AI_icon.svg)</div>	|		|	Create Renditions	|
+|	<div className="aiImages">Object Composites ![AI images](./images/AI_icon.svg)</div>	|		|	Create Renditions	|
 |		|		|	Content Tagging	|
