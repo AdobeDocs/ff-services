@@ -9,4 +9,4 @@ import "../styles/main.css";
 |	<div className="aiImages">Generative Expand  ![AI images](./images/AI_icon.svg)</div>	|	<div className="aiImages">Auto Tone![AI images](./images/AI_icon.svg)</div>	|	Edit Text Layers	|
 |	<div className="aiImages">Create Mask ![AI images](./images/AI_icon.svg)</div>	|	Apply Lightroom Presets	|	Create Artboards	|
 |	<div className="aiImages">Generate Similar ![AI images](./images/AI_icon.svg)</div>	|	Apply Lightroom Edits	|	Create Renditions	|
-|	<div className="aiImages">Objective Composites ![AI images](./images/AI_icon.svg)</div>	|	Add XMP to Image	|	Content Tagging	|
+|	<div className="aiImages">Object Composites ![AI images](./images/AI_icon.svg)</div>	|	Add XMP to Image	|	Content Tagging	|
