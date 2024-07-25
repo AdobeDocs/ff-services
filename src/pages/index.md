@@ -65,6 +65,16 @@ Firefly Services is a comprehensive set of generative AI and creative APIs that 
 - [Contact Us](faas.md)
 - [View documentation](https://developer.adobe.com/firefly-services/docs)
 
+<TextBlock slots="icons, image, heading, text" theme="lightest" className="videoBlock" />
+
+![Coming soon](./images/coming_soon_512w.png)
+
+![Audio Services APIs](./images/video_usecase2.png)
+
+### Easily translate marketing videos
+
+Spread your message further  with AI-powered Enhance Speech, Dubbing and Lip Sync APIs. Improve audio quality and translate spoken dialog into different languages while maintaining the sound of your original voice with matching lip sync.
+
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
 ### Automate your workflows using our cutting-edge generative AI and creative APIs
