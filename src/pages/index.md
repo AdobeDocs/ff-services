@@ -65,7 +65,7 @@ Firefly Services is a comprehensive set of generative AI and creative APIs that 
 - [Contact Us](faas.md)
 - [View documentation](https://developer.adobe.com/firefly-services/docs)
 
-<TextBlock slots="icons, image, heading, text" theme="lightest" className="videoBlock" />
+<TextBlock slots="icons, image, heading, text" theme="lightest" />
 
 ![Coming soon](./images/coming_soon_512w.png)
 
