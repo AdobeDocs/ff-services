@@ -331,6 +331,14 @@
   color: black !important;
 }
 
+.comingsoonBlock>div>div>div>p:first-child {
+  height: 35px;
+}
+
+.comingsoonBlock img {
+  width: fit-content !important;
+}
+
 @media screen and (min-width:320px) and (max-width:1024px) {
 
   .fireflyService-hero>div {
