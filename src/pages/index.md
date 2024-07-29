@@ -67,7 +67,7 @@ Firefly Services is a comprehensive set of generative AI and creative APIs that 
 
 <TextBlock slots="icons, image, heading, text" theme="lightest" className="comingsoonBlock"/>
 
-![Coming soon](./images/coming_soon_512w.png)
+![Coming soon](./images/early_access_512w.png)
 
 ![Audio Services APIs](./images/video_usecase2.png)
 
