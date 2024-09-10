@@ -53,31 +53,31 @@ import MobileAPIS from "./MobileAPIs.md";
 import Cards from "./Cards.md";
 import Service from "./Services.md";
 import MediaComp from "./Media.md";
-import heroVideo from "../videos/HeroVideo.mp4";
+import heroVideo from "../videos/Hero-Video-FF-ADLS.mp4";
 import bodyVideo from "../videos/ado_5727_firefly_UC3_MASTER_ProRes_20240322c_reduced.mp4";
 
 <Hero slots="heading, text, buttons" variant="halfwidth" videoUrl={heroVideo} className="fireflyService-hero" />
 
 ## Accelerate content production with the power of AI
 
-Firefly Services is a comprehensive set of generative AI and creative APIs that automates workflows.  Quickly scale a few hero assets into thousands of renditions.  Generate, edit and assemble images to enable personalized marketing for different customer segments, channels and regions.
+Firefly Services is a comprehensive set of generative AI and creative services that automates workflows. Quickly scale a few hero assets into thousands of renditions. Generate, edit and assemble images to enable personalized marketing for different customer segments, channels and regions.
 
 - [Contact Us](faas.md)
 - [View documentation](https://developer.adobe.com/firefly-services/docs)
 
 <TextBlock slots="icons, image, heading, text" theme="lightest" className="comingsoonBlock"/>
 
-![Coming soon](./images/early_access_512w.png)
+![Early Access](./images/early_access_512w.png)
 
 ![Audio Services APIs](./images/video_usecase2.png)
 
-### Easily translate marketing videos
+### Quickly localize marketing videos
 
-Spread your message further  with AI-powered Enhance Speech, Dubbing and Lip Sync APIs. Improve audio quality and translate spoken dialog into different languages while maintaining the sound of your original voice with matching lip sync.
+Reach a wider audience, in less time, with our AI-powered Enhance Speech, Dubbing, and Lip Sync Services. Improve audio quality and translate spoken dialogue into multiple languages while maintaining the sound of your voice with matching lip sync. Available via API, with Dubbing and Lip Sync also accessible through an intuitive web app, these services are ideal for scaling the translation of promotional videos, product overviews, and more.
 
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
-### Automate your workflows using our cutting-edge generative AI and creative APIs
+### Automate your workflows using our cutting-edge generative AI and creative services
 
 <WrapperComponent slots="content" repeat="1" theme="light" className="cardsWrapper" />
 
