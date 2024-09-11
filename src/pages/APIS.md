@@ -2,7 +2,7 @@ import "../styles/main.css";
 
 |	Generate	|	Edit	|	Assemble	|
 |	-----	|	-------------------	|	---------------------	|
-|	<div className="aiImages">Text to Image ![AI](./images/AI_icon.svg)</div>	|	<div className="aiImages">Dubbing and lip sync![AI](./images/AI_icon.svg)</div>	|	<div className="aiImages">Content Tagging![AI images](./images/AI_icon.svg)</div>	|
+|	<div className="aiImages">Text to Image ![AI](./images/AI_icon.svg)</div>	|	<div className="aiImages">Dubbing and Lip Sync![AI](./images/AI_icon.svg)</div>	|	<div className="aiImages">Content Tagging![AI images](./images/AI_icon.svg)</div>	|
 |	<div className="aiImages">Style Reference ![AI images](./images/AI_icon.svg)</div>	|	<div className="aiImages">Enhance Speech![AI images](./images/AI_icon.svg)</div>	|	Run Photoshop Actions	|
 |	<div className="aiImages">Structure Reference ![AI](./images/AI_icon.svg)</div>	|	<div className="aiImages">Remove Background![AI images](./images/AI_icon.svg)</div>	|	Replace Smart Object	|
 |	<div className="aiImages">Generative Fill ![AI images](./images/AI_icon.svg)</div>	|	<div className="aiImages">Smart Crop![AI images](./images/AI_icon.svg)</div>	|	Create PSD	|
