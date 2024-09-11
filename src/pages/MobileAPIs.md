@@ -11,7 +11,7 @@ import "../styles/main.css";
 | <div className="aiImages">Generative Similar![AI images](./images/AI_icon.svg)</div>   |
 | <div className="aiImages">Object Composites![AI images](./images/AI_icon.svg)</div>    |
 | Edit                                                                                   |
-| <div className="aiImages">Dubbing and lip sync![AI images](./images/AI_icon.svg)</div> |
+| <div className="aiImages">Dubbing and Lip Sync![AI images](./images/AI_icon.svg)</div> |
 | <div className="aiImages">Enhance Speech![AI images](./images/AI_icon.svg)</div>       |
 | <div className="aiImages">Remove Background![AI images](./images/AI_icon.svg)</div>    |
 | <div className="aiImages">Smart Crop![AI images](./images/AI_icon.svg)</div>           |
