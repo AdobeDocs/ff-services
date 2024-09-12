@@ -335,12 +335,14 @@
   height: 30px;
 }
 
-.comingsoonBlock img {
-  width: fit-content !important;
-}
-
 .comingsoonBlock>div>div>p img {
   border-radius: 10px;
+  width: 600px !important;
+  height: 300px !important;
+}
+
+.comingsoonBlock>div>div>div>p>span:first-child {
+  width: 150px !important;
 }
 
 @media screen and (min-width:320px) and (max-width:1024px) {
@@ -408,6 +410,12 @@
   .designedForDevlopers img,
   .miniproductListWrapper>div {
     width: 100% !important;
+  }
+
+  .comingsoonBlock>div>div>p img {
+    height: auto !important;
+    width: fill-available !important;
+    width: -moz-available !important;
   }
 
 }
