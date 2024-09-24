@@ -121,7 +121,7 @@ Create repeatable workflows that stage products in different scenes to drive eng
 
 <TextBlock slots="heading, text , image" className="campaigns" />
 
-### Streamline Post-Production
+### Streamline Bulk Asset Production
 
 Meet brand and quality standards for digital assets without taxing creative teams. Scale production of images by offloading repetitive, routine tasks to Firefly Services.
 
