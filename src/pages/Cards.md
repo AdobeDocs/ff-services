@@ -1,5 +1,5 @@
 
-<TextBlock slots="image, heading, text" width="25%" theme="light" className="cardList" />
+<TextBlock slots="image, heading, text" width="25%" className="cardList" />
 
 ![Eliminate repetitive tasks](./images/ValueProp1.png)
 
@@ -7,7 +7,7 @@
 
 From removing backgrounds to cropping images, automate production tasks that slow down creative workflows.
 
-<TextBlock slots="image, heading, text" width="25%"  theme="light" className="cardList" />
+<TextBlock slots="image, heading, text" width="25%" className="cardList" />
 
 ![Produce unlimited variations](./images/ValueProp2.png)
 
@@ -15,7 +15,7 @@ From removing backgrounds to cropping images, automate production tasks that slo
 
 Combine multiple actions together at once, enabling you to generate thousands of unique variations of your project.
 
-<TextBlock slots="image, heading, text" width="25%"  theme="light" className="cardList" />
+<TextBlock slots="image, heading, text" width="25%" className="cardList" />
 
 ![Integrate into any workflow ](./images/ValueProp3.png)
 
@@ -23,7 +23,7 @@ Combine multiple actions together at once, enabling you to generate thousands of
 
 Bring powerful generative AI and editing capabilities directly into your creative workflows.
 
-<TextBlock slots="image, heading, text" width="25%"  theme="light" className="cardList" />
+<TextBlock slots="image, heading, text" width="25%" className="cardList" />
 
 ![Maintain quality control ](./images/ValueProp4.png)
 
