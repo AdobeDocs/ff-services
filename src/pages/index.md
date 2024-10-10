@@ -75,11 +75,13 @@ Firefly Services is a comprehensive set of generative AI and creative services t
 
 Reach a wider audience, in less time, with our AI-powered Enhance Speech, Dubbing, and Lip Sync Services. Improve audio quality and translate spoken dialogue into multiple languages while maintaining the sound of your voice with matching lip sync. Available via API, with Dubbing and Lip Sync also accessible through an intuitive web app, these services are ideal for scaling the translation of promotional videos, product overviews, and more.
 
-<TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
+<TitleBlock slots="heading, text" className="fireflyAnnouncement anouncement-card-header" />
 
-### Automate your workflows using our cutting-edge generative AI and creative services
+### Automate your workflows with Firefly Services.
 
-<WrapperComponent slots="content" repeat="1" theme="light" className="cardsWrapper" />
+Tap into the power of 20+ generative and creative APls and capabilities designed to drive content for modern marketing at scale.
+
+<WrapperComponent slots="content" repeat="1" className="cardsWrapper" />
 
 <Cards />
 
@@ -91,23 +93,25 @@ Reach a wider audience, in less time, with our AI-powered Enhance Speech, Dubbin
 
 <MediaComp />
 
-<TextBlock slots="heading" className="fireflyAnnouncement creative-cloud-apiWays" theme="lightest"/>
+<TitleBlock slots="heading, text" className="fireflyAnnouncement creative-cloud-apiWays" theme="lightest"/>
 
-### Unlock new ways of working with Firefly Services
+### Streamline asset production and generate variations at scale.
+
+See how both creative and marketing teams can work faster and smarter with Firefly Services.
 
 <TextBlock slots="image, heading, text" className="campaigns" />
 
 ![Localize Campaigns and Assets](./images/UseCase1_final.png)
 
-### Localize Campaigns and Assets
+### Localize campaigns and assets.
 
-Scale content production of geo-specific asset variants for global campaigns and experiences. Rapidly generate market-specific imagery and assemble with other relevant content to create renditions.
+Scale content production of geo-specific asset variants for campaigns and experiences. Generate imagery and assemble with other relevant content to create market-specific renditions.
 
 <TextBlock slots="heading, text, image" className="campaigns" />
 
-### Personalize Campaigns and Assets
+### Personalize campaigns and assets.
 
-Keep up with ever-increasing personalization demands. Quickly create imagery that’s relevant to target audiences and scale production for multiple channels.
+Keep up with ever-increasing personalization demands. Create imagery that's relevant to target audiences and scale production for multiple channels.
 
 ![Personalize Campaigns & Assets](./images/UseCase2_final.png)
 
@@ -115,15 +119,15 @@ Keep up with ever-increasing personalization demands. Quickly create imagery tha
 
 ![Accelerate Digital Merchandising](./images/UseCase3.png)
 
-### Accelerate Digital Merchandising
+### Produce and refresh product content for eCommerce.
 
 Create repeatable workflows that stage products in different scenes to drive engagement. Automate the refresh of composite images for seasonal messages, promotions, and more.
 
 <TextBlock slots="heading, text , image" className="campaigns" />
 
-### Streamline Bulk Asset Production
+### Streamline bulk production.
 
-Meet brand and quality standards for digital assets without taxing creative teams. Scale production of images by offloading repetitive, routine tasks to Firefly Services.
+Meet brand and quality standards for digital assets without taxing creative teams. Scale production of images by offloading repetitive, routine tasks to Firefly Services — available as a user-friendly web app (beta) for creative teams and an API for integration into any workflow.
 
 ![Reduce Cost of Photo Shoots](./images/UseCase4_new.png)
 
@@ -131,9 +135,9 @@ Meet brand and quality standards for digital assets without taxing creative team
 
 ![Engage Customers with On-Brand Generative Experiences](./images/UseCase5_final.png)
 
-### Engage Customers with On-Brand Generative Experiences
+### Delight consumers with individualized experiences.
 
-Generate thousands of images quickly, to provide an experience that empowers customers to create sharable personalized content that foster brand affinity and loyalty.
+Empower consumers to create and interact with personalized content and experiences that foster brand affinity and loyalty.
 
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 

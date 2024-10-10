@@ -95,7 +95,8 @@
   width: 68% !important;
 }
 
-.fireflyAnnouncement h3 {
+.fireflyAnnouncement h3, 
+.fireflyAnnouncement h2 {
   font-size: 45px !important;
 }
 
@@ -122,7 +123,7 @@
 
 .campaigns h3 {
   font-size: 35px;
-  width: 75%;
+  width: 100%;
 }
 
 .campaigns>div>div>p {
@@ -220,7 +221,7 @@
 }
 
 .cardList>div>p:first-child {
-  height: 200px !important;
+  /* height: 200px !important; */
   margin-bottom: 0 !important;
 }
 
@@ -344,8 +345,31 @@
 .comingsoonBlock>div>div>div>p>span:first-child {
   width: 150px !important;
 }
+.anouncement-card-header p, 
+.creative-cloud-apiWays p{
+  font-size: 22px !important;
+}
+.cardList h3, .cardList p {
+  text-align: left !important;
+}
+.cardList img{
+  width: auto !important;
+}
 
 @media screen and (min-width:320px) and (max-width:1024px) {
+
+  .cardList h3, 
+  .cardList p {
+    text-align: center !important;
+  }
+
+  .cardList>div>p:first-child {
+    height: 200px !important;
+  }
+
+  .cardList img{
+    width: 100% !important;
+  }
 
   .fireflyService-hero>div {
     margin: 0% !important;
