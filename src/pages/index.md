@@ -73,7 +73,7 @@ Firefly Services is a comprehensive set of generative AI and creative services t
 
 ### Quickly localize marketing videos
 
-Reach a wider audience, in less time, with our AI-powered Enhance Speech, Dubbing, and Lip Sync Services. Improve audio quality and translate spoken dialogue into multiple languages while maintaining the sound of your voice with matching lip sync. Available via API, with Dubbing and Lip Sync also accessible through an intuitive web app, these services are ideal for scaling the translation of promotional videos, product overviews, and more.
+Reach a wider audience, in less time, with our AI-powered Dubbing and Lip Sync Services. Improve audio quality and translate spoken dialogue into multiple languages while maintaining the sound of your voice with matching lip sync. Available via API, with Dubbing and Lip Sync also accessible through an intuitive web app, these services are ideal for scaling the translation of promotional videos, product overviews, and more.
 
 <TitleBlock slots="heading, text" className="fireflyAnnouncement anouncement-card-header" />
 
@@ -113,7 +113,7 @@ Scale content production of geo-specific asset variants for campaigns and experi
 
 Keep up with ever-increasing personalization demands. Create imagery that's relevant to target audiences and scale production for multiple channels.
 
-![Personalize Campaigns & Assets](./images/UseCase2_final.png)
+![Personalize Campaigns & Assets](./images/PersonalizeCampaignAssets_1400x900.png)
 
 <TextBlock slots="image, heading, text" className="campaigns" />
 
