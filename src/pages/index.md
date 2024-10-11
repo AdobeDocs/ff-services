@@ -113,7 +113,7 @@ Scale content production of geo-specific asset variants for campaigns and experi
 
 Keep up with ever-increasing personalization demands. Create imagery that's relevant to target audiences and scale production for multiple channels.
 
-![Personalize Campaigns & Assets](./images/UseCase2_final.png)
+![Personalize Campaigns & Assets](./images/PersonalizeCampaignAssets_1400x900.png)
 
 <TextBlock slots="image, heading, text" className="campaigns" />
 
