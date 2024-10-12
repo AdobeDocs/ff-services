@@ -53,23 +53,35 @@ import MobileAPIS from "./MobileAPIs.md";
 import Cards from "./Cards.md";
 import Service from "./Services.md";
 import MediaComp from "./Media.md";
-import heroVideo from "../videos/HeroVideo.mp4";
+import heroVideo from "../videos/Hero-Video-FF-ADLS.mp4";
 import bodyVideo from "../videos/ado_5727_firefly_UC3_MASTER_ProRes_20240322c_reduced.mp4";
 
 <Hero slots="heading, text, buttons" variant="halfwidth" videoUrl={heroVideo} className="fireflyService-hero" />
 
 ## Accelerate content production with the power of AI
 
-Firefly Services is a comprehensive set of generative AI and creative APIs that automates workflows.  Quickly scale a few hero assets into thousands of renditions.  Generate, edit and assemble images to enable personalized marketing for different customer segments, channels and regions.
+Firefly Services is a comprehensive set of generative AI and creative services that automates workflows. Quickly scale a few hero assets into thousands of renditions. Generate, edit and assemble images to enable personalized marketing for different customer segments, channels and regions.
 
 - [Contact Us](faas.md)
 - [View documentation](https://developer.adobe.com/firefly-services/docs)
 
-<TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
+<TextBlock slots="icons, image, heading, text" theme="lightest" className="comingsoonBlock"/>
 
-### Automate your workflows using our cutting-edge generative AI and creative APIs
+![Early Access](./images/early_access_512w.png)
 
-<WrapperComponent slots="content" repeat="1" theme="light" className="cardsWrapper" />
+![Audio Services APIs](./images/video_usecase2.png)
+
+### Quickly localize marketing videos
+
+Reach a wider audience, in less time, with our AI-powered Dubbing and Lip Sync Services. Translate spoken dialogue into multiple languages while maintaining the sound of your voice with matching lip sync. Available via API or intuitive web app, Dubbing and Lip Sync is ideal for scaling the translation of promotional videos, product overviews, and more.
+
+<TitleBlock slots="heading, text" className="fireflyAnnouncement anouncement-card-header" />
+
+### Automate your workflows with Firefly Services.
+
+Tap into the power of 20+ generative and creative APls and capabilities designed to drive content for modern marketing at scale.
+
+<WrapperComponent slots="content" repeat="1" className="cardsWrapper" />
 
 <Cards />
 
@@ -81,39 +93,41 @@ Firefly Services is a comprehensive set of generative AI and creative APIs that 
 
 <MediaComp />
 
-<TextBlock slots="heading" className="fireflyAnnouncement creative-cloud-apiWays" theme="lightest"/>
+<TitleBlock slots="heading, text" className="fireflyAnnouncement creative-cloud-apiWays" theme="lightest"/>
 
-### Unlock new ways of working with Firefly Services
+### Streamline asset production and generate variations at scale.
+
+See how both creative and marketing teams can work faster and smarter with Firefly Services.
 
 <TextBlock slots="image, heading, text" className="campaigns" />
 
 ![Localize Campaigns and Assets](./images/UseCase1_final.png)
 
-### Localize Campaigns and Assets
+### Localize campaigns and assets.
 
-Scale content production of geo-specific asset variants for global campaigns and experiences. Rapidly generate market-specific imagery and assemble with other relevant content to create renditions.
+Scale content production of geo-specific asset variants for campaigns and experiences. Generate imagery and assemble with other relevant content to create market-specific renditions.
 
 <TextBlock slots="heading, text, image" className="campaigns" />
 
-### Personalize Campaigns and Assets
+### Personalize campaigns and assets.
 
-Keep up with ever-increasing personalization demands. Quickly create imagery that’s relevant to target audiences and scale production for multiple channels.
+Keep up with ever-increasing personalization demands. Create imagery that's relevant to target audiences and scale production for multiple channels.
 
-![Personalize Campaigns & Assets](./images/UseCase2_final.png)
+![Personalize Campaigns & Assets](./images/PersonalizeCampaignAssets_1400x900.png)
 
 <TextBlock slots="image, heading, text" className="campaigns" />
 
 ![Accelerate Digital Merchandising](./images/UseCase3.png)
 
-### Accelerate Digital Merchandising
+### Produce and refresh product content for eCommerce.
 
 Create repeatable workflows that stage products in different scenes to drive engagement. Automate the refresh of composite images for seasonal messages, promotions, and more.
 
 <TextBlock slots="heading, text , image" className="campaigns" />
 
-### Reduce Costs of Photo Shoots & Post-Production
+### Streamline bulk production.
 
-Meet brand and quality standards for digital assets without taxing creative teams. Scale production of images by offloading repetitive, routine tasks to Firefly Services.
+Meet brand and quality standards for digital assets without taxing creative teams. Scale production of images by offloading repetitive, routine tasks to Firefly Services — available as a user-friendly web app (beta) for creative teams and an API for integration into any workflow.
 
 ![Reduce Cost of Photo Shoots](./images/UseCase4_new.png)
 
@@ -121,9 +135,9 @@ Meet brand and quality standards for digital assets without taxing creative team
 
 ![Engage Customers with On-Brand Generative Experiences](./images/UseCase5_final.png)
 
-### Engage Customers with On-Brand Generative Experiences
+### Delight consumers with individualized experiences.
 
-Generate thousands of images quickly, to provide an experience that empowers customers to create sharable personalized content that foster brand affinity and loyalty.
+Empower consumers to create and interact with personalized content and experiences that foster brand affinity and loyalty.
 
 <TextBlock slots="heading" className="fireflyAnnouncement" theme="light"/>
 
